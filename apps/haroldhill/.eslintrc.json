@@ -3,7 +3,8 @@
     "plugin:@nrwl/nx/react-typescript",
     "../../.eslintrc.json",
     "next",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "prettier-standard"
   ],
   "ignorePatterns": ["!**/*"],
   "overrides": [
@@ -12,7 +13,7 @@
       "rules": {
         "@next/next/no-html-link-for-pages": [
           "error",
-          "packages/haroldhill/pages"
+          "apps/haroldhill/pages"
         ]
       }
     },

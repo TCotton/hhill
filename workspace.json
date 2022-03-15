@@ -24,19 +24,19 @@
         },
         "export": {
           "executor": "@nrwl/next:export",
-          "options": { "buildTarget": "acme:build:production" }
+          "options": { "buildTarget": "haroldhill:build:production" }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/acme"],
           "options": {
-            "jestConfig": "apps/acme/jest.config.js",
+            "jestConfig": "apps/haroldhill/jest.config.js",
             "passWithNoTests": true
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": { "lintFilePatterns": ["apps/acme/**/*.{ts,tsx,js,jsx}"] }
+          "options": { "lintFilePatterns": ["apps/haroldhill/**/*.{ts,tsx,js,jsx}"] }
         }
       }
     },
