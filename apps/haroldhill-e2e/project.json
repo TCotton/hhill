@@ -1,12 +1,12 @@
 {
-  "root": "packages/haroldhill-e2e",
-  "sourceRoot": "packages/haroldhill-e2e/src",
+  "root": "apps/haroldhill-e2e",
+  "sourceRoot": "apps/haroldhill-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "packages/haroldhill-e2e/cypress.json",
+        "cypressConfig": "apps/haroldhill-e2e/cypress.json",
         "devServerTarget": "haroldhill:serve"
       },
       "configurations": {
@@ -19,7 +19,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/haroldhill-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/haroldhill-e2e/**/*.{js,ts}"]
       }
     }
   },

@@ -1,6 +1,6 @@
 {
-  "root": "packages/haroldhill",
-  "sourceRoot": "packages/haroldhill",
+  "root": "apps/haroldhill",
+  "sourceRoot": "apps/haroldhill",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,8 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "packages/haroldhill",
-        "outputPath": "dist/packages/haroldhill"
+        "root": "apps/haroldhill",
+        "outputPath": "dist/apps/haroldhill"
       },
       "configurations": {
         "production": {}
@@ -36,7 +36,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/haroldhill"],
+      "outputs": ["coverage/apps/haroldhill"],
       "options": {
         "jestConfig": "apps/haroldhill/jest.config.js",
         "passWithNoTests": true
