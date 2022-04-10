@@ -7,6 +7,10 @@
   "cli": {
     "defaultCollection": "@nrwl/next"
   },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",

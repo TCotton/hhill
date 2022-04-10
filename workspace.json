@@ -38,7 +38,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/acme"],
+          "outputs": ["coverage/apps/haroldhill"],
           "options": {
             "jestConfig": "apps/haroldhill/jest.config.js",
             "passWithNoTests": true
@@ -77,6 +77,72 @@
           }
         }
       }
+    },
+    "libs-markdown": {
+      "root": "libs/libs/markdown",
+      "sourceRoot": "libs/libs/markdown/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/libs/markdown",
+            "main": "libs/libs/markdown/src/index.ts",
+            "tsConfig": "libs/libs/markdown/tsconfig.lib.json",
+            "assets": ["libs/libs/markdown/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/libs/markdown/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/libs/markdown"],
+          "options": {
+            "jestConfig": "libs/libs/markdown/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "markdown": {
+      "root": "libs/markdown",
+      "sourceRoot": "libs/markdown/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/js:tsc",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/markdown",
+            "main": "libs/markdown/src/index.ts",
+            "tsConfig": "libs/markdown/tsconfig.lib.json",
+            "assets": ["libs/markdown/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/markdown/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/markdown"],
+          "options": {
+            "jestConfig": "libs/markdown/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
     }
   }
 }

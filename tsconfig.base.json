@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@hhill/libs/markdown": ["libs/libs/markdown/src/index.ts"],
+      "@hhill/markdown": ["libs/markdown/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
