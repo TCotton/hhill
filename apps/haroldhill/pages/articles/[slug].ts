@@ -1,6 +1,6 @@
 import fs from 'fs';
 import {join} from 'path';
-import {getParsedFileContentBySlug} from '@libs/markdown'
+import {getParsedFileContentBySlug} from '@markdown/markdown'
 
 interface ArticleProps extends ParsedUrlQuery {
   slug: string;
