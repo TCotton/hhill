@@ -17,7 +17,8 @@
     "paths": {
       "@hhill/contenful": ["libs/contenful/src/index.ts"],
       "@hhill/libs/markdown": ["libs/libs/markdown/src/index.ts"],
-      "@hhill/markdown": ["libs/markdown/src/index.ts"]
+      "@hhill/markdown": ["libs/markdown/src/index.ts"],
+      "@hhill/types": ["libs/types/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
