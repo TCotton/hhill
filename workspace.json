@@ -1,6 +1,49 @@
 {
   "version": 2,
   "projects": {
+    "contenful": {
+      "root": "libs/contenful",
+      "sourceRoot": "libs/contenful/src",
+      "projectType": "library",
+      "tags": [],
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:rollup",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/contenful",
+            "tsConfig": "libs/contenful/tsconfig.lib.json",
+            "project": "libs/contenful/package.json",
+            "entryFile": "libs/contenful/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "compiler": "babel",
+            "assets": [
+              {
+                "glob": "libs/contenful/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/contenful/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/contenful"],
+          "options": {
+            "jestConfig": "libs/contenful/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "haroldhill": {
       "root": "apps/haroldhill",
       "sourceRoot": "apps/haroldhill",

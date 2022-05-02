@@ -8,7 +8,7 @@ interface ArticleProps extends ParsedUrlQuery {
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
-export const getStaticProps: GetStaticProps<ArticleProps> = async ({ params }: {
+export const getStaticProps: GetStaticProps<ArticleProps> = async ({params}: {
   params: ArticleProps;
 }) => {
   // read markdown file into content and frontmatter

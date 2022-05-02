@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@hhill/contenful": ["libs/contenful/src/index.ts"],
       "@hhill/libs/markdown": ["libs/libs/markdown/src/index.ts"],
       "@hhill/markdown": ["libs/markdown/src/index.ts"]
     }
