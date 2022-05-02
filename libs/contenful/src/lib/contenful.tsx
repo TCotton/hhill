@@ -1,14 +1,12 @@
-import styles from './contenful.module.css';
+import { ContentfulClient } from 'react-contentful';
 
-/* eslint-disable-next-line */
-export interface ContenfulProps {}
+export const contentfulClient = ContentfulClient({
+  space: process.env.NX_CONTENTFUL_PROD_SPACE_ID || '7n7vfqlomamo',
+  accessToken: 'xq0a55Hkr0sROQXnRB3mvBUf3WF4WUHTGyPnn_rZIjM',
+});
 
-export function Contenful(props: ContenfulProps) {
-  return (
-    <div className={styles['container']}>
-      <h1>Welcome to Contenful!</h1>
-    </div>
-  );
-}
-
-export default Contenful;
+export const previewContentfulClient = ContentfulClient({
+  space: process.env.NX_CONTENTFUL_PROD_SPACE_ID || '7n7vfqlomamo',
+  accessToken: 'gkSqsmz9QB53o7YyImtBZaUtgYpka3teKhnK36OK0nI',
+  host: 'preview.contentful.com',
+});
