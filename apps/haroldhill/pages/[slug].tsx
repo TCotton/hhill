@@ -1,16 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import JsonView from 'react-json-view-ssr';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import React from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
+import JsonView from 'react-json-view-ssr'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-import {
-  contentfulClient,
-  IArticleFields,
-} from '@poc-contentful/contentful';
+import { contentfulClient, IArticleFields } from '@poc-contentful/contentful'
 
-import { Markdown } from '../components/Markdown';
-import { ContentfulRichText } from '../components/ContentfulRichText';
+import { Markdown } from '../components/Markdown'
+import { ContentfulRichText } from '../components/ContentfulRichText'
 
 const ArticlePageWrapper = styled.div`
   .article-box {
@@ -30,10 +27,10 @@ const ArticlePageWrapper = styled.div`
       }
     }
   }
-`;
+`
 
 export interface HookResponse {
-  data?: unknown;
+  data?: unknown
 }
 
 export function ArticleDetailPage({ article }) {
@@ -70,35 +67,35 @@ export function ArticleDetailPage({ article }) {
         {process.browser && <JsonView src={article} enableClipboard={false} />}
       </div>
     </ArticlePageWrapper>
-  );
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
   const articleEntries = await contentfulClient.getEntries<IArticleFields>({
-    content_type: 'article',
-  });
+    content_type: 'article'
+  })
 
   return {
     paths: articleEntries.items.map((item) => ({
       params: {
-        slug: item.fields.slug,
-      },
+        slug: item.fields.slug
+      }
     })),
-    fallback: false,
-  };
-};
+    fallback: false
+  }
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const res = await contentfulClient.getEntries<IArticleFields>({
     content_type: 'article',
-    'fields.slug[match]': params.slug,
-  });
+    'fields.slug[match]': params.slug
+  })
 
   return {
     props: {
-      article: res.items[0],
-    },
-  };
-};
+      article: res.items[0]
+    }
+  }
+}
 
-export default ArticleDetailPage;
+export default ArticleDetailPage

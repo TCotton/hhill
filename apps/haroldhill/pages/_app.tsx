@@ -1,11 +1,12 @@
-import React from 'react';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { ContentfulProvider } from 'react-contentful';
+import React from 'react'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import { ContentfulProvider } from 'react-contentful'
 import {
   contentfulClient,
-  previewContentfulClient,
-} from '@poc-contentful/contentful';
+  previewContentfulClient
+} from '@poc-contentful/contentful'
+import './styles.css'
 
 function CustomApp({ Component, pageProps, router }: AppProps) {
   return (
@@ -18,12 +19,11 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
           router.query.preview === '1'
             ? previewContentfulClient
             : contentfulClient
-        }
-      >
+        }>
         <Component {...pageProps} />
       </ContentfulProvider>
     </>
-  );
+  )
 }
 
-export default CustomApp;
+export default CustomApp

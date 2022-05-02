@@ -1,20 +1,20 @@
-import React, { ReactElement } from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import React, { ReactElement } from 'react'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
 export default class CustomDocument extends Document<{
-  styleTags: ReactElement[];
+  styleTags: ReactElement[]
 }> {
   static getInitialProps({ renderPage }) {
-    const sheet = new ServerStyleSheet();
+    const sheet = new ServerStyleSheet()
 
-    const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />)
-    );
+    const page = renderPage(
+      (App) => (props) => sheet.collectStyles(<App {...props} />)
+    )
 
-    const styleTags = sheet.getStyleElement();
+    const styleTags = sheet.getStyleElement()
 
-    return { ...page, styleTags };
+    return { ...page, styleTags }
   }
 
   render() {
@@ -22,10 +22,10 @@ export default class CustomDocument extends Document<{
       <Html>
         <Head>{this.props.styleTags}</Head>
         <body>
-        <Main />
-        <NextScript />
+          <Main />
+          <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }

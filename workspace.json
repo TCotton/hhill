@@ -121,39 +121,6 @@
         }
       }
     },
-    "libs-markdown": {
-      "root": "libs/libs/markdown",
-      "sourceRoot": "libs/libs/markdown/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/js:tsc",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/libs/libs/markdown",
-            "main": "libs/libs/markdown/src/index.ts",
-            "tsConfig": "libs/libs/markdown/tsconfig.lib.json",
-            "assets": ["libs/libs/markdown/*.md"]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/libs/markdown/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/libs/markdown"],
-          "options": {
-            "jestConfig": "libs/libs/markdown/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
     "markdown": {
       "root": "libs/markdown",
       "sourceRoot": "libs/markdown/src",
