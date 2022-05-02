@@ -30,6 +30,8 @@
   },
   "private": true,
   "devDependencies": {
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@contentful/rich-text-types": "^15.12.1",
     "@nrwl/cli": "13.8.8",
     "@nrwl/cypress": "13.8.8",
     "@nrwl/eslint-plugin-nx": "13.8.8",
@@ -80,6 +82,7 @@
   "dependencies": {
     "@nrwl/next": "13.8.8",
     "core-js": "^3.6.5",
+    "lint": "^0.7.0",
     "lodash": "^4.17.21",
     "marksy": "^8.0.0",
     "next": "12.1.0",

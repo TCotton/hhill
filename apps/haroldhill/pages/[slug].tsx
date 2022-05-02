@@ -4,10 +4,10 @@ import Link from 'next/link'
 import JsonView from 'react-json-view-ssr'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-import { contentfulClient, IArticleFields } from '@poc-contentful/contentful'
+import { contentfulClient, IArticleFields } from '@hhill/contenful'
 
-import { Markdown } from '../components/Markdown'
-import { ContentfulRichText } from '../components/ContentfulRichText'
+import { Markdown } from './components/Markdown'
+import { ContentfulRichText } from './components/ContentfulRichText'
 
 const ArticlePageWrapper = styled.div`
   .article-box {

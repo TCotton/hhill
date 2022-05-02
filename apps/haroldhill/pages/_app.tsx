@@ -5,7 +5,7 @@ import { ContentfulProvider } from 'react-contentful'
 import {
   contentfulClient,
   previewContentfulClient
-} from '@hhill/contentful'
+} from '@hhill/contenful'
 import './styles.css'
 
 function CustomApp({ Component, pageProps, router }: AppProps) {

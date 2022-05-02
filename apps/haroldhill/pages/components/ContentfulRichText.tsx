@@ -1,7 +1,7 @@
 import React from 'react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Document, BLOCKS } from '@contentful/rich-text-types'
-import { IDynamicComponent } from '@hhill/contentful'
+import { IDynamicComponent } from '@hhill/contenful'
 import { Asset } from 'contentful'
 
 import { mockComponents } from './mockComponents'
