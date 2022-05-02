@@ -2,7 +2,6 @@
 
 import { Asset, Entry } from 'contentful';
 import { Document } from '@contentful/rich-text-types';
-
 export interface IArticleFields {
   /** slug */
   slug: string;

@@ -55,6 +55,8 @@
     "contentful-management": "^10.2.0",
     "contentful-typescript-codegen": "^3.2.3",
     "cypress": "^9.1.0",
+    "dotenv": "^16.0.0",
+    "dotenv-webpack": "^7.1.0",
     "eslint": "~8.7.0",
     "eslint-config-next": "12.1.1-canary.3",
     "eslint-config-prettier": "^8.1.0",
