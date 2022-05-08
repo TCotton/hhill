@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { join } from 'path'
 import { ParsedUrlQuery } from 'querystring'
-import { getParsedFileContentBySlug, renderMarkdown, MarkdownRenderingResult} from '@hhill/markdown'
+import { getParsedFileContentBySlug, renderMarkdown } from '@hhill/markdown'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 interface ArticleProps extends ParsedUrlQuery {
@@ -11,26 +11,26 @@ interface ArticleProps extends ParsedUrlQuery {
 const POSTS_PATH = join(process.cwd(), '../_articles')
 
 export const getStaticProps: GetStaticProps = async ({
-                                                                                params,
-                                                                              }: {
-  params: ArticleProps;
+  params
+}: {
+  params: ArticleProps
 }) => {
   // read markdown file into content and frontmatter
   const articleMarkdownContent = getParsedFileContentBySlug(
     params.slug,
     POSTS_PATH
-  );
+  )
 
   // generate HTML
-  const renderedHTML = await renderMarkdown(articleMarkdownContent.content);
+  const renderedHTML = await renderMarkdown(articleMarkdownContent.content)
 
   return {
     props: {
       frontMatter: articleMarkdownContent.frontMatter,
       content: renderedHTML
-    },
-  };
-};
+    }
+  }
+}
 
 export const getStaticPaths: GetStaticPaths<ArticleProps> = async () => {
   const paths = fs
@@ -59,5 +59,5 @@ export function Article({ frontMatter, html }) {
         <main dangerouslySetInnerHTML={{ __html: html }} />
       </article>
     </div>
-  );
+  )
 }

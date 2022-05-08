@@ -26,7 +26,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "contentful-typescript-codegen": "contentful-typescript-codegen --output ./libs/types/src/contentful.d.ts"
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output ./libs/types/src/lib/contentful.d.ts"
   },
   "private": true,
   "devDependencies": {
