@@ -1,101 +1,63 @@
-import React from 'react'
-import styled from 'styled-components'
-import Link from 'next/link'
-import JsonView from 'react-json-view-ssr'
+import fs from 'fs'
+import { join } from 'path'
+import { ParsedUrlQuery } from 'querystring'
+import { getParsedFileContentBySlug, renderMarkdown, MarkdownRenderingResult} from '@hhill/markdown'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-import { contentfulClient, IArticleFields } from '@hhill/contenful'
-
-import { Markdown } from './components/Markdown'
-import { ContentfulRichText } from './components/ContentfulRichText'
-
-const ArticlePageWrapper = styled.div`
-  .article-box {
-    border: 1px solid black;
-    margin: 20px;
-  }
-
-  .two-column-wrapper {
-    display: flex;
-
-    & > div {
-      width: 50%;
-      flex: 1;
-
-      img {
-        width: 80%;
-      }
-    }
-  }
-`
-
-export interface HookResponse {
-  data?: unknown
+interface ArticleProps extends ParsedUrlQuery {
+  slug: string
 }
 
-export function ArticleDetailPage({ article }) {
-  return (
-    <ArticlePageWrapper>
-      <p>
-        <Link href="/">Home</Link> - Article
-      </p>
-      <h1>Title: {article.fields.title}</h1>
+const POSTS_PATH = join(process.cwd(), '../_articles')
 
-      <br />
-      <div className="two-column-wrapper">
-        <div>
-          <h3>Render with marksy</h3>
+export const getStaticProps: GetStaticProps = async ({
+                                                                                params,
+                                                                              }: {
+  params: ArticleProps;
+}) => {
+  // read markdown file into content and frontmatter
+  const articleMarkdownContent = getParsedFileContentBySlug(
+    params.slug,
+    POSTS_PATH
+  );
 
-          <div className="article-box">
-            <Markdown markdown={article.fields.markdown} />
-          </div>
-        </div>
-        <div>
-          <h3>Render with contentful rich text</h3>
-          <div className="article-box">
-            <ContentfulRichText content={article.fields.content} />
-          </div>
-        </div>
-      </div>
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <h3>JSON structure</h3>
-      <div suppressHydrationWarning>
-        {process.browser && <JsonView src={article} enableClipboard={false} />}
-      </div>
-    </ArticlePageWrapper>
-  )
-}
-
-export const getStaticPaths: GetStaticPaths = async (context) => {
-  const articleEntries = await contentfulClient.getEntries<IArticleFields>({
-    content_type: 'article'
-  })
+  // generate HTML
+  const renderedHTML = await renderMarkdown(articleMarkdownContent.content);
 
   return {
-    paths: articleEntries.items.map((item) => ({
-      params: {
-        slug: item.fields.slug
-      }
-    })),
+    props: {
+      frontMatter: articleMarkdownContent.frontMatter,
+      content: renderedHTML
+    },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths<ArticleProps> = async () => {
+  const paths = fs
+    .readdirSync(POSTS_PATH)
+    // Remove file extensions for page paths
+    .map((path) => path.replace(/\.mdx?$/, ''))
+    // Map the path into the static paths object required by Next.js
+    .map((slug) => ({ params: { slug } }))
+
+  return {
+    paths,
     fallback: false
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await contentfulClient.getEntries<IArticleFields>({
-    content_type: 'article',
-    'fields.slug[match]': params.slug
-  })
+export function Article({ frontMatter, html }) {
+  return (
+    <div className="md:container md:mx-auto">
+      <article>
+        <h1 className="text-3xl font-bold hover:text-gray-700 pb-4">
+          {frontMatter.title}
+        </h1>
+        <div>by {frontMatter.author.name}</div>
+        <hr />
 
-  return {
-    props: {
-      article: res.items[0]
-    }
-  }
+        <main dangerouslySetInnerHTML={{ __html: html }} />
+      </article>
+    </div>
+  );
 }
-
-export default ArticleDetailPage
