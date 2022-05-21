@@ -8,6 +8,8 @@ export const getParsedFileContentBySlug = (
   slug: string,
   postsPath: string
 ): MarkdownDocument => {
+  console.dir(`${slug}.mdx`)
+  console.log(postsPath)
   const postFilePath = join(postsPath, `${slug}.mdx`)
   const fileContents = fs.readFileSync(postFilePath)
 

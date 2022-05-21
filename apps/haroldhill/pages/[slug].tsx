@@ -8,7 +8,7 @@ interface ArticleProps extends ParsedUrlQuery {
   slug: string
 }
 
-const POSTS_PATH = join(process.cwd(), '../_articles')
+const POSTS_PATH = join(process.cwd(), '_articles')
 
 export const getStaticProps: GetStaticProps = async ({
   params
@@ -53,10 +53,10 @@ export function Article({ frontMatter, html }) {
         <h1 className="text-3xl font-bold hover:text-gray-700 pb-4">
           {frontMatter.title}
         </h1>
-        <div>by {frontMatter.author.name}</div>
+        <div>by {frontMatter.name}</div>
         <hr />
 
-        <main dangerouslySetInnerHTML={{ __html: html }} />
+        <main dangerouslySetInnerHTML={{ __html: frontMatter.excerpt }} />
       </article>
     </div>
   )
