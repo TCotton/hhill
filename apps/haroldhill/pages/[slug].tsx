@@ -1,8 +1,8 @@
-import fs from 'fs'
 import { join } from 'path'
 import { ParsedUrlQuery } from 'querystring'
 import { getParsedFileContentBySlug, renderMarkdown } from '@hhill/markdown'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import fs from 'fs'
 
 interface ArticleProps extends ParsedUrlQuery {
   slug: string
@@ -61,3 +61,5 @@ export function Article({ frontMatter, html }) {
     </div>
   )
 }
+
+export default Article

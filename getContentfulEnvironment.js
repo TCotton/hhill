@@ -1,11 +1,12 @@
+require('dotenv').config({path: __dirname + '/.env'})
 const contentfulManagement = require("contentful-management")
 
 module.exports = function() {
   const contentfulClient = contentfulManagement.createClient({
-    accessToken: 'CFPAT-sY4AaZgi9NH7UiItTWS1pAJXI90rZDHGJk3STwbJLAI',
+    accessToken: process.env.NEXT_PUBLIC_CONTENT,
   })
 
   return contentfulClient
-    .getSpace('dylebmosx01m')
-    .then(space => space.getEnvironment('master'))
+    .getSpace(process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID)
+    .then(space => space.getEnvironment(process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT))
 }

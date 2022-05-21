@@ -1,13 +1,13 @@
 export interface FrontMatter {
-  [prop: string]: string;
+  [prop: string]: string
 }
 
 export interface MarkdownDocument {
-  frontMatter: FrontMatter;
-  content: string;
+  frontMatter: FrontMatter
+  content: string
 }
 
 export interface MarkdownRenderingResult {
-  frontMatter: FrontMatter;
-  html: string;
+  frontMatter: FrontMatter
+  html: string
 }

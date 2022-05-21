@@ -5,3 +5,4 @@ describe('markdown', () => {
     expect(markdown()).toEqual('markdown');
   });
 });
+
