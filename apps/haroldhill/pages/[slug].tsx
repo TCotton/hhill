@@ -40,6 +40,8 @@ export const getStaticPaths: GetStaticPaths<ArticleProps> = async () => {
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }))
 
+  console.log(paths)
+
   return {
     paths,
     fallback: false

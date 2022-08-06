@@ -53,7 +53,7 @@
     "@typescript-eslint/eslint-plugin": "~5.10.0",
     "@typescript-eslint/parser": "~5.10.0",
     "babel-jest": "27.2.3",
-    "contentful": "^9.1.29",
+    "contentful": "^9.1.33",
     "contentful-management": "^10.2.0",
     "contentful-typescript-codegen": "^3.2.3",
     "cypress": "^9.1.0",
