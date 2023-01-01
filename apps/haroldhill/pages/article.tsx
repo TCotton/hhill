@@ -1,7 +1,24 @@
 import { GetStaticProps } from 'next'
 
-function Article({ posts, items, articles }) {
-  console.dir(items)
+function Article({ posts, items, rawArticles, articles }) {
+  console.dir(rawArticles)
+
+  const article = rawArticles.result.items.map((article) => {
+    return {
+      title: article.fields.title,
+      slug: article.fields.slug,
+      pages: article.fields.pages.map((page) => {
+        return {
+          title: page.fields.title,
+          contentRichText: page.fields.contentRichText,
+          slug: page.fields.slug,
+          fullSlug: `${article.fields.slug}/${page.fields.slug}`
+        }
+      })
+    }
+  })
+  console.dir(article.flatMap((article) => article.pages))
+
   console.dir(articles)
   return (
     <ul>
@@ -50,12 +67,19 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       posts,
       items,
-      articles: articles.result.items.reduce((acc, item) => {
-        acc[item.sys.id] = item
-        return acc
-      }, {})
+      rawArticles: articles,
+      articles
     }
   }
 }
+
+/*articles: articles.result.items.reduce((acc, currentValue) => {
+  const slug = currentValue.fields.slug
+  currentValue.fields.pages.map((x) => ({
+    newValue: `${slug} ${x.fields.slug}`
+  }))
+  acc[currentValue.fields.slug] = currentValue
+  return acc
+}, {})*/
 
 export default Article
