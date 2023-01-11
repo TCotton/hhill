@@ -17,7 +17,19 @@ function Article({ posts, items, rawArticles, articles }) {
       })
     }
   })
-  console.dir(article.flatMap((article) => article.pages))
+  const newArticle = article.flatMap((article) => article.pages)
+  const whatever = {
+    paths: newArticle.map((article) => {
+      return {
+        params: {
+          articleId: article.slug
+        }
+      }
+    }),
+    fallback: false
+  }
+  console.dir(whatever)
+  console.dir(newArticle)
 
   console.dir(articles)
   return (
@@ -33,7 +45,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const result = await fetch('https://jsonplaceholder.typicode.com/posts')
   const items = await result.json()
 
-  const content = await fetch('http://localhost:4200/api/content')
+  const content = await fetch('http://localhost:3000/api/content')
   const articles = await content.json()
   console.dir(articles)
 /*  const ids = articles.result.items.sys.filter((x) => x.id)

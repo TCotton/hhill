@@ -3,6 +3,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "sourceMap": true,
+    "inlineSourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -14,6 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "types": [
+      "node",
+      "@testing-library/jest-dom",
+      "jest"
+    ],
     "paths": {
       "@hhill/contenful": ["libs/contenful/src/index.ts"],
       "@hhill/libs/markdown": ["libs/libs/markdown/src/index.ts"],
