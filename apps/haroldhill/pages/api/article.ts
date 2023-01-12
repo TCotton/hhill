@@ -5,16 +5,11 @@ const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN
 })
 
-type GetPageParams = {
-  pageContentType: string
-  slug: string
-  locale: string
-}
-
 export default function handler(req, res) {
-  client
+  return client
     .getEntries({
-      content_type: 'chapters'
+      content_type: 'chapters',
+      'sys.id': ,
     })
     .then((result) => {
       res.status(200).json({

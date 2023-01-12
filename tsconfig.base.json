@@ -2,6 +2,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
     "sourceMap": true,
     "inlineSourceMap": true,
     "declaration": false,

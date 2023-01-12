@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next'
 
 function ArticleId(props) {
+  debugger
   return (
     <ul>
       {props.title} {props.contentRichText}
@@ -9,8 +10,9 @@ function ArticleId(props) {
 }
 
 const getArticles = async () => {
-  const content = await fetch('http://localhost:3000/api/content')
+  const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
+  debugger
   return articles.result.items
     .map((article) => {
       return {
@@ -31,6 +33,7 @@ const getArticles = async () => {
 
 export async function getStaticProps({ params }) {
   const { title, contentRichText } = params
+  debugger
   return {
     props: {
       title: JSON.stringify(params) || 'no title',

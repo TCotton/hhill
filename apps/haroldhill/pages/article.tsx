@@ -41,11 +41,13 @@ function Article({ posts, items, rawArticles, articles }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps = async () => {
   const result = await fetch('https://jsonplaceholder.typicode.com/posts')
   const items = await result.json()
 
-  const content = await fetch('http://localhost:3000/api/content')
+  debugger
+
+  const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
   console.dir(articles)
 /*  const ids = articles.result.items.sys.filter((x) => x.id)
