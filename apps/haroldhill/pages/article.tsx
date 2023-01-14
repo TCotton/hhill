@@ -1,4 +1,5 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps, GetServerSideProps } from 'next'
+import fetch from 'isomorphic-unfetch'
 
 function Article({ posts, items, rawArticles, articles }) {
   console.dir(rawArticles)
@@ -41,7 +42,7 @@ function Article({ posts, items, rawArticles, articles }) {
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetStaticProps = async () => {
   const result = await fetch('https://jsonplaceholder.typicode.com/posts')
   const items = await result.json()
 
@@ -50,8 +51,8 @@ export const getServerSideProps = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
   console.dir(articles)
-/*  const ids = articles.result.items.sys.filter((x) => x.id)
-  console.dir(ids);*/
+  /*  const ids = articles.result.items.sys.filter((x) => x.id)
+  console.dir(ids); */
 
   const posts = [
     {
@@ -87,13 +88,13 @@ export const getServerSideProps = async () => {
   }
 }
 
-/*articles: articles.result.items.reduce((acc, currentValue) => {
+/* articles: articles.result.items.reduce((acc, currentValue) => {
   const slug = currentValue.fields.slug
   currentValue.fields.pages.map((x) => ({
     newValue: `${slug} ${x.fields.slug}`
   }))
   acc[currentValue.fields.slug] = currentValue
   return acc
-}, {})*/
+}, {}) */
 
 export default Article

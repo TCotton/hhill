@@ -1,4 +1,5 @@
-import { GetStaticProps } from 'next'
+import { GetStaticProps, GetStaticPaths } from 'next'
+import fetch from 'isomorphic-unfetch'
 
 function ArticleId(props) {
   debugger
@@ -31,7 +32,7 @@ const getArticles = async () => {
     .flatMap((article) => article.pages)
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { title, contentRichText } = params
   debugger
   return {
@@ -42,7 +43,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await getArticles()
   debugger
   return {
