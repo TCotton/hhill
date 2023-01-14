@@ -1,11 +1,13 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import fetch from 'isomorphic-unfetch'
+import { remark } from 'remark'
+import html from 'remark-html'
 
 function ArticleId(props) {
-  debugger
+  const { title, contentRichText } = props
   return (
     <ul>
-      {props.title} {props.contentRichText}
+      {title} {contentRichText}
     </ul>
   )
 }
@@ -13,7 +15,6 @@ function ArticleId(props) {
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
-  debugger
   return articles.result.items
     .map((article) => {
       return {
@@ -24,7 +25,8 @@ const getArticles = async () => {
             title: page.fields.title,
             contentRichText: page.fields.contentRichText,
             slug: page.fields.slug,
-            fullSlug: `${article.fields.slug}/${page.fields.slug}`
+            fullSlug: `${article.fields.slug}/${page.fields.slug}`,
+            id: page.sys.id
           }
         })
       }
@@ -33,24 +35,30 @@ const getArticles = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { title, contentRichText } = params
-  debugger
+  const { articleId } = params
+  const content = await fetch(
+    `http://localhost:3000/api/article?id=${articleId}`
+  )
+  const article = await content.json()
+  const processedContent = await remark()
+    .use(html)
+    .process(article.result.fields.contentRichText)
+  const contentHtml = processedContent.toString()
   return {
     props: {
-      title: JSON.stringify(params) || 'no title',
-      contentRichText: contentRichText || 'no content'
+      title: article.result.fields.title || 'no title',
+      contentRichText: contentHtml || 'no content'
     }
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await getArticles()
-  debugger
   return {
     paths: articles.map((article) => {
       return {
         params: {
-          articleId: article.slug
+          articleId: `${article.slug}-${article.id}`
         }
       }
     }),

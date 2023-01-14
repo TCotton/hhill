@@ -1,4 +1,5 @@
 import { createClient } from 'contentful'
+import { NextApiRequest, NextApiResponse } from 'next'
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID, // ID of a Compose-compatible space to be used \
@@ -6,12 +7,12 @@ const client = createClient({
 })
 
 type GetPageParams = {
-  pageContentType: stringå
+  pageContentType: string
   slug: string
   locale: string
 }
 
-export default function handler(req, res) {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   return client
     .getEntries({
       content_type: 'chapters'

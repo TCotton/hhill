@@ -13,7 +13,8 @@ function Article({ posts, items, rawArticles, articles }) {
           title: page.fields.title,
           contentRichText: page.fields.contentRichText,
           slug: page.fields.slug,
-          fullSlug: `${article.fields.slug}/${page.fields.slug}`
+          fullSlug: `${article.fields.slug}/${page.fields.slug}`,
+          id: page.sys.id
         }
       })
     }
