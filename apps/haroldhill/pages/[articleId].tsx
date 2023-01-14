@@ -6,9 +6,12 @@ import html from 'remark-html'
 function ArticleId(props) {
   const { title, contentRichText } = props
   return (
-    <ul>
-      {title} {contentRichText}
-    </ul>
+    <>
+      {title}
+      <div
+        dangerouslySetInnerHTML={{__html: contentRichText}}
+      />
+    </>
   )
 }
 
