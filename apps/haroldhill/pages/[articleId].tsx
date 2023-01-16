@@ -1,7 +1,11 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import fetch from 'isomorphic-unfetch'
-import { remark } from 'remark'
-import html from 'remark-html'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeFormat from 'rehype-format'
+import rehypeStringify from 'rehype-stringify'
+import addClasses from 'rehype-add-classes';
 import React from 'react'
 import Layout from '../components/layout'
 
@@ -12,10 +16,7 @@ function ArticleId(props) {
       <main className="govuk-main-wrapper">
         <div className="govuk-grid-row">
           <div className="govuk-grid-column-two-thirds">
-            <h1 className="govuk-heading-xl">{title}</h1>
-            <p className="govuk-body">
-              This is a paragraph inside a two-thirds wide column
-            </p>
+            <h1 className="govuk-heading-l">{title}</h1>
             <div dangerouslySetInnerHTML={{ __html: contentRichText }} />
           </div>
         </div>
@@ -52,8 +53,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `http://localhost:3000/api/article?id=${articleId}`
   )
   const article = await content.json()
-  const processedContent = await remark()
-    .use(html)
+  const processedContent = await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(addClasses, {
+      p: 'govuk-body',
+      h1: 'govuk-heading-l',
+      h2: 'govuk-heading-m',
+      h3: 'govuk-heading-s',
+    })
+    .use(rehypeFormat)
+    .use(rehypeStringify)
     .process(article.result.fields.contentRichText)
   const contentHtml = processedContent.toString()
   return {
