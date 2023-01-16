@@ -5,23 +5,27 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeFormat from 'rehype-format'
 import rehypeStringify from 'rehype-stringify'
-import addClasses from 'rehype-add-classes';
+import addClasses from 'rehype-add-classes'
 import React from 'react'
 import Layout from '../components/layout'
+import Header from '../components/header'
 
 function ArticleId(props) {
   const { title, contentRichText } = props
   return (
-    <Layout>
-      <main className="govuk-main-wrapper">
-        <div className="govuk-grid-row">
-          <div className="govuk-grid-column-two-thirds">
-            <h1 className="govuk-heading-l">{title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: contentRichText }} />
+    <>
+      <Header />
+      <Layout>
+        <main className="govuk-main-wrapper">
+          <div className="govuk-grid-row">
+            <div className="govuk-grid-column-two-thirds">
+              <h1 className="govuk-heading-l">{title}</h1>
+              <div dangerouslySetInnerHTML={{ __html: contentRichText }} />
+            </div>
           </div>
-        </div>
-      </main>
-    </Layout>
+        </main>
+      </Layout>
+    </>
   )
 }
 
@@ -60,7 +64,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       p: 'govuk-body',
       h1: 'govuk-heading-l',
       h2: 'govuk-heading-m',
-      h3: 'govuk-heading-s',
+      h3: 'govuk-heading-s'
     })
     .use(rehypeFormat)
     .use(rehypeStringify)
