@@ -2,16 +2,25 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import fetch from 'isomorphic-unfetch'
 import { remark } from 'remark'
 import html from 'remark-html'
+import React from 'react'
+import Layout from '../components/layout'
 
 function ArticleId(props) {
   const { title, contentRichText } = props
   return (
-    <>
-      {title}
-      <div
-        dangerouslySetInnerHTML={{__html: contentRichText}}
-      />
-    </>
+    <Layout>
+      <main className="govuk-main-wrapper">
+        <div className="govuk-grid-row">
+          <div className="govuk-grid-column-two-thirds">
+            <h1 className="govuk-heading-xl">{title}</h1>
+            <p className="govuk-body">
+              This is a paragraph inside a two-thirds wide column
+            </p>
+            <div dangerouslySetInnerHTML={{ __html: contentRichText }} />
+          </div>
+        </div>
+      </main>
+    </Layout>
   )
 }
 

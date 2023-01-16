@@ -8,7 +8,7 @@
     "build": "nx build",
     "test": "nx test",
     "dev": "next dev",
-    "start:debug": "/Applications/MAMP/htdocs/hhill/node_modules/@nrwl/cli/bin/nx.js  run haroldhill:serve --port 3000",
+    "start:debug": "nx run haroldhill:serve --port 3000",
     "lint": "nx workspace-lint && nx lint",
     "lint:fix": "nx workspace-lint && nx lint --fix",
     "e2e": "nx e2e",
@@ -84,6 +84,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "govuk-frontend": "^4.4.1",
     "gray-matter": "^4.0.3",
     "isomorphic-unfetch": "^4.0.2",
     "lint": "^0.7.0",
