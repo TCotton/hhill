@@ -35,10 +35,16 @@ const MenuItems = () => {
   return (
     <>
       {isLoading ? (
+        articles &&
         articles.map((article) => {
           return (
             <li key={article.id}>
-              <a href={`/${article.slug}`}>{article.title}</a>
+              {article.title}
+              <ul>
+                {article.pages.map((page) => {
+                  return <li key={page.id}>{page.title}</li>
+                })}
+              </ul>
             </li>
           )
         })
