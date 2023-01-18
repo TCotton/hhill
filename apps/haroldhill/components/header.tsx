@@ -6,21 +6,20 @@ const getArticles = async () => {
   const articles = await content.json()
   return articles.result.items
     .map((article) => {
-      return {
-        title: article.fields.title,
-        slug: article.fields.slug,
-        pages: article.fields.pages.map((page) => {
-          return {
-            title: page.fields.title,
-            contentRichText: page.fields.contentRichText,
-            slug: page.fields.slug,
-            parent: article.fields.title,
-            id: page.sys.id
-          }
-        })
-      }
-    })
-    .flatMap((article) => article.pages)
+    return {
+      title: article.fields.title,
+      slug: article.fields.slug,
+      pages: article.fields.pages.map((page) => {
+        return {
+          title: page.fields.title,
+          contentRichText: page.fields.contentRichText,
+          slug: page.fields.slug,
+          parent: article.fields.title,
+          id: page.sys.id
+        }
+      })
+    }
+  })
 }
 
 const Header = () => {
