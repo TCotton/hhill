@@ -46,7 +46,7 @@ const MenuItems = () => {
           return (
             <MenuGroup key={article.slug} title={article.slug}>
               {article.pages.map((page) => {
-                return <MenuItem key={page.id}>My Account</MenuItem>
+                return <MenuItem key={page.id}>{page.title}</MenuItem>
               })}
             </MenuGroup>
           )
