@@ -12,7 +12,21 @@ export type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode
 }
 
-const theme = extendTheme({})
+/*
+Button,
+  Menu,
+  MenuButton,
+  MenuList,
+ */
+
+const theme = extendTheme({
+  components: {
+    Button: {},
+    Menu: {},
+    MenuButton: {},
+    MenuList: {}
+  }
+})
 
 function CustomApp({ Component, pageProps, router }: AppProps) {
   return (
