@@ -22,23 +22,20 @@ const getArticles = async () => {
 }
 
 const MenuItems = () => {
-  const [isLoading, setLoading] = useState(false)
   const [articles, setArticles] = useState(null)
 
   useEffect(() => {
     getArticles().then((articles) => {
+      console.dir(articles)
       setArticles(articles)
-      setLoading(true)
     })
   }, [])
-  console.dir(articles)
   return (
     <>
-      {isLoading ? (
-        articles &&
+      {articles &&
         articles.map((article) => {
           return (
-            <li key={article.id}>
+            <li key={article.slug}>
               {article.title}
               <ul>
                 {article.pages.map((page) => {
@@ -47,10 +44,7 @@ const MenuItems = () => {
               </ul>
             </li>
           )
-        })
-      ) : (
-        <p>Loading...</p>
-      )}
+        })}
     </>
   )
 }
