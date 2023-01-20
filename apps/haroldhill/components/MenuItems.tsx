@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from '@chakra-ui/react'
 
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
@@ -26,7 +36,6 @@ const MenuItems = () => {
 
   useEffect(() => {
     getArticles().then((articles) => {
-      console.dir(articles)
       setArticles(articles)
     })
   }, [])
@@ -35,17 +44,27 @@ const MenuItems = () => {
       {articles &&
         articles.map((article) => {
           return (
-            <li key={article.slug}>
-              {article.title}
-              <ul>
-                {article.pages.map((page) => {
-                  return <li key={page.id}>{page.title}</li>
-                })}
-              </ul>
-            </li>
+            <MenuGroup key={article.slug} title={article.slug}>
+              {article.pages.map((page) => {
+                return <MenuItem key={page.id}>My Account</MenuItem>
+              })}
+            </MenuGroup>
           )
         })}
     </>
   )
 }
+/*
+ <MenuList>
+    <MenuGroup title='Profile'>
+      <MenuItem>My Account</MenuItem>
+      <MenuItem>Payments </MenuItem>
+    </MenuGroup>
+    <MenuDivider />
+    <MenuGroup title='Help'>
+      <MenuItem>Docs</MenuItem>
+      <MenuItem>FAQ</MenuItem>
+    </MenuGroup>
+  </MenuList>
+ */
 export default MenuItems

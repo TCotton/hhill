@@ -8,7 +8,7 @@ import rehypeStringify from 'rehype-stringify'
 import addClasses from 'rehype-add-classes'
 import React from 'react'
 import Layout from '../components/layout'
-import Header from '../components/header'
+import Header from '../components/Header'
 
 function ArticleId(props) {
   const { title, contentRichText } = props

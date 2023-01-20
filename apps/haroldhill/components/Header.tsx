@@ -1,6 +1,16 @@
 import React from 'react'
 import MenuItems from './MenuItems'
-
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from '@chakra-ui/react'
 
 const Header = () => {
   return (
@@ -22,7 +32,12 @@ const Header = () => {
       <div className="govuk-header__content">
         <nav aria-label="Menu" className="govuk-header__navigation ">
           <ul className="govuk-header__navigation-list">
-            <MenuItems />
+            <Menu>
+              <MenuButton as={Button}>Menu</MenuButton>
+              <MenuList>
+                <MenuItems />
+              </MenuList>
+            </Menu>
           </ul>
         </nav>
       </div>
