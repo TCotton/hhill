@@ -15,7 +15,7 @@ import NavigationMenuDemo from './navigation'
 
 const Header = () => {
   return (
-    <header className="govuk-header " role="banner" data-module="govuk-header">
+    <header className="govuk-header" role="banner" data-module="govuk-header">
       <div className="govuk-header__container govuk-width-container">
         <div className="govuk-header__logo">
           <a
@@ -31,10 +31,8 @@ const Header = () => {
         </div>
       </div>
       <div className="govuk-header__content">
-        <nav aria-label="Menu" className="govuk-header__navigation ">
-          <ul className="govuk-header__navigation-list">
-            <NavigationMenuDemo />
-          </ul>
+        <nav aria-label="Menu" className="govuk-header__navigation">
+          <NavigationMenuDemo />
         </nav>
       </div>
     </header>

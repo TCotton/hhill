@@ -7,6 +7,8 @@ import { contentfulClient, previewContentfulClient } from '@hhill/contenful'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import '../styles/reset.scss'
 import '../styles/gds.scss'
+import '../styles/radixui.scss'
+import '../styles/gemc_navigation.scss'
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode
