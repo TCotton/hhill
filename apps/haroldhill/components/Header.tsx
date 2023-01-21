@@ -30,7 +30,7 @@ const Header = () => {
           </a>
         </div>
       </div>
-      <div className="govuk-header__content">
+      <div className="govuk-header__content govuk-width-container">
         <nav aria-label="Menu" className="govuk-header__navigation">
           <NavigationMenuDemo />
         </nav>

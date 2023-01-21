@@ -7,9 +7,9 @@ import styles from './MenuItems.module.css'
 const NavigationMenuDemo = () => {
   return (
     <NavigationMenu.Root className={styles.NavigationMenuRoot}>
-      <NavigationMenu.List className={styles.NavigationMenuList}>
+      <NavigationMenu.List className={`${styles.NavigationMenuList}`}>
         <NavigationMenu.Item>
-          <NavigationMenu.Trigger className={styles.NavigationMenuTrigger}>
+          <NavigationMenu.Trigger className={`${styles.NavigationMenuTrigger} .gem-c-layout-super-navigation-header__navigation-top-toggle-button`}>
             Menu <CaretDownIcon className={styles.CaretDown} aria-hidden />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
