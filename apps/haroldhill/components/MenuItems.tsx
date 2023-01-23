@@ -10,7 +10,6 @@ import {
   MenuOptionGroup,
   MenuDivider,
 } from '@chakra-ui/react'
-import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')

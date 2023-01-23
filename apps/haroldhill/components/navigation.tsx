@@ -57,11 +57,11 @@ const NavigationMenuDemo = () => {
         </NavigationMenu.Item>
 
         <NavigationMenu.Indicator className={styles.NavigationMenuIndicator}>
-          <div className="Arrow" />
+          <div className={styles.Arrow} />
         </NavigationMenu.Indicator>
       </NavigationMenu.List>
 
-      <div className="ViewportPosition">
+      <div className={styles.ViewportPosition}>
         <NavigationMenu.Viewport className={styles.NavigationMenuViewport} />
       </div>
     </NavigationMenu.Root>
