@@ -1,21 +1,8 @@
 import React from 'react'
 import MenuItems from './MenuItems'
-import {
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-} from '@chakra-ui/react'
-import NavigationMenuDemo from './navigation'
-
 const Header = () => {
   return (
-    <header className="govuk-header" role="banner" data-module="govuk-header">
+    <header className="govuk-header " role="banner" data-module="govuk-header">
       <div className="govuk-header__container govuk-width-container">
         <div className="govuk-header__logo">
           <a
@@ -30,9 +17,9 @@ const Header = () => {
           </a>
         </div>
       </div>
-      <div className="govuk-header__content govuk-width-container">
+      <div className="govuk-header__content">
         <nav aria-label="Menu" className="govuk-header__navigation">
-          <NavigationMenuDemo />
+          <MenuItems />
         </nav>
       </div>
     </header>

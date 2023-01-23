@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-} from '@chakra-ui/react'
-
+import Navigation from './Navigation'
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
@@ -36,13 +26,15 @@ const MenuItems = () => {
 
   useEffect(() => {
     getArticles().then((articles) => {
+      console.dir(articles)
       setArticles(articles)
     })
   }, [])
-  return (
-    <>
-      {articles &&
-        articles.map((article) => {
+  return <>{articles && <Navigation articles={articles} />}</>
+}
+
+/*
+articles.map((article) => {
           return (
             <MenuGroup key={article.slug} title={article.slug}>
               {article.pages.map((page) => {
@@ -50,8 +42,5 @@ const MenuItems = () => {
               })}
             </MenuGroup>
           )
-        })}
-    </>
-  )
-}
+ */
 export default MenuItems
