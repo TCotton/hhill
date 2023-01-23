@@ -4,7 +4,7 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ContentfulProvider } from 'react-contentful'
 import { contentfulClient, previewContentfulClient } from '@hhill/contenful'
-import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { MantineProvider } from '@mantine/core';
 import '../styles/reset.scss'
 import '../styles/gds.scss'
 import '../styles/radixui.scss'
@@ -21,31 +21,20 @@ Button,
   MenuList,
  */
 
-const theme = extendTheme({
-  components: {
-    Button: {},
-    Menu: {},
-    MenuButton: {},
-    MenuList: {}
-  }
-})
-
 function CustomApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
         <title>Welcome to ui-article!</title>
       </Head>
-      <ChakraProvider theme={theme}>
-        <ContentfulProvider
-          client={
-            router.query.preview === '1'
-              ? previewContentfulClient
-              : contentfulClient
-          }>
-          <Component {...pageProps} />
-        </ContentfulProvider>
-      </ChakraProvider>
+      <ContentfulProvider
+        client={
+          router.query.preview === '1'
+            ? previewContentfulClient
+            : contentfulClient
+        }>
+        <Component {...pageProps} />
+      </ContentfulProvider>
     </>
   )
 }
