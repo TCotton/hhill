@@ -26,21 +26,10 @@ const MenuItems = () => {
 
   useEffect(() => {
     getArticles().then((articles) => {
-      console.dir(articles)
       setArticles(articles)
     })
   }, [])
   return <>{articles && <Navigation articles={articles} />}</>
 }
 
-/*
-articles.map((article) => {
-          return (
-            <MenuGroup key={article.slug} title={article.slug}>
-              {article.pages.map((page) => {
-                return <MenuItem key={page.id}>{page.title}</MenuItem>
-              })}
-            </MenuGroup>
-          )
- */
 export default MenuItems

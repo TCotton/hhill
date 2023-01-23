@@ -4,17 +4,8 @@ import classNames from 'classnames'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import styles from './MenuItems.module.css'
 
-/*
-<MenuGroup key={article.slug} title={article.slug}>
-              {article.pages.map((page) => {
-                return <MenuItem key={page.id}>{page.title}</MenuItem>
-              })}
-            </MenuGroup>
- */
-
 const Navigation = (props) => {
   const articles = props.articles
-  console.dir(articles)
   return (
     <NavigationMenu.Root className={styles.NavigationMenuRoot}>
       <NavigationMenu.List className={`${styles.NavigationMenuList}`}>
@@ -26,14 +17,30 @@ const Navigation = (props) => {
           <NavigationMenu.Content>
             <ul className="govuk-list govuk-list--spaced gem-c-layout-super-navigation-header__navigation-second-items">
               {articles.map((article) => {
+                const id =
+                  `${article.slug}-${article.title}` +
+                  Math.random().toString(36).substr(2, 9)
                 return (
-                  <ListItem
-                    key={article.slug}
-                    title="Introduction"
-                    href="/docs/primitives/overview/introduction"
-                    className="govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link">
-                    Build high-quality, accessible design systems and web apps.
-                  </ListItem>
+                  <>
+                    <ListItemNoLink
+                      key={id}
+                      title={article.title}
+                      className="govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
+                    />
+                    <ul>
+                      {article.pages.map((page) => {
+                        const href = `${page.slug}-${page.id}`
+                        return (
+                          <ListItem
+                            key={page.id}
+                            title={page.title}
+                            href={href}
+                            className="govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
+                          />
+                        )
+                      })}
+                    </ul>
+                  </>
                 )
               })}
             </ul>
@@ -55,8 +62,8 @@ const Navigation = (props) => {
 interface IForwardRefProps {
   children?: ReactNode
   className?: string
-  title: string
-  href: string
+  title?: string
+  href?: string
 }
 
 type Ref = HTMLAnchorElement
@@ -80,5 +87,18 @@ const ListItem = React.forwardRef<Ref, IForwardRefProps>(
 )
 
 ListItem.displayName = 'ListItem'
+
+const ListItemNoLink = React.forwardRef<Ref, IForwardRefProps>(
+  ({ className, children, title, ...props }, forwardedRef) => (
+    <li className="gem-c-layout-super-navigation-header__dropdown-list-item">
+      <p>
+        <span>{title}</span>
+        {children}
+      </p>
+    </li>
+  )
+)
+
+ListItemNoLink.displayName = 'ListItemNoLink'
 
 export default Navigation
