@@ -88,10 +88,10 @@ const ListItem = React.forwardRef<Ref, IForwardRefProps>(
 
 ListItem.displayName = 'ListItem'
 
-const ListItemNoLink = React.forwardRef<Ref, IForwardRefProps>(
+const ListItemNoLink = React.forwardRef<HTMLParagraphElement, IForwardRefProps>(
   ({ className, children, title, ...props }, forwardedRef) => (
     <li className="gem-c-layout-super-navigation-header__dropdown-list-item">
-      <p>
+      <p ref={forwardedRef}>
         <span>{title}</span>
         {children}
       </p>
