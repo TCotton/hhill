@@ -12,7 +12,7 @@ const Navigation = (props) => {
         <NavigationMenu.Item>
           <NavigationMenu.Trigger
             className={`${styles.NavigationMenuTrigger} .gem-c-layout-super-navigation-header__navigation-top-toggle-button`}>
-            Menu <CaretDownIcon className={styles.CaretDown} aria-hidden />
+            Menu <CaretDownIcon className={styles.CaretDown} aria-hidden/>
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <ul className="govuk-list govuk-list--spaced gem-c-layout-super-navigation-header__navigation-second-items">
@@ -21,11 +21,10 @@ const Navigation = (props) => {
                   `${article.slug}-${article.title}` +
                   Math.random().toString(36).substr(2, 9)
                 return (
-                  <>
+                  <span key={id}>
                     <ListItemNoLink
-                      key={id}
                       title={article.title}
-                      className="govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
+                      className=""
                     />
                     <ul>
                       {article.pages.map((page) => {
@@ -40,7 +39,7 @@ const Navigation = (props) => {
                         )
                       })}
                     </ul>
-                  </>
+                  </span>
                 )
               })}
             </ul>
@@ -90,7 +89,11 @@ ListItem.displayName = 'ListItem'
 
 const ListItemNoLink = React.forwardRef<HTMLParagraphElement, IForwardRefProps>(
   ({ className, children, title, ...props }, forwardedRef) => (
-    <li className="gem-c-layout-super-navigation-header__dropdown-list-item">
+    <li
+      className={classNames(
+        'gem-c-layout-super-navigation-header__dropdown-list-item',
+        className
+      )}>
       <p ref={forwardedRef}>
         <span>{title}</span>
         {children}
