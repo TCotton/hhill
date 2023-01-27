@@ -4,8 +4,28 @@ import classNames from 'classnames'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import styles from './MenuItems.module.css'
 
+const ChildList = (props) => {
+  const article = props.article
+  return (
+    <ul>
+      {article.pages.map((page) => {
+        const href = `${page.slug}-${page.id}`
+        return (
+          <ListItem
+            key={page.id}
+            title={page.title}
+            href={href}
+            className="govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
+          />
+        )
+      })}
+    </ul>
+  )
+}
+
 const Navigation = (props) => {
   const articles = props.articles
+
   return (
     <NavigationMenu.Root className={styles.NavigationMenuRoot}>
       <NavigationMenu.List className={`${styles.NavigationMenuList}`}>
@@ -22,23 +42,7 @@ const Navigation = (props) => {
                   Math.random().toString(36).substr(2, 9)
                 return (
                   <span key={id}>
-                    <ListItemNoLink
-                      title={article.title}
-                      className=""
-                    />
-                    <ul>
-                      {article.pages.map((page) => {
-                        const href = `${page.slug}-${page.id}`
-                        return (
-                          <ListItem
-                            key={page.id}
-                            title={page.title}
-                            href={href}
-                            className="govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                          />
-                        )
-                      })}
-                    </ul>
+                    <ListItemNoLink title={article.title} childList={article} />
                   </span>
                 )
               })}
@@ -63,6 +67,7 @@ interface IForwardRefProps {
   className?: string
   title?: string
   href?: string
+  childList?: []
 }
 
 type Ref = HTMLAnchorElement
@@ -77,7 +82,6 @@ const ListItem = React.forwardRef<Ref, IForwardRefProps>(
             {...props}
             ref={forwardedRef}>
             <span>{title}</span>
-            {children}
           </a>
         </NavigationMenu.Link>
       </p>
@@ -88,16 +92,16 @@ const ListItem = React.forwardRef<Ref, IForwardRefProps>(
 ListItem.displayName = 'ListItem'
 
 const ListItemNoLink = React.forwardRef<HTMLParagraphElement, IForwardRefProps>(
-  ({ className, children, title, ...props }, forwardedRef) => (
+  ({ className, children, title, childList, ...props }, forwardedRef) => (
     <li
       className={classNames(
         'gem-c-layout-super-navigation-header__dropdown-list-item',
         className
       )}>
-      <p ref={forwardedRef}>
+      <p ref={forwardedRef} className="govuk-heading-s">
         <span>{title}</span>
-        {children}
       </p>
+      <ChildList article={childList} />
     </li>
   )
 )

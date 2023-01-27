@@ -4962,8 +4962,10 @@ only screen and (min-resolution: 2dppx) {
 @media (min-width: 48.0625em) {
   .gem-c-layout-super-navigation-header__dropdown-list-item {
     padding: 0 0 5px 0;
+  }
+  ul > .gem-c-layout-super-navigation-header__dropdown-list-item {
     &:last-of-type {
-      padding: 0 0 10px 0;
+      padding: 0 0 15px 0;
     }
   }
 }
