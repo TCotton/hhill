@@ -32,7 +32,7 @@ const Navigation = (props) => {
         <NavigationMenu.Item>
           <NavigationMenu.Trigger
             className={`${styles.NavigationMenuTrigger} .gem-c-layout-super-navigation-header__navigation-top-toggle-button`}>
-            Menu <CaretDownIcon className={styles.CaretDown} aria-hidden/>
+            Menu <CaretDownIcon className={styles.CaretDown} aria-hidden />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
             <ul className="govuk-list govuk-list--spaced gem-c-layout-super-navigation-header__navigation-second-items">
@@ -81,7 +81,7 @@ const ListItem = React.forwardRef<Ref, IForwardRefProps>(
             className={classNames('ListItemLink', className)}
             {...props}
             ref={forwardedRef}>
-            <span>{title}</span>
+            {title}
           </a>
         </NavigationMenu.Link>
       </p>
@@ -99,7 +99,7 @@ const ListItemNoLink = React.forwardRef<HTMLParagraphElement, IForwardRefProps>(
         className
       )}>
       <p ref={forwardedRef} className="govuk-heading-s">
-        <span>{title}</span>
+        {title}
       </p>
       <ChildList article={childList} />
     </li>
