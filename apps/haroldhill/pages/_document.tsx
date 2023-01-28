@@ -34,6 +34,10 @@ export default class CustomDocument extends Document<{
           {this.props.styleTags}
         </Head>
         <body>
+          <script>
+            document.body.className = ((document.body.className) ?
+            document.body.className + ` js-enabled` : `js-enabled`);
+          </script>
           <Main />
           <NextScript />
         </body>

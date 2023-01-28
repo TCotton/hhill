@@ -1,4 +1,11 @@
 .siteHeader {
   color: #fff;
   font-family: "GDS Transport", arial, sans-serif;
+  margin-top: 10px;
+}
+:global(.govuk-link).header {
+  font-family: "GDS Transport", arial, sans-serif;
+}
+.center {
+  background: transparent;
 }
