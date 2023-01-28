@@ -6,6 +6,12 @@
   z-index: 1;
 }
 
+@media (max-width: 48.0625em) {
+  .NavigationMenuRoot {
+    margin-bottom: 10px
+  }
+}
+
 .NavigationMenuList {
   display: flex;
   justify-content: center;
