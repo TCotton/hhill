@@ -10,6 +10,7 @@ $govuk-font-family:  'Space Mono', monospace;
     position: absolute;
     bottom: 0;
     right: 0;
+    z-index: 1;
     margin-top: auto;
     margin-bottom: govuk-spacing(8);
   }
@@ -18,7 +19,7 @@ $govuk-font-family:  'Space Mono', monospace;
     position: fixed;
     top: calc(100% - #{govuk-spacing(8)});
     bottom: auto;
-    left: auto;
+    right: auto;
   }
 
   .js-enabled .app-back-to-top--hidden .app-back-to-top__link {
