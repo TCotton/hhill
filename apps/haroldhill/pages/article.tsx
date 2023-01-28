@@ -30,10 +30,6 @@ function Article({ posts, items, rawArticles, articles }) {
     }),
     fallback: false
   }
-  console.dir(whatever)
-  console.dir(newArticle)
-
-  console.dir(articles)
   return (
     <ul>
       {posts.map((post) => (
@@ -88,14 +84,5 @@ export const getServerSideProps: GetStaticProps = async () => {
     }
   }
 }
-
-/* articles: articles.result.items.reduce((acc, currentValue) => {
-  const slug = currentValue.fields.slug
-  currentValue.fields.pages.map((x) => ({
-    newValue: `${slug} ${x.fields.slug}`
-  }))
-  acc[currentValue.fields.slug] = currentValue
-  return acc
-}, {}) */
 
 export default Article

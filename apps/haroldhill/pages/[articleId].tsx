@@ -9,6 +9,31 @@ import addClasses from 'rehype-add-classes'
 import React from 'react'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
+import styles from './article.module.css'
+
+const BackToTop = () => {
+  return (
+    <div className="app-back-to-top back-to-top" data-module="app-back-to-top">
+      <a
+        className={`govuk-link govuk-link--no-visited-state app-back-to-top__link ${styles.backToTop}`}
+        href="#top">
+        <svg
+          role="presentation"
+          focusable="false"
+          className={`app-back-to-top__icon ${styles.backToTop__icon}`}
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          height="17"
+          viewBox="0 0 13 17">
+          <path
+            fill="currentColor"
+            d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+        </svg>
+        Back to top
+      </a>
+    </div>
+  )
+}
 
 function ArticleId(props) {
   const { title, contentRichText } = props
@@ -21,6 +46,9 @@ function ArticleId(props) {
             <div className="govuk-grid-column-two-thirds">
               <h1 className="govuk-heading-l">{title}</h1>
               <div dangerouslySetInnerHTML={{ __html: contentRichText }} />
+            </div>
+            <div className="govuk-grid-column-one-third">
+              <BackToTop />
             </div>
           </div>
         </main>

@@ -3,7 +3,7 @@
 .NavigationMenuRoot {
   display: flex;
   justify-content: center;
-  z-index: 1;
+  z-index: 10;
 }
 
 @media (max-width: 48.0625em) {

@@ -1,0 +1,7 @@
+:global(.back-to-top) .backToTop {
+  font-family: "GDS Transport", arial, sans-serif
+}
+.backToTop__icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}

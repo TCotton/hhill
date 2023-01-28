@@ -38,6 +38,7 @@ export default class CustomDocument extends Document<{
             document.body.className = ((document.body.className) ?
             document.body.className + ` js-enabled` : `js-enabled`);
           </script>
+          <a id="top"></a>
           <Main />
           <NextScript />
         </body>
