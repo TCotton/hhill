@@ -6,12 +6,6 @@ const client = createClient({
   accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN
 })
 
-type GetPageParams = {
-  pageContentType: string
-  slug: string
-  locale: string
-}
-
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   return client
     .getEntries({
