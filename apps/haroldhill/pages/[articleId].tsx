@@ -11,6 +11,7 @@ import Layout from '../components/Layout'
 import Header from '../components/Header'
 import styles from './article.module.css'
 import Previous from '../components/Previous'
+import Next from '../components/Next'
 
 const BackToTop = () => {
   return (
@@ -48,6 +49,7 @@ function ArticleId(props) {
               <Previous articleId={id} />
               <h1 className="govuk-heading-l">{title}</h1>
               <div dangerouslySetInnerHTML={{ __html: contentRichText }} />
+              <Next articleId={id} />
             </div>
             <div className="govuk-grid-column-one-third">
               <BackToTop />
@@ -116,8 +118,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await getArticles()
-  console.dir(articles)
-  debugger
   return {
     paths: articles.map((article) => {
       return {

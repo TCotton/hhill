@@ -1,4 +1,3 @@
-@include govuk-exports("govuk/component/back-link") {
 
   // Size of chevron (excluding border)
   $chevron-size: 7px;
@@ -18,7 +17,8 @@
     margin-top: govuk-spacing(3);
     margin-bottom: govuk-spacing(3);
     // Allow space for the arrow
-    padding-left: 14px;
+    padding-right: 10px;
+    float: right
   }
 
   // Prepend left pointing chevron
@@ -38,11 +38,12 @@
       bottom: 0;
     }
 
-    left: 3px;
+    right: 0;
+    left: auto;
     width: $chevron-size;
     height: $chevron-size;
     margin: auto 0;
-    transform: rotate(225deg);
+    transform: rotate(43deg);
     border: solid;
     border-width: $chevron-border-width $chevron-border-width 0 0;
     border-color: $chevron-border-colour;
@@ -84,4 +85,3 @@
       bottom: $offset;
     }
   }
-}
