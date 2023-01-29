@@ -10,6 +10,7 @@ import React from 'react'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import styles from './article.module.css'
+import Previous from '../components/Previous'
 
 const BackToTop = () => {
   return (
@@ -36,7 +37,7 @@ const BackToTop = () => {
 }
 
 function ArticleId(props) {
-  const { title, contentRichText } = props
+  const { title, contentRichText, id } = props
   return (
     <>
       <Header />
@@ -44,6 +45,7 @@ function ArticleId(props) {
         <main className="govuk-main-wrapper">
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
+              <Previous articleId={id} />
               <h1 className="govuk-heading-l">{title}</h1>
               <div dangerouslySetInnerHTML={{ __html: contentRichText }} />
             </div>
@@ -87,12 +89,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `http://localhost:3000/api/article?id=${articleId}`
   )
   const article = await content.json()
-
-  const c = await fetch('http://localhost:3000/api/allArticles')
-  const a = await c.json()
-
-  console.dir(a)
-  debugger
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkRehype)
@@ -112,7 +108,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       title: article.result.fields.title || 'no title',
-      contentRichText: contentHtml || 'no content'
+      contentRichText: contentHtml || 'no content',
+      id: article.result.sys.id || null
     }
   }
 }

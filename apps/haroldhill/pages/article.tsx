@@ -20,10 +20,8 @@ function Article({ posts, items, rawArticles, articles }) {
   })
   const newArticle = article
     .flatMap((article) => article.pages)
-    .map((page, index) => Object.assign(page, { newId: index }));
+    .map((page, index) => Object.assign(page, { newId: index }))
 
-  console.dir(newArticle)
-  debugger
   const whatever = {
     paths: newArticle.map((article) => {
       return {
