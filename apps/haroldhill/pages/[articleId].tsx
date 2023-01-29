@@ -60,6 +60,8 @@ function ArticleId(props) {
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
+  console.dir(articles.result.items)
+  debugger
   return articles.result.items
     .map((article) => {
       return {
@@ -85,6 +87,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     `http://localhost:3000/api/article?id=${articleId}`
   )
   const article = await content.json()
+
+  const c = await fetch('http://localhost:3000/api/allArticles')
+  const a = await c.json()
+
+  console.dir(a)
+  debugger
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkRehype)
@@ -92,7 +100,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       p: 'govuk-body',
       h1: 'govuk-heading-l',
       h2: 'govuk-heading-m',
-      h3: 'govuk-heading-s'
+      h3: 'govuk-heading-m',
+      h4: 'govuk-heading-m',
+      h5: 'govuk-heading-m',
+      h6: 'govuk-heading-m'
     })
     .use(rehypeFormat)
     .use(rehypeStringify)
@@ -108,6 +119,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await getArticles()
+  console.dir(articles)
+  debugger
   return {
     paths: articles.map((article) => {
       return {

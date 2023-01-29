@@ -2,7 +2,6 @@ import { GetStaticProps, GetServerSideProps } from 'next'
 import fetch from 'isomorphic-unfetch'
 
 function Article({ posts, items, rawArticles, articles }) {
-  console.dir(rawArticles)
 
   const article = rawArticles.result.items.map((article) => {
     return {
@@ -19,7 +18,12 @@ function Article({ posts, items, rawArticles, articles }) {
       })
     }
   })
-  const newArticle = article.flatMap((article) => article.pages)
+  const newArticle = article
+    .flatMap((article) => article.pages)
+    .map((page, index) => Object.assign(page, { newId: index }));
+
+  console.dir(newArticle)
+  debugger
   const whatever = {
     paths: newArticle.map((article) => {
       return {
@@ -42,12 +46,10 @@ function Article({ posts, items, rawArticles, articles }) {
 export const getServerSideProps: GetStaticProps = async () => {
   const result = await fetch('https://jsonplaceholder.typicode.com/posts')
   const items = await result.json()
-
-  debugger
-
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
   console.dir(articles)
+  debugger
   /*  const ids = articles.result.items.sys.filter((x) => x.id)
   console.dir(ids); */
 
