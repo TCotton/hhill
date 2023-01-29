@@ -1,9 +1,10 @@
-import React, { MouseEvent, useEffect } from 'react'
+import React, { MouseEvent } from 'react'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 
 const Previous = (props) => {
   const { articleId } = props
+  const [previous, setPrevious] = React.useState(null)
   interface IMyLinkRefProps {
     onClick?: MouseEvent<HTMLAnchorElement>
     href?: string
@@ -25,51 +26,53 @@ const Previous = (props) => {
   )
   PreviousLink.displayName = 'PreviousLink'
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const content = await fetch('http://localhost:3000/api/allArticles')
-      const articles = await content.json()
+  const fetchData = async () => {
+    const content = await fetch('http://localhost:3000/api/allArticles')
+    const articles = await content.json()
 
-      const article = articles.result.items.map((article) => {
-        return {
-          title: article.fields.title,
-          slug: article.fields.slug,
-          pages: article.fields.pages.map((page) => {
-            return {
-              title: page.fields.title,
-              contentRichText: page.fields.contentRichText,
-              slug: page.fields.slug,
-              fullSlug: `${article.fields.slug}/${page.fields.slug}`,
-              id: page.sys.id
-            }
-          })
-        }
-      })
-      const orderedArticles = article
-        .flatMap((article) => article.pages)
-        .map((page, index) => Object.assign(page, { newId: index }))
-
-      const currentArticle = orderedArticles.find(
-        (article) => article.id === articleId
-      )
-
-      return orderedArticles.find(
-        (article) => article.newId === currentArticle.newId - 1
-      )
-    }
-    fetchData().then((previousArticle) => {
-      console.dir(previousArticle)
+    const article = articles.result.items.map((article) => {
+      return {
+        title: article.fields.title,
+        slug: article.fields.slug,
+        pages: article.fields.pages.map((page) => {
+          return {
+            title: page.fields.title,
+            contentRichText: page.fields.contentRichText,
+            slug: page.fields.slug,
+            fullSlug: `${page.fields.slug}-${page.sys.id}`,
+            id: page.sys.id
+          }
+        })
+      }
     })
+    const orderedArticles = article
+      .flatMap((article) => article.pages)
+      .map((page, index) => Object.assign(page, { newId: index }))
+
+    const currentArticle = orderedArticles.find(
+      (article) => article.id === articleId
+    )
+
+    return orderedArticles.find(
+      (article) => article.newId === currentArticle.newId - 1
+    )
+  }
+  fetchData().then((previousArticle) => {
+    setPrevious(previousArticle.fullSlug)
   })
 
   return (
-    <Link
-      href="/"
-      passHref
-      // @ts-ignore
-      legacyBehavior>
-      <PreviousLink />
-    </Link>
+    <>
+      {previous && (
+        <Link
+          href={previous}
+          passHref
+          // @ts-ignore
+          legacyBehavior>
+          <PreviousLink />
+        </Link>
+      )}
+    </>
   )
 }
 
