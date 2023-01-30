@@ -27,38 +27,15 @@ const Previous = (props) => {
   PreviousLink.displayName = 'PreviousLink'
 
   const fetchData = async () => {
-    const content = await fetch('http://localhost:3000/api/allArticles')
-    const articles = await content.json()
-
-    const article = articles.result.items.map((article) => {
-      return {
-        title: article.fields.title,
-        slug: article.fields.slug,
-        pages: article.fields.pages.map((page) => {
-          return {
-            title: page.fields.title,
-            contentRichText: page.fields.contentRichText,
-            slug: page.fields.slug,
-            fullSlug: `${page.fields.slug}-${page.sys.id}`,
-            id: page.sys.id
-          }
-        })
-      }
-    })
-    const orderedArticles = article
-      .flatMap((article) => article.pages)
-      .map((page, index) => Object.assign(page, { newId: index }))
-
-    const currentArticle = orderedArticles.find(
-      (article) => article.id === articleId
+    const content = await fetch(
+      'http://localhost:3000/api/navigationArticles?articleId=' +
+        articleId +
+        '&direction=previous'
     )
-
-    return orderedArticles.find(
-      (article) => article.newId === currentArticle.newId - 1
-    )
+    return await content.json()
   }
-  fetchData().then((previousArticle) => {
-    setPrevious(previousArticle?.fullSlug)
+  fetchData().then((nextArticle) => {
+    if (nextArticle.message === 'ok') setPrevious(nextArticle?.result?.fullSlug)
   })
 
   return (
