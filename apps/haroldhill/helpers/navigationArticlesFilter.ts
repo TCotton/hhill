@@ -1,29 +1,4 @@
-import { IChapters, IChaptersFields, IPagesFields, IPages } from '@hhill/types'
-
-interface IArticle {
-  includes: {
-    Entry: {
-      fields: IPagesFields
-      metadata: {
-        tags: []
-      }
-      sys: IPages | IChapters
-    }
-  }
-  limit: number
-  skip: number
-  sys: { type: string }
-  items: [
-    {
-      fields: IChaptersFields
-      metadata: {
-        tags: []
-      }
-      sys: IPages | IChapters
-    }
-  ]
-}
-
+import { IArticle } from '@hhill/types'
 const navigationArticlesFilter = (
   articles: IArticle,
   direction: number,
