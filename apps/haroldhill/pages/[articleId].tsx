@@ -6,6 +6,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeFormat from 'rehype-format'
 import rehypeStringify from 'rehype-stringify'
 import addClasses from 'rehype-add-classes'
+import rehypeRaw from 'rehype-raw'
 import React from 'react'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
@@ -48,7 +49,7 @@ function ArticleId(props) {
             <div className="govuk-grid-column-two-thirds">
               <Previous articleId={id} />
               <h1 className="govuk-heading-l">{title}</h1>
-              <div dangerouslySetInnerHTML={{ __html: contentRichText }} />
+              {<div dangerouslySetInnerHTML={{__html: contentRichText}}/>}
               <Next articleId={id} />
             </div>
             <div className="govuk-grid-column-one-third">
@@ -93,7 +94,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const article = await content.json()
   const processedContent = await unified()
     .use(remarkParse)
-    .use(remarkRehype)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
     .use(addClasses, {
       p: 'govuk-body',
       h1: 'govuk-heading-l',

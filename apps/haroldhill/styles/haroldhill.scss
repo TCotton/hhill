@@ -1,0 +1,9 @@
+@import "node_modules/govuk-frontend/govuk/all";
+blockquote {
+  padding-left: 10%
+}
+@include govuk-media-query($until: tablet) {
+  blockquote {
+    padding-left: 5%
+  }
+}
