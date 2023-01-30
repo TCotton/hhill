@@ -58,7 +58,7 @@ const Previous = (props) => {
     )
   }
   fetchData().then((previousArticle) => {
-    setPrevious(previousArticle.fullSlug)
+    setPrevious(previousArticle?.fullSlug)
   })
 
   return (
