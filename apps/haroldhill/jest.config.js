@@ -7,5 +7,7 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/apps/haroldhill',
-  setupFilesAfterEnv: ['<rootDir>/setup.jest.js']
+  setupFilesAfterEnv: ['<rootDir>/setup.jest.js'],
+  testEnvironment: 'jsdom',
+  verbose: true
 }
