@@ -1,5 +1,6 @@
 import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { IChapters } from '@hhill/types'
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID, // ID of a Compose-compatible space to be used \
@@ -12,7 +13,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       content_type: 'chapters'
     })
     .then((data) => {
-      const mappedArticles = data.result.items.map((article) => {
+      const mappedArticles = data.items.map((article: IChapters) => {
         return {
           title: article.fields.title,
           slug: article.fields.slug,
@@ -27,7 +28,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
           })
         }
       })
-
       res.status(200).json({
         message: 'ok',
         result: {

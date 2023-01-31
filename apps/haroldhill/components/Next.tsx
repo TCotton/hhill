@@ -53,4 +53,4 @@ const Previous = (props) => {
   )
 }
 
-export default Previous
+export default React.memo(Previous)
