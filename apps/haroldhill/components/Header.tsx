@@ -16,7 +16,8 @@ const Header = () => {
         <a
           href={href}
           ref={ref}
-          className={`govuk-link govuk-link--inverse govuk-link--no-underline ${styles.header}`}>
+          className={`govuk-link govuk-link--inverse govuk-link--no-underline ${styles.header}`}
+          data-testid="header-link">
           {/* eslint-disable-next-line react/no-unescaped-entities */}
           <em>HAROLD HILL</em>: A People's History{' '}
         </a>

@@ -6,5 +6,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nrwl/next/babel'] }]
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/apps/haroldhill'
+  coverageDirectory: '../../coverage/apps/haroldhill',
+  setupFilesAfterEnv: ['<rootDir>/setup.jest.js']
 }
