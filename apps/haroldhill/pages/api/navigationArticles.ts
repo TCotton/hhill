@@ -1,4 +1,4 @@
-import { createClient, EntryCollection } from 'contentful'
+import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
 import navigationArticlesFilter from '../../helpers/navigationArticlesFilter'
 import { IArticle } from '@hhill/types'
@@ -9,7 +9,7 @@ const client = createClient({
 })
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const direction = (req.query.direction as string) === 'next' ? 1 : -1
+  const direction = req.query.direction as 'next' | 'previous'
   const articleId = req.query.articleId as string
 
   return client
