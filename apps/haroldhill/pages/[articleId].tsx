@@ -7,12 +7,13 @@ import rehypeFormat from 'rehype-format'
 import rehypeStringify from 'rehype-stringify'
 import addClasses from 'rehype-add-classes'
 import rehypeRaw from 'rehype-raw'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import styles from './article.module.css'
 import Previous from '../components/Previous'
 import Next from '../components/Next'
+import Caption from '../components/Caption'
 
 const BackToTop = () => {
   return (
@@ -48,8 +49,9 @@ function ArticleId(props) {
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
               <Previous articleId={id} />
+              <Caption />
               <h1 className="govuk-heading-l">{title}</h1>
-              {<div dangerouslySetInnerHTML={{__html: contentRichText}}/>}
+              {<div dangerouslySetInnerHTML={{ __html: contentRichText }} />}
               <Next articleId={id} />
             </div>
             <div className="govuk-grid-column-one-third">
@@ -65,25 +67,25 @@ function ArticleId(props) {
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
-  console.dir(articles.result.items)
-  debugger
-  return articles.result.items
-    .map((article) => {
-      return {
-        title: article.fields.title,
-        slug: article.fields.slug,
-        pages: article.fields.pages.map((page) => {
-          return {
-            title: page.fields.title,
-            contentRichText: page.fields.contentRichText,
-            slug: page.fields.slug,
-            fullSlug: `${article.fields.slug}/${page.fields.slug}`,
-            id: page.sys.id
-          }
-        })
-      }
-    })
-    .flatMap((article) => article.pages)
+  const mappedArticles = articles.result.items.map((article) => {
+    return {
+      title: article.fields.title,
+      slug: article.fields.slug,
+      pages: article.fields.pages.map((page) => {
+        return {
+          title: page.fields.title,
+          contentRichText: page.fields.contentRichText,
+          slug: page.fields.slug,
+          fullSlug: `${article.fields.slug}/${page.fields.slug}`,
+          id: page.sys.id
+        }
+      })
+    }
+  })
+  return {
+    articles: mappedArticles.flatMap((article) => article.pages),
+    mappedArticles
+  }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -119,7 +121,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articles = await getArticles()
+  const { articles } = await getArticles()
   return {
     paths: articles.map((article) => {
       return {
