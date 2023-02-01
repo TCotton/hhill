@@ -5,25 +5,19 @@ const fetchData = async () => {
 }
 
 const findParent = (id, result) => {
-  console.log('findParent', id, result)
-  console.log('result.result.mappedArticles', result?.result?.mappedArticles)
   const anArray = result?.result?.mappedArticles
-  console.log('anArray', anArray)
-  // TODO: fix this
-  const title = anArray.forEach(
-    (item: { id: string }, index: string | number, array: []) => {
-      const result = array[index].pages.forEach(
-        (it: { id: string }, i: string | number, arr) => {
-          if (arr[index].id === id) {
-            console.log('arr[index].title', arr[index].title)
-            return array[index].title
-          }
-          return null
-        })
-      console.log('result', result)
-      return result
+  const title = anArray.filter(n => n.pages.filter(it => {
+    if (it.id === id.toString().split('-').pop() || '') {
+      console.log('n.title', n.title)
     }
-  )
+  }))
+    /*item.pages.map((it) => {
+      if (it.id === id.toString().split('-').pop() || '') {
+        console.log('item.title', item.title)
+        return item.title
+      }
+      return null
+    })*/
   console.log('title', title)
   return title
 }

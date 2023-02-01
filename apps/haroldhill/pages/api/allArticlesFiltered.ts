@@ -1,6 +1,5 @@
-import { createClient, Entry } from 'contentful'
+import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { IChapters, IChaptersFields } from '@hhill/types'
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID || '', // ID of a Compose-compatible space to be used \

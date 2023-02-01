@@ -29,7 +29,6 @@ function useResults(articleId) {
 const Previous = (props) => {
   const { articleId } = props
   const next = useResults(articleId)
-  console.log('next', next)
   interface IMyLinkRefProps {
     onClick?: MouseEvent<HTMLAnchorElement>
     href?: string
