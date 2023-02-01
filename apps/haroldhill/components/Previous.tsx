@@ -15,9 +15,9 @@ function useResults(articleId) {
   const [results, setResults] = useState(null)
   useEffect(() => {
     let ignore = false
-    fetchData(articleId).then((nextArticle) => {
-      if (nextArticle.message === 'ok' && !ignore)
-        setResults(nextArticle?.result?.fullSlug)
+    fetchData(articleId).then((prevArticle) => {
+      if (prevArticle.message === 'ok' && !ignore)
+        setResults(prevArticle?.result?.fullSlug)
     })
     return () => {
       ignore = true
