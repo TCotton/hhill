@@ -8,6 +8,8 @@
     "types": ["node", "jest"],
     "strict": false,
     "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
