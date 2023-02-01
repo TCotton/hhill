@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next'
 import fetch from 'isomorphic-unfetch'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -87,13 +87,19 @@ const getArticles = async () => {
   }
 }
 
-interface Params {
+interface Params extends GetStaticProps {
   params: {
     articleId: string
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
+export const getStaticProps: ({
+  params
+}: GetStaticPropsContext<{ articleId: string }>) => Promise<{
+  props: { contentRichText: string; id: null; title: string }
+}> = async ({ params }: GetStaticPropsContext<{ articleId: string }>) => {
+  // TODO: fix this
+  // @ts-ignore
   const { articleId } = params
   const content = await fetch(
     `http://localhost:3000/api/article?id=${articleId}`
