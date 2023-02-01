@@ -1,7 +1,7 @@
 import { IChapters, IChaptersFields, IPagesFields, IPages } from './contentful'
 
 export interface IArticle {
-  includes: {
+  includes?: {
     Entry: {
       fields: IPagesFields
       metadata: {
@@ -12,7 +12,7 @@ export interface IArticle {
   }
   limit: number
   skip: number
-  sys: { type: string }
+  sys?: { type: string }
   items: [
     {
       fields: IChaptersFields
@@ -23,4 +23,3 @@ export interface IArticle {
     }
   ]
 }
-

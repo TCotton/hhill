@@ -1,50 +1,18 @@
 import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
+import { IArticle } from '@hhill/types'
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID || '', // ID of a Compose-compatible space to be used \
   accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN || ''
 })
-
-/*
-interface IArticle extends Entry<IChaptersFields> {
-  title: string
-  slug: string
-  pages: [
-    {
-      title: string
-      contentRichText: string
-      slug: string
-    }
-  ]
-  fields: {
-    title: string
-    slug: string
-    pages: [
-      {
-        sys: {
-          id: string
-        }
-        fields: {
-          title: string
-          contentRichText: string
-          slug: string
-        }
-      }
-    ]
-  }
-}
-*/
-
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   return client
     .getEntries({
       content_type: 'chapters'
     })
-    .then((data) => {
-      // TODO: fix this type error
-      // @ts-ignore
-      const mappedArticles = data.items.map(article => {
+    .then((data: IArticle) => {
+      const mappedArticles = data.items.map((article) => {
         return {
           title: article.fields.title,
           slug: article.fields.slug,
