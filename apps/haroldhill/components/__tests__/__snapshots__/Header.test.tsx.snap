@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot 1`] = `
+<body>
+  <div>
+    <header
+      class="govuk-header "
+      data-module="govuk-header"
+      role="banner"
+    >
+      <div
+        class="govuk-header__container govuk-width-container"
+      >
+        <div
+          class="govuk-grid-row"
+        >
+          <div
+            class="govuk-grid-column-two-thirds-from-desktop center"
+          >
+            <p
+              class="govuk-heading-m siteHeader"
+            >
+              <a
+                class="govuk-link govuk-link--inverse govuk-link--no-underline header"
+                data-testid="header-link"
+                href="/"
+              >
+                <em>
+                  HAROLD HILL
+                </em>
+                : A People's History
+                 
+              </a>
+            </p>
+          </div>
+          <div
+            class="govuk-grid-column-one-third-from-desktop"
+          >
+            <nav
+              aria-label="Menu"
+              class="govuk-header__navigation"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+`;
