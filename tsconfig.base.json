@@ -19,17 +19,21 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "types": [
-      "node",
-      "@testing-library/jest-dom",
-      "jest"
-    ],
+    "types": ["node", "@testing-library/jest-dom", "jest"],
     "paths": {
       "@hhill/contenful": ["libs/contenful/src/index.ts"],
+      "@hhill/helpers": ["libs/helpers/src/index.ts"],
       "@hhill/libs/markdown": ["libs/libs/markdown/src/index.ts"],
       "@hhill/markdown": ["libs/markdown/src/index.ts"],
       "@hhill/types": ["libs/types/src/index.ts"]
     }
   },
-  "exclude": ["**/**/**/*.test.ts", "node_modules", "tmp", "\"**/__tests__/**/*.[jt]s?(x)\"", "\"**/?(*.)+(spec|test).[tj]s?(x)\"", "\"**/test/**/*.[jt]s?(x)\""]
+  "exclude": [
+    "**/**/**/*.test.ts",
+    "node_modules",
+    "tmp",
+    "\"**/__tests__/**/*.[jt]s?(x)\"",
+    "\"**/?(*.)+(spec|test).[tj]s?(x)\"",
+    "\"**/test/**/*.[jt]s?(x)\""
+  ]
 }

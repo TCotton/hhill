@@ -121,6 +121,7 @@
         }
       }
     },
+    "helpers": "libs/helpers",
     "markdown": {
       "root": "libs/markdown",
       "sourceRoot": "libs/markdown/src",
