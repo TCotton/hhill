@@ -35,7 +35,8 @@ const navigationArticlesFilter = (
     )
 
   const currentArticle =
-    orderedArticles.find((article: IArticle) => article?.id === articleId) || {}
+    orderedArticles.find((article: IArticle) => article?.id === articleId) ||
+    ({} as IArticle & { newId: number })
 
   return orderedArticles.find(
     (article) => article?.newId === currentArticle?.newId + directionNumber
