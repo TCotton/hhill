@@ -9,18 +9,19 @@ const findParent = (id, result) => {
   console.log('result.result.mappedArticles', result?.result?.mappedArticles)
   const anArray = result?.result?.mappedArticles
   console.log('anArray', anArray)
-
+  // TODO: fix this
   const title = anArray.forEach(
     (item: { id: string }, index: string | number, array: []) => {
-      return array[index].pages.filter(
+      const result = array[index].pages.forEach(
         (it: { id: string }, i: string | number, arr) => {
           if (arr[index].id === id) {
             console.log('arr[index].title', arr[index].title)
             return array[index].title
           }
           return null
-        }
-      )
+        })
+      console.log('result', result)
+      return result
     }
   )
   console.log('title', title)

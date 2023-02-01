@@ -14,8 +14,6 @@ import styles from './article.module.css'
 import Previous from '../components/Previous'
 import Next from '../components/Next'
 import Caption from '../components/Caption'
-import { ParsedUrlQuery } from 'querystring'
-
 const BackToTop = () => {
   return (
     <div className="app-back-to-top back-to-top" data-module="app-back-to-top">
@@ -89,7 +87,7 @@ const getArticles = async () => {
   }
 }
 
-type Params = {
+interface Params {
   params: {
     articleId: string
   }
