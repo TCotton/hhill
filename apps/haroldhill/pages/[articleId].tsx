@@ -50,7 +50,7 @@ function ArticleId(props) {
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
               <Previous articleId={id} />
-              <Caption />
+              <Caption id={id} />
               <h1 className="govuk-heading-l">{title}</h1>
               {<div dangerouslySetInnerHTML={{ __html: contentRichText }} />}
               <Next articleId={id} />
