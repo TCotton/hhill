@@ -8,29 +8,14 @@ jest.mock('isomorphic-unfetch', () =>
     Promise.resolve({
       json: () =>
         Promise.resolve({
+          message: "ok",
           result: {
-            items: [
-              {
-                fields: {
-                  title: 'Article 1',
-                  slug: 'article-1',
-                  pages: [
-                    {
-                      fields: {
-                        title: 'Page 1.1',
-                        contentRichText: 'Page 1.1 content',
-                        slug: 'page-1.1',
-                        parent: 'Article 1',
-                        id: '12345'
-                      },
-                      sys: {
-                        id: '12345'
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
+            contentRichText: 'string',
+            fullSlug: 'string',
+            id: 'string',
+            title: 'string',
+            slug: 'string',
+            newId: 'number',
           }
         })
     })

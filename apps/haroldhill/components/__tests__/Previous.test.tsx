@@ -1,5 +1,6 @@
-import Next from '../Next'
-import { render, waitFor, act, screen } from '@testing-library/react'
+import Previous from '../Previous'
+import { render, waitFor } from '@testing-library/react'
+
 jest.mock('isomorphic-unfetch', () =>
   jest.fn(() =>
     Promise.resolve({
@@ -18,30 +19,22 @@ jest.mock('isomorphic-unfetch', () =>
     })
   )
 )
-
-describe('Next', () => {
+describe('Previous', () => {
   const props = {
     articleId: '12345'
   }
-
   it('should render successfully', async () => {
-    const { baseElement } = render(<Next {...props} />)
+    const { baseElement } = render(<Previous {...props} />)
     await waitFor(() => {
       expect(baseElement).toBeTruthy()
     })
   })
   it('should render with the correct text', async () => {
-    const { findByText } = render(<Next {...props} />)
-    expect(await findByText('Next')).toBeTruthy()
+    const { findByText } = render(<Previous {...props} />)
+    expect(await findByText('Previous')).toBeTruthy()
   })
   it('should render with correct href', async () => {
-    const { findByText } = render(<Next {...props} />)
-    expect(await findByText('Next')).toHaveAttribute('href', '/string')
-  })
-  xit('should match snapshot', async () => {
-    const { baseElement } = render(<Next {...props} />)
-    await waitFor(() => {
-      expect(baseElement).toMatchSnapshot()
-    })
+    const { findByText } = render(<Previous {...props} />)
+    expect(await findByText('Previous')).toHaveAttribute('href', '/string')
   })
 })
