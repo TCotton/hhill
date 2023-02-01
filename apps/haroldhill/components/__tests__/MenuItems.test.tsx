@@ -8,14 +8,14 @@ jest.mock('isomorphic-unfetch', () =>
     Promise.resolve({
       json: () =>
         Promise.resolve({
-          message: "ok",
+          message: 'ok',
           result: {
             contentRichText: 'string',
             fullSlug: 'string',
             id: 'string',
             title: 'string',
             slug: 'string',
-            newId: 'number',
+            newId: 'number'
           }
         })
     })

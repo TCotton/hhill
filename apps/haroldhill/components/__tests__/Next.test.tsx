@@ -1,5 +1,5 @@
 import Next from '../Next'
-import { render, waitFor, act, screen } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 jest.mock('isomorphic-unfetch', () =>
   jest.fn(() =>
     Promise.resolve({
