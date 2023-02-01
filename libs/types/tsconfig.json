@@ -14,7 +14,7 @@
   },
   "files": [],
   "include": [],
-  "exclude": ["\"**/__tests__/**/*.[jt]s?(x)\"", "\"**/?(*.)+(spec|test).[tj]s?(x)\"", "\"**/test/**/*.[jt]s?(x)\""],
+  "exclude": ["./src/lib/contentful.d.ts", ",\"**/__tests__/**/*.[jt]s?(x)\"", "\"**/?(*.)+(spec|test).[tj]s?(x)\"", "\"**/test/**/*.[jt]s?(x)\""],
   "references": [
     {
       "path": "./tsconfig.lib.json"

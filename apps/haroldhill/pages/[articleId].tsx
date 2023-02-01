@@ -7,13 +7,14 @@ import rehypeFormat from 'rehype-format'
 import rehypeStringify from 'rehype-stringify'
 import addClasses from 'rehype-add-classes'
 import rehypeRaw from 'rehype-raw'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
 import styles from './article.module.css'
 import Previous from '../components/Previous'
 import Next from '../components/Next'
 import Caption from '../components/Caption'
+import { ParsedUrlQuery } from 'querystring'
 
 const BackToTop = () => {
   return (
@@ -88,7 +89,13 @@ const getArticles = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+type Params = {
+  params: {
+    articleId: string
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
   const { articleId } = params
   const content = await fetch(
     `http://localhost:3000/api/article?id=${articleId}`

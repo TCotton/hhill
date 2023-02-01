@@ -3,8 +3,8 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { IChapters } from '@hhill/types'
 
 const client = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID, // ID of a Compose-compatible space to be used \
-  accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID || '', // ID of a Compose-compatible space to be used \
+  accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN || ''
 })
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

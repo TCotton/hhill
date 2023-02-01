@@ -2,14 +2,14 @@ import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
 
 const client = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID, // ID of a Compose-compatible space to be used \
-  accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID || '', // ID of a Compose-compatible space to be used \
+  accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN || ''
 })
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query
   return client
-    .getEntry(id.toString().split('-').pop())
+    .getEntry(id.toString().split('-').pop() || '')
     .then((result) => {
       res.status(200).json({
         message: 'ok',

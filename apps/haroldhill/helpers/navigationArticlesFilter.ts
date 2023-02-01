@@ -26,9 +26,10 @@ const navigationArticlesFilter = (
     .flatMap((article) => article.pages)
     .map((page, index) => Object.assign(page, { newId: index }))
 
-  const currentArticle = orderedArticles.find(
-    (article: Record<string, unknown>) => article?.id === articleId
-  )
+  const currentArticle =
+    orderedArticles.find(
+      (article: Record<string, unknown>) => article?.id === articleId
+    ) || ({} as Record<string, number>)
 
   return orderedArticles.find(
     (article) => article?.newId === currentArticle?.newId + directionNumber

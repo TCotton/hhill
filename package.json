@@ -28,6 +28,8 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
+    "test:type-check": "tsc -p ./apps/haroldhill/tsconfig.json --noEmit",
+    "type-check:watch": "npm run test:type-check -- --watch",
     "contentful-typescript-codegen": "contentful-typescript-codegen --output ./libs/types/src/lib/contentful.d.ts"
   },
   "private": true,

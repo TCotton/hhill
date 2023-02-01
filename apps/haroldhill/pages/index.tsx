@@ -1,7 +1,6 @@
 import styles from './index.module.css'
 import React from 'react'
 import type { NextPageWithLayout } from './_app'
-import Layout from '../components/layout'
 
 const Index: NextPageWithLayout = () => {
   /*
