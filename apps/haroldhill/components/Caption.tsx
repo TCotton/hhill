@@ -6,19 +6,14 @@ const fetchData = async () => {
 
 const findParent = (id, result) => {
   const anArray = result?.result?.mappedArticles
-  const title = anArray.filter(n => n.pages.filter(it => {
-    if (it.id === id.toString().split('-').pop() || '') {
-      console.log('n.title', n.title)
-    }
-  }))
-    /*item.pages.map((it) => {
+  let title
+  anArray.forEach((item) => {
+    item.pages.forEach((it) => {
       if (it.id === id.toString().split('-').pop() || '') {
-        console.log('item.title', item.title)
-        return item.title
+        title = item.title
       }
-      return null
-    })*/
-  console.log('title', title)
+    })
+  })
   return title
 }
 
@@ -42,10 +37,7 @@ function useResults(id) {
 const Caption = (props) => {
   const { id } = props
   const results = useResults(id)
-  console.log('results', results)
-  return results?.message === 'ok' ? (
-    <span className="govuk-caption-xl">{results}</span>
-  ) : null
+  return results ? <span className="govuk-caption-xl">{results}</span> : null
 }
 
 export default Caption
