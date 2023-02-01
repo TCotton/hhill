@@ -1,4 +1,4 @@
-import { IArticle } from '@hhill/types'
+import { IArticle, IPagesFields } from '@hhill/types'
 const navigationArticlesFilter = (
   articles: IArticle,
   direction: 'next' | 'previous',
@@ -19,17 +19,23 @@ const navigationArticlesFilter = (
               id: page.sys?.id
             }
           })
-        : ({} as Record<string, unknown>) // <-- this is the problem
+        : {}
     }
   })
+
+  interface IArticle extends IPagesFields {
+    newId?: number
+    id?: string
+  }
+
   const orderedArticles = article
     .flatMap((article) => article.pages)
-    .map((page, index) => Object.assign(page, { newId: index }))
+    .map((page: IArticle, index: number) =>
+      Object.assign(page, { newId: index })
+    )
 
   const currentArticle =
-    orderedArticles.find(
-      (article: Record<string, unknown>) => article?.id === articleId
-    ) || ({} as Record<string, number>)
+    orderedArticles.find((article: IArticle) => article?.id === articleId) || {}
 
   return orderedArticles.find(
     (article) => article?.newId === currentArticle?.newId + directionNumber

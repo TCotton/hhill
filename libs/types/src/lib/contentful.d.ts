@@ -32,13 +32,15 @@ export interface IChapters extends Entry<IChaptersFields> {
 
 export interface IPagesFields {
   /** Title */
-  title: string;
+  title?: string;
 
   /** slug */
   slug?: string | undefined;
 
   /** content rich text */
-  contentRichText: string;
+  contentRichText?: string;
+
+  newId?: number | undefined;
 }
 
 /** All pages here */
