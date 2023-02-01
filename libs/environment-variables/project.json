@@ -1,0 +1,32 @@
+{
+  "root": "libs/environment-variables",
+  "sourceRoot": "libs/environment-variables/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/environment-variables",
+        "main": "libs/environment-variables/src/index.ts",
+        "tsConfig": "libs/environment-variables/tsconfig.lib.json",
+        "assets": ["libs/environment-variables/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/environment-variables/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/environment-variables"],
+      "options": {
+        "jestConfig": "libs/environment-variables/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
