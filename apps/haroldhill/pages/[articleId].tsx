@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next'
+import { GetStaticPaths, GetStaticPropsContext } from 'next'
 import fetch from 'isomorphic-unfetch'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -84,12 +84,6 @@ const getArticles = async () => {
   return {
     articles: mappedArticles.flatMap((article) => article.pages),
     mappedArticles
-  }
-}
-
-interface Params extends GetStaticProps {
-  params: {
-    articleId: string
   }
 }
 

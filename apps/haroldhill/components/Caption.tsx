@@ -24,7 +24,6 @@ function useResults(id) {
     fetchData().then((json) => {
       if (!ignore) {
         const result = findParent(id, json)
-        console.log('result', result)
         setResults(result)
       }
     })
