@@ -17,7 +17,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       content_type: 'chapters'
     })
     .then((result) => {
-      console.dir(result)
       res.status(200).json({
         message: 'ok',
         result: navigationArticlesFilter(

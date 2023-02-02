@@ -1,13 +1,13 @@
 import React from 'react'
 import type { NextPageWithLayout } from './_app'
-import Layout from '../components/Layout'
 import Header from '../components/Header'
+import styles from '../components/layout.module.css'
 
 const Index: NextPageWithLayout = () => {
   return (
     <>
       <Header />
-      <Layout>
+      <div className={`govuk-width-container ${styles.container}`}>
         <main className="govuk-main-wrapper">
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
@@ -29,7 +29,7 @@ const Index: NextPageWithLayout = () => {
             </div>
           </div>
         </main>
-      </Layout>
+      </div>
     </>
   )
 }
