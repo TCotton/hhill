@@ -11,6 +11,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   return client
     .getEntry(id.toString().split('-').pop() || '')
     .then((result) => {
+      console.log(result)
       res.status(200).json({
         message: 'ok',
         result

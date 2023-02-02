@@ -7,6 +7,7 @@ import rehypeFormat from 'rehype-format'
 import rehypeStringify from 'rehype-stringify'
 import addClasses from 'rehype-add-classes'
 import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 import React from 'react'
 import Layout from '../components/Layout'
 import Header from '../components/Header'
@@ -64,11 +65,6 @@ function ArticleId(props) {
   )
 }
 
-const fetchData = async (url) => {
-  const content = await fetch(url)
-  return await content.json()
-}
-
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
@@ -107,6 +103,7 @@ export const getStaticProps: ({
   const article = await content.json()
   const processedContent = await unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(addClasses, {
