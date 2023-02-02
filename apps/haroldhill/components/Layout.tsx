@@ -1,16 +1,18 @@
 import Head from 'next/head'
 import React from 'react'
+import { NextSeo } from 'next-seo'
 import styles from './layout.module.css'
 
 type LayoutProps = {
   children: React.ReactNode
+  title?: string
 }
-
-export default function Layout({ children }: LayoutProps) {
+const mainTitle = `Harold Hill: A People's History`;
+export default function Layout({ children, title }: LayoutProps) {
   return (
     <>
       <Head>
-        <title>Whatever</title>
+        <title>{title} - {mainTitle}</title>
       </Head>
       <div className={`govuk-width-container ${styles.container}`}>
         {children}

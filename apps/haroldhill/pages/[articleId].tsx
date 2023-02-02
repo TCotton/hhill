@@ -43,7 +43,7 @@ function ArticleId(props) {
   return (
     <>
       <Header />
-      <Layout>
+      <Layout title={title}>
         <main className="govuk-main-wrapper">
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
