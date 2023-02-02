@@ -55,7 +55,7 @@ const Navigation = (props) => {
       </NavigationMenu.List>
 
       <div className={styles.ViewportPosition}>
-        <NavigationMenu.Viewport className={styles.NavigationMenuViewport} forceMount />
+        <NavigationMenu.Viewport className={styles.NavigationMenuViewport} />
       </div>
     </NavigationMenu.Root>
   )
