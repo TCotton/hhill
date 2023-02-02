@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`feature toggle featureToggle - undefined && true for test env variable should NOT render component if feature toggle is 'false' 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`feature toggle featureToggle - undefined && true for test env variable should NOT render component if feature toggle is undefined 1`] = `
+<body>
+  <div />
+</body>
+`;

@@ -3,12 +3,13 @@ module.exports = {
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-    },
+      tsconfig: '<rootDir>/tsconfig.spec.json'
+    }
   },
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest',
+    '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',
+    '^.+\\.[tj]sx?$': ['babel-jest', { presets: ['@nrwl/next/babel'] }]
   },
-  moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../coverage/libs/environment-variables',
-};
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'd.ts'],
+  coverageDirectory: '../../coverage/libs/environment-variables'
+}

@@ -3,14 +3,16 @@
   "compilerOptions": {
     "module": "CommonJS",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
+    "strictNullChecks": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
   "files": [],
-  "include": [],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
+  "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx", "**/*.test.js", "**/*.test.jsx", "__tests__"],
   "references": [
     {
       "path": "./tsconfig.lib.json"

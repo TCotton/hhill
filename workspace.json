@@ -45,6 +45,7 @@
       }
     },
     "environment-variables": "libs/environment-variables",
+    "environment-variables": "libs/environment-variables",
     "haroldhill": {
       "root": "apps/haroldhill",
       "sourceRoot": "apps/haroldhill",
