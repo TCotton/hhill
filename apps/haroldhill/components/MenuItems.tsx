@@ -4,6 +4,7 @@ import Navigation from './Navigation'
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
+  console.dir(articles)
   return articles.result.items.map((article) => {
     return {
       title: article.fields.title,
