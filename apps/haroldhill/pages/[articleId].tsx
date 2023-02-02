@@ -113,7 +113,8 @@ export const getStaticProps: ({
       h3: 'govuk-heading-m',
       h4: 'govuk-heading-m',
       h5: 'govuk-heading-m',
-      h6: 'govuk-heading-m'
+      h6: 'govuk-heading-m',
+      a: 'govuk-link',
     })
     .use(rehypeFormat)
     .use(rehypeStringify)
