@@ -21,7 +21,6 @@
     "baseUrl": ".",
     "types": ["node", "@testing-library/jest-dom", "jest"],
     "paths": {
-      "@hhill/contenful": ["libs/contenful/src/index.ts"],
       "@hhill/environment-variables": [
         "libs/environment-variables/src/index.ts"
       ],

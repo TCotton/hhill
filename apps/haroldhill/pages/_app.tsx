@@ -3,7 +3,6 @@ import type { NextPage } from 'next'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ContentfulProvider } from 'react-contentful'
-import { contentfulClient, previewContentfulClient } from '@hhill/contenful'
 import '../styles/reset.scss'
 import '../styles/gds.scss'
 import '../styles/radixui.scss'
@@ -20,14 +19,7 @@ function CustomApp({ Component, pageProps, router }: AppProps) {
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <title>Harold Hill: A People's History</title>
       </Head>
-      <ContentfulProvider
-        client={
-          router.query.preview === '1'
-            ? previewContentfulClient
-            : contentfulClient
-        }>
-        <Component {...pageProps} />
-      </ContentfulProvider>
+      <Component {...pageProps} />
     </>
   )
 }
