@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import background from '../../public/images/background.jpg';
 
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[]

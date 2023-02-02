@@ -6,6 +6,8 @@
     "nx": "nx",
     "start": "nx serve haroldhill --port 3000",
     "build": "nx build",
+    "build:prod": "nx build haroldhill --prod",
+    "build:debug": "nx build haroldhill --with-deps",
     "test": "nx test",
     "test:file": "nx test --testFile",
     "dev": "next dev",

@@ -2,7 +2,6 @@ import React from 'react'
 import type { NextPage } from 'next'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { ContentfulProvider } from 'react-contentful'
 import '../styles/reset.scss'
 import '../styles/gds.scss'
 import '../styles/radixui.scss'
@@ -12,7 +11,7 @@ export type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode
 }
 
-function CustomApp({ Component, pageProps, router }: AppProps) {
+function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
