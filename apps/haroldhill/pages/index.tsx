@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, {ReactNode, useEffect, useState} from 'react'
 import type { NextPageWithLayout } from './_app'
 import Header from '../components/Header'
 import styles from '../components/layout.module.css'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
+import Link from 'next/link'
+import fetch from 'isomorphic-unfetch'
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import classNames from "classnames";
 
 const fetchData = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
@@ -23,6 +27,32 @@ function useResults() {
   }, [])
   return results
 }
+
+
+interface IForwardRefProps {
+  children?: ReactNode
+  className?: string
+  title?: string
+  href?: string
+  childList?: []
+}
+
+type Ref = HTMLAnchorElement
+
+const ListItem = React.forwardRef<Ref, IForwardRefProps>(
+  ({ className, children, title, ...props }, forwardedRef) => (
+    <li>
+          <a
+            className={classNames('', className)}
+            {...props}
+            ref={forwardedRef}>
+            {title}
+          </a>
+    </li>
+  )
+)
+
+ListItem.displayName = 'ListItem'
 
 const Index: NextPageWithLayout = () => {
   const articles = useResults()
@@ -64,6 +94,7 @@ const Index: NextPageWithLayout = () => {
                               Math.random().toString(36).substr(2, 9)
                             return (
                               <li key={subId}/>
+                              <span></span>
                               </li>
                             )
                           })}
