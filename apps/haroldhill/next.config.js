@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withNx = require('@nrwl/next/plugins/with-nx')
-
+require('dotenv').config()
 /**
  * @type {{webpack: (function(*): any), nx: {svgr: boolean}, webpack5: boolean}}
  **/
@@ -11,9 +11,6 @@ const nextConfig = {
     svgr: false
   },
   webpack5: true,
-  env: {
-    NEXT_PUBLIC_RELEASE_UNIT_TESTING_TWO: 'hello'
-  },
   webpack: (config) => {
     config.resolve.fallback = {
       fs: false,
