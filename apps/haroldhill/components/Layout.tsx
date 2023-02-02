@@ -12,7 +12,9 @@ export default function Layout({ children, title }: LayoutProps) {
   return (
     <>
       <Head>
-        <title>{title} - {mainTitle}</title>
+        <title>
+          {title} - {mainTitle}
+        </title>
       </Head>
       <div className={`govuk-width-container ${styles.container}`}>
         {children}

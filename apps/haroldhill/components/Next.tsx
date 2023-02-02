@@ -1,7 +1,6 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
-
 const fetchData = async (articleId) => {
   const content = await fetch(
     'http://localhost:3000/api/navigationArticles?articleId=' +
@@ -10,7 +9,6 @@ const fetchData = async (articleId) => {
   )
   return await content.json()
 }
-
 function useResults(articleId) {
   const [results, setResults] = useState(null)
   useEffect(() => {

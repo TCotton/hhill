@@ -3,7 +3,6 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import classNames from 'classnames'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import styles from './MenuItems.module.css'
-
 const ChildList = (props) => {
   const article = props.article
   return (
