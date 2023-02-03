@@ -12,14 +12,27 @@ const nextConfig = {
   },
   webpack5: true,
   env: {
-    customKey: 'my-value'
+    NX_NEXT_PUBLIC_ANALYTICS_ID: 'my-value'
   },
-  webpack: (config) => {
-    config.resolve.fallback = {
-      fs: false,
-      process: false,
-      os: false,
-      path: false
+  webpack: (config, { webpack }) => {
+    if (config.name === 'client') {
+      const envKeys = Object.keys(process.env).reduce((prev, key) => {
+        if (key.startsWith('NEXT_PUBLIC_')) {
+          prev[key] = JSON.stringify(process.env[key])
+        }
+
+        return prev
+      }, {})
+
+      config.plugins.push(
+        new webpack.DefinePlugin({
+          process: {
+            env: {
+              ...envKeys
+            }
+          }
+        })
+      )
     }
 
     return config

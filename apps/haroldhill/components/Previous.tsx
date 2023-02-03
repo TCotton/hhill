@@ -3,7 +3,7 @@ import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 const fetchData = async (articleId) => {
   const content = await fetch(
-    'http://localhost:3000/api/navigationArticles?articleId=' +
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/navigationArticles?articleId=` +
       articleId +
       '&direction=previous'
   )

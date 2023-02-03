@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 const fetchData = async () => {
-  const content = await fetch(`http://localhost:3000/api/allArticlesFiltered`)
+  const content = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticlesFiltered`
+  )
   return await content.json()
 }
 
