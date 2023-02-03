@@ -5,7 +5,6 @@ import styles from '../components/layout.module.css'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
-import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import classNames from "classnames";
 
 const fetchData = async () => {
@@ -78,32 +77,6 @@ const Index: NextPageWithLayout = () => {
                 It is a work in progress, and is not yet ready for public
                 consumption.
               </p>
-              {articles && (
-                <ul className="govuk-list">
-                  {articles.map((article) => {
-                    const id =
-                      `${article.slug}-${article.title}` +
-                      Math.random().toString(36).substr(2, 9)
-                    return (
-                      <li key={id}>
-                        <span className="govuk-heading-m">{article.title}</span>
-                        <ul className="govuk-list">
-                          {article.subArticles.map((subArticle) => {
-                            const subId =
-                              `${subArticle.slug}-${subArticle.title}` +
-                              Math.random().toString(36).substr(2, 9)
-                            return (
-                              <li key={subId}/>
-                              <span></span>
-                              </li>
-                            )
-                          })}
-                        </ul>
-                      </li>
-                    )
-                  })}
-                </ul>
-              )}
             </div>
           </div>
         </main>

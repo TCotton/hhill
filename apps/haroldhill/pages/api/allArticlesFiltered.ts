@@ -2,11 +2,7 @@ import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
 import mappedArticlesFn from '../../helpers/mappedArticlesFn'
 import { featureToggle } from '@hhill/environment-variables'
-
-const client = createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_PROD_SPACE_ID || '', // ID of a Compose-compatible space to be used \
-  accessToken: process.env.NEXT_PUBLIC_ACCESS_TOKEN || ''
-})
+import client from '../../helpers/contentful'
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   return client
     .getEntries({

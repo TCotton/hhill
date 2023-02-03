@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Navigation from './Navigation'
 
-
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
