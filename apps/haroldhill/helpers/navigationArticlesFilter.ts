@@ -30,12 +30,10 @@ const navigationArticlesFilter = (
 
   const orderedArticles = article
     .flatMap((article) => article.pages)
-    .map((page: IArticle, index: number) =>
-      Object.assign(page, { newId: index })
-    )
+    .map((page, index) => Object.assign(page, { newId: index }))
 
   const currentArticle =
-    orderedArticles.find((article: IArticle) => article?.id === articleId) ||
+    orderedArticles.find((article) => article?.id === articleId) ||
     ({} as IArticle & { newId: number })
 
   return orderedArticles.find(

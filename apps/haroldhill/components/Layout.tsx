@@ -6,7 +6,7 @@ type LayoutProps = {
   children: React.ReactNode
   title?: string
 }
-const mainTitle = `Harold Hill: A People's History`;
+const mainTitle = `Harold Hill: A People's History`
 export default function Layout({ children, title }: LayoutProps) {
   return (
     <>

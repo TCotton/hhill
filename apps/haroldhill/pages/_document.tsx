@@ -38,7 +38,12 @@ export default class CustomDocument extends Document<{
             document.body.className = ((document.body.className) ?
             document.body.className + ` js-enabled` : `js-enabled`);
           </script>
-          <a href="#content" className="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+          <a
+            href="#content"
+            className="govuk-skip-link"
+            data-module="govuk-skip-link">
+            Skip to main content
+          </a>
           <a id="top"></a>
           <Main />
           <NextScript />
