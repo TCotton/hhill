@@ -1,4 +1,3 @@
-import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
 import navigationArticlesFilter from '../../helpers/navigationArticlesFilter'
 import { IArticle } from '@hhill/types'

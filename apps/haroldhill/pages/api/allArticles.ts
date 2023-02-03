@@ -1,4 +1,3 @@
-import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
 import client from '../../helpers/contentful'
 

@@ -1,11 +1,10 @@
-import React, {ReactNode, useEffect, useState} from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import type { NextPageWithLayout } from './_app'
 import Header from '../components/Header'
 import styles from '../components/layout.module.css'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
-import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
-import classNames from "classnames";
+import classNames from 'classnames'
 
 const fetchData = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
@@ -27,7 +26,6 @@ function useResults() {
   return results
 }
 
-
 interface IForwardRefProps {
   children?: ReactNode
   className?: string
@@ -40,18 +38,34 @@ type Ref = HTMLAnchorElement
 
 const ListItem = React.forwardRef<Ref, IForwardRefProps>(
   ({ className, children, title, ...props }, forwardedRef) => (
-    <li>
-          <a
-            className={classNames('', className)}
-            {...props}
-            ref={forwardedRef}>
-            {title}
-          </a>
+    <li className={`govuk-list--number ${styles.indexListItem}`}>
+      <a className={classNames('', className)} {...props} ref={forwardedRef}>
+        {title}
+      </a>
     </li>
   )
 )
 
 ListItem.displayName = 'ListItem'
+
+const ChildList = (props) => {
+  const article = props.article
+  return (
+    <ul className={`govuk-list govuk-list--spaced ${styles.indexUl}`}>
+      {article.pages.map((page) => {
+        const href = `${page.slug}-${page.id}`
+        return (
+          <ListItem
+            key={page.id}
+            title={page.title}
+            href={href}
+            className="govuk-link"
+          />
+        )
+      })}
+    </ul>
+  )
+}
 
 const Index: NextPageWithLayout = () => {
   const articles = useResults()
@@ -77,6 +91,22 @@ const Index: NextPageWithLayout = () => {
                 It is a work in progress, and is not yet ready for public
                 consumption.
               </p>
+            </div>
+          </div>
+          <div className="govuk-grid-row">
+            <div className="govuk-grid-column-two-thirds">
+              <h2 className="govuk-heading-m">Content</h2>
+              <ul className="govuk-list govuk-list--spaced">
+                {articles &&
+                  articles.map((articles) => (
+                    <>
+                      <h3 key={articles.id} className="govuk-heading-s">
+                        {articles.title}
+                      </h3>
+                      <ChildList article={articles} />
+                    </>
+                  ))}
+              </ul>
             </div>
           </div>
         </main>

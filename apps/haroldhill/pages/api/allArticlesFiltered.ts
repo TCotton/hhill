@@ -1,7 +1,5 @@
-import { createClient } from 'contentful'
 import { NextApiRequest, NextApiResponse } from 'next'
 import mappedArticlesFn from '../../helpers/mappedArticlesFn'
-import { featureToggle } from '@hhill/environment-variables'
 import client from '../../helpers/contentful'
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   return client
