@@ -14,6 +14,7 @@ const ChildList = (props) => {
             key={page.id}
             title={page.title}
             href={href}
+            data-testid="page"
             className="govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
           />
         )
@@ -24,13 +25,15 @@ const ChildList = (props) => {
 
 const Navigation = (props) => {
   const articles = props.articles
+  console.log('articles', articles)
 
   return (
     <NavigationMenu.Root className={styles.NavigationMenuRoot}>
       <NavigationMenu.List className={`${styles.NavigationMenuList}`}>
         <NavigationMenu.Item>
           <NavigationMenu.Trigger
-            className={`${styles.NavigationMenuTrigger} .gem-c-layout-super-navigation-header__navigation-top-toggle-button`}>
+            className={`${styles.NavigationMenuTrigger} .gem-c-layout-super-navigation-header__navigation-top-toggle-button`}
+            data-testid="button">
             Menu <CaretDownIcon className={styles.CaretDown} aria-hidden />
           </NavigationMenu.Trigger>
           <NavigationMenu.Content>
@@ -73,7 +76,9 @@ type Ref = HTMLAnchorElement
 
 const ListItem = React.forwardRef<Ref, IForwardRefProps>(
   ({ className, children, title, ...props }, forwardedRef) => (
-    <li className="gem-c-layout-super-navigation-header__dropdown-list-item">
+    <li
+      className="gem-c-layout-super-navigation-header__dropdown-list-item"
+      data-testid="ListItem">
       <p className="govuk-link">
         <NavigationMenu.Link asChild>
           <a
@@ -93,6 +98,7 @@ ListItem.displayName = 'ListItem'
 const ListItemNoLink = React.forwardRef<HTMLParagraphElement, IForwardRefProps>(
   ({ className, children, title, childList }, forwardedRef) => (
     <li
+      data-testid="article"
       className={classNames(
         'gem-c-layout-super-navigation-header__dropdown-list-item',
         className

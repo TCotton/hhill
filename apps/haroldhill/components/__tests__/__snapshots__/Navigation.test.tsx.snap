@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation should create snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Main"
+    class="NavigationMenuRoot"
+    data-orientation="horizontal"
+    dir="ltr"
+  >
+    <div
+      style="position: relative;"
+    >
+      <ul
+        class="NavigationMenuList"
+        data-orientation="horizontal"
+        dir="ltr"
+      >
+        <li>
+          <button
+            aria-controls="radix-3-content-radix-2"
+            aria-expanded="false"
+            class="NavigationMenuTrigger .gem-c-layout-super-navigation-header__navigation-top-toggle-button"
+            data-radix-collection-item=""
+            data-state="closed"
+            data-testid="button"
+            id="radix-3-trigger-radix-2"
+          >
+            Menu 
+            <svg
+              aria-hidden="true"
+              class="CaretDown"
+              fill="none"
+              height="15"
+              viewBox="0 0 15 15"
+              width="15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ViewportPosition"
+    />
+  </nav>
+</DocumentFragment>
+`;
+
+exports[`Navigation should create snapshot when button clicked 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Main"
+    class="NavigationMenuRoot"
+    data-orientation="horizontal"
+    dir="ltr"
+  >
+    <div
+      style="position: relative;"
+    >
+      <ul
+        class="NavigationMenuList"
+        data-orientation="horizontal"
+        dir="ltr"
+      >
+        <li>
+          <button
+            aria-controls="radix-5-content-radix-4"
+            aria-expanded="true"
+            class="NavigationMenuTrigger .gem-c-layout-super-navigation-header__navigation-top-toggle-button"
+            data-radix-collection-item=""
+            data-state="open"
+            data-testid="button"
+            id="radix-5-trigger-radix-4"
+          >
+            Menu 
+            <svg
+              aria-hidden="true"
+              class="CaretDown"
+              fill="none"
+              height="15"
+              viewBox="0 0 15 15"
+              width="15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <span
+            aria-hidden="true"
+            style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
+            tabindex="0"
+          />
+          <span
+            aria-owns="radix-5-content-radix-4"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      class="ViewportPosition"
+    >
+      <div
+        class="NavigationMenuViewport"
+        data-orientation="horizontal"
+        data-state="open"
+      >
+        <div
+          aria-labelledby="radix-5-trigger-radix-4"
+          data-orientation="horizontal"
+          dir="ltr"
+          id="radix-5-content-radix-4"
+        >
+          <ul
+            class="govuk-list govuk-list--spaced gem-c-layout-super-navigation-header__navigation-second-items"
+          >
+            <span>
+              <li
+                class="gem-c-layout-super-navigation-header__dropdown-list-item"
+                data-testid="article"
+              >
+                <p
+                  class="govuk-heading-s"
+                >
+                  title
+                </p>
+                <ul>
+                  <li
+                    class="gem-c-layout-super-navigation-header__dropdown-list-item"
+                    data-testid="ListItem"
+                  >
+                    <p
+                      class="govuk-link"
+                    >
+                      <a
+                        class="ListItemLink govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
+                        data-radix-collection-item=""
+                        data-testid="page"
+                        href="page-1-1"
+                      >
+                        page 1
+                      </a>
+                    </p>
+                  </li>
+                  <li
+                    class="gem-c-layout-super-navigation-header__dropdown-list-item"
+                    data-testid="ListItem"
+                  >
+                    <p
+                      class="govuk-link"
+                    >
+                      <a
+                        class="ListItemLink govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
+                        data-radix-collection-item=""
+                        data-testid="page"
+                        href="page-2-H1Omej68TZxpk9JFIhmWQ"
+                      >
+                        page 2
+                      </a>
+                    </p>
+                  </li>
+                  <li
+                    class="gem-c-layout-super-navigation-header__dropdown-list-item"
+                    data-testid="ListItem"
+                  >
+                    <p
+                      class="govuk-link"
+                    >
+                      <a
+                        class="ListItemLink govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
+                        data-radix-collection-item=""
+                        data-testid="page"
+                        href="page-3-3"
+                      >
+                        page 3
+                      </a>
+                    </p>
+                  </li>
+                </ul>
+              </li>
+            </span>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</DocumentFragment>
+`;

@@ -8,8 +8,8 @@ const fetchData = async () => {
   return await content.json()
 }
 
-function useResults(id) {
-  const [results, setResults] = useState(null)
+function useResults(id: string) {
+  const [results, setResults] = useState<null | string>(null)
   useEffect(() => {
     let ignore = false
     fetchData().then((json) => {

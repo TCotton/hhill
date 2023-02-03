@@ -7,3 +7,19 @@ window.matchMedia = jest.fn().mockImplementation((query) => ({
   addListener: jest.fn(),
   removeListener: jest.fn()
 }))
+
+const intersectionObserver = jest.fn().mockReturnValue({
+  observe: jest.fn(),
+  disconnect: jest.fn(),
+  unobserve: jest.fn()
+})
+Object.defineProperty(window, 'IntersectionObserver', {
+  value: intersectionObserver,
+  writable: true
+})
+
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+  observe: jest.fn(),
+  unobserve: jest.fn(),
+  disconnect: jest.fn()
+}))
