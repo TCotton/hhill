@@ -1,4 +1,4 @@
-import findParent from '../findParent';
+import findParent from '../findParent'
 
 describe('findParent', () => {
   it('should return the parent title', () => {

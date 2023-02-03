@@ -55,7 +55,7 @@ describe('Navigation', () => {
     const props = {
       articles: articles
     }
-    const { getAllByTestId, asFragment, getByTestId } = render(
+    const { getAllByTestId, getByTestId } = render(
       <Navigation {...props} />
     )
     const button = getByTestId('button')
@@ -66,9 +66,7 @@ describe('Navigation', () => {
     const props = {
       articles: articles
     }
-    const { getAllByTestId, getByTestId } = render(
-      <Navigation {...props} />
-    )
+    const { getAllByTestId, getByTestId } = render(<Navigation {...props} />)
     const button = getByTestId('button')
     button.click()
     expect(getAllByTestId('page')).toHaveLength(3)

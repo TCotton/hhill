@@ -19,7 +19,7 @@ function useResults() {
     let ignore = false
     fetchData().then((articles) => {
       if (articles.message === 'ok' && !ignore)
-      setResults(mappedArticlesFn(articles.result))
+        setResults(mappedArticlesFn(articles.result))
     })
     return () => {
       ignore = true
