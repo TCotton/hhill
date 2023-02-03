@@ -11,6 +11,9 @@ const nextConfig = {
     svgr: false
   },
   webpack5: true,
+  env: {
+    customKey: 'my-value'
+  },
   webpack: (config) => {
     config.resolve.fallback = {
       fs: false,

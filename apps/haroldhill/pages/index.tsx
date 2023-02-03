@@ -7,7 +7,8 @@ import fetch from 'isomorphic-unfetch'
 import classNames from 'classnames'
 
 const fetchData = async () => {
-  const content = await fetch('http://localhost:3000/api/allArticles')
+  console.log(process.env)
+  const content = await fetch(`http://localhost:3000/api/allArticles`)
   return await content.json()
 }
 
@@ -99,12 +100,12 @@ const Index: NextPageWithLayout = () => {
               <ul className="govuk-list govuk-list--spaced">
                 {articles &&
                   articles.map((articles) => (
-                    <>
-                      <h3 key={articles.id} className="govuk-heading-s">
+                    <span key={articles.id + articles.title}>
+                      <h3 className="govuk-heading-s">
                         {articles.title}
                       </h3>
                       <ChildList article={articles} />
-                    </>
+                    </span>
                   ))}
               </ul>
             </div>
