@@ -7,7 +7,9 @@ import fetch from 'isomorphic-unfetch'
 import classNames from 'classnames'
 
 const fetchData = async () => {
-  const content = await fetch(`http://localhost:3000/api/allArticles`)
+  const content = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticles`
+  )
   return await content.json()
 }
 
@@ -17,7 +19,7 @@ function useResults() {
     let ignore = false
     fetchData().then((articles) => {
       if (articles.message === 'ok' && !ignore)
-        setResults(mappedArticlesFn(articles.result))
+      setResults(mappedArticlesFn(articles.result))
     })
     return () => {
       ignore = true
@@ -38,7 +40,9 @@ type Ref = HTMLAnchorElement
 
 const ListItem = React.forwardRef<Ref, IForwardRefProps>(
   ({ className, children, title, ...props }, forwardedRef) => (
-    <li className={`govuk-list--number ${styles.indexListItem}`}>
+    <li
+      className={`govuk-list--number ${styles.indexListItem}`}
+      data-testid="list-item">
       <a className={classNames('', className)} {...props} ref={forwardedRef}>
         {title}
       </a>
@@ -52,17 +56,18 @@ const ChildList = (props) => {
   const article = props.article
   return (
     <ul className={`govuk-list govuk-list--spaced ${styles.indexUl}`}>
-      {article.pages.map((page) => {
-        const href = `${page.slug}-${page.id}`
-        return (
-          <ListItem
-            key={page.id}
-            title={page.title}
-            href={href}
-            className="govuk-link"
-          />
-        )
-      })}
+      {Array.isArray(article.pages) &&
+        article.pages.map((page) => {
+          const href = `${page.slug}-${page.id}`
+          return (
+            <ListItem
+              key={href}
+              title={page.title}
+              href={href}
+              className="govuk-link"
+            />
+          )
+        })}
     </ul>
   )
 }
@@ -97,7 +102,7 @@ const Index: NextPageWithLayout = () => {
             <div className="govuk-grid-column-two-thirds">
               <h2 className="govuk-heading-m">Content</h2>
               <ul className="govuk-list govuk-list--spaced">
-                {articles &&
+                {Array.isArray(articles) &&
                   articles.map((articles) => (
                     <span key={articles.id + articles.title}>
                       <h3 className="govuk-heading-s">{articles.title}</h3>

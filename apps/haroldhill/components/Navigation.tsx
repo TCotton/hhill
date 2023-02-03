@@ -25,7 +25,6 @@ const ChildList = (props) => {
 
 const Navigation = (props) => {
   const articles = props.articles
-  console.log('articles', articles)
 
   return (
     <NavigationMenu.Root className={styles.NavigationMenuRoot}>
