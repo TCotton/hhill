@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import fetch from 'isomorphic-unfetch'
+import findParent from '../helpers/findParent'
 const fetchData = async () => {
   const content = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticlesFiltered`
   )
   return await content.json()
-}
-
-const findParent = (id, result) => {
-  const anArray = result?.result?.mappedArticles
-  let title
-  anArray.forEach((item) => {
-    item.pages.forEach((it) => {
-      if (it.id === id.toString().split('-').pop() || '') {
-        title = item.title
-      }
-    })
-  })
-  return title
 }
 
 function useResults(id) {
