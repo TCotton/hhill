@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import React from 'react'
-import { NextSeo } from 'next-seo'
 import styles from './layout.module.css'
 
 type LayoutProps = {
@@ -16,7 +15,7 @@ export default function Layout({ children, title }: LayoutProps) {
           {title} - {mainTitle}
         </title>
       </Head>
-      <div className={`govuk-width-container ${styles.container}`}>
+      <div className={`govuk-width-container ${styles.container}`} id="content">
         {children}
       </div>
     </>

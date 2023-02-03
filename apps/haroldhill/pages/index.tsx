@@ -72,7 +72,7 @@ const Index: NextPageWithLayout = () => {
   return (
     <>
       <Header />
-      <div className={`govuk-width-container ${styles.container}`}>
+      <div className={`govuk-width-container ${styles.container}`} id="content">
         <main className="govuk-main-wrapper">
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
