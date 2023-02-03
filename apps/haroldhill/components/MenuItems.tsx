@@ -1,26 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Navigation from './Navigation'
+import mappedArticlesFn from '../helpers/mappedArticlesFn'
 const getArticles = async () => {
   const content = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticles`
   )
   const articles = await content.json()
-  return articles.result.items.map((article) => {
-    return {
-      title: article.fields.title,
-      slug: article.fields.slug,
-      pages: article.fields.pages.map((page) => {
-        return {
-          title: page.fields.title,
-          contentRichText: page.fields.contentRichText,
-          slug: page.fields.slug,
-          parent: article.fields.title,
-          id: page.sys.id
-        }
-      })
-    }
-  })
+  return mappedArticlesFn(articles.result)
 }
 
 const MenuItems = () => {
