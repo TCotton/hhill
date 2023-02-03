@@ -30,6 +30,9 @@ const MenuItems = () => {
     getArticles().then((articles) => {
       setArticles(articles)
     })
+    return () => {
+      setArticles(null)
+    }
   }, [])
   return <>{articles && <Navigation articles={articles} />}</>
 }

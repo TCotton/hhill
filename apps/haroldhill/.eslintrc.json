@@ -6,6 +6,7 @@
     "next/core-web-vitals",
     "prettier-standard"
   ],
+  "plugins": ["testing-library"],
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {

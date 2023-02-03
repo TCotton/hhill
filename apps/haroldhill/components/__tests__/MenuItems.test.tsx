@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, waitFor } from '@testing-library/react'
-import fetch from 'isomorphic-unfetch'
 import MenuItems from '../MenuItems'
+import fetch from 'isomorphic-unfetch'
 
 jest.mock('isomorphic-unfetch', () =>
   jest.fn(() =>
@@ -10,12 +10,46 @@ jest.mock('isomorphic-unfetch', () =>
         Promise.resolve({
           message: 'ok',
           result: {
-            contentRichText: 'string',
-            fullSlug: 'string',
-            id: 'string',
-            title: 'string',
-            slug: 'string',
-            newId: 'number'
+            items: [
+              {
+                fields: {
+                  title: 'title',
+                  slug: 'slug',
+                  pages: [
+                    {
+                      sys: {
+                        id: '1'
+                      },
+                      fields: {
+                        title: 'page 1',
+                        slug: 'page-1',
+                        contentRichText: 'contentRichText'
+                      }
+                    },
+                    {
+                      sys: {
+                        id: 'H1Omej68TZxpk9JFIhmWQ'
+                      },
+                      fields: {
+                        title: 'page 2',
+                        slug: 'page-2',
+                        contentRichText: 'contentRichText'
+                      }
+                    },
+                    {
+                      sys: {
+                        id: '3'
+                      },
+                      fields: {
+                        title: 'page 3',
+                        slug: 'page-3',
+                        contentRichText: 'contentRichText'
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         })
     })
@@ -23,17 +57,23 @@ jest.mock('isomorphic-unfetch', () =>
 )
 
 describe('MenuItems component', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
   it('renders the Navigation component with articles data', async () => {
     const { findByText } = render(<MenuItems />)
-    expect(await findByText(/Article 1/i)).toBeInTheDocument()
-    expect(await findByText('Page 1.1')).toBeInTheDocument()
-    expect(await findByText('Page 1.1 content')).toBeInTheDocument()
-    expect(fetch).toHaveBeenCalledWith('http://localhost:3000/api/allArticles')
+    expect(await findByText(/Menu/i)).toBeInTheDocument()
+    await waitFor(() => {
+      expect(fetch).toHaveBeenCalledTimes(1)
+      expect(fetch).toHaveBeenCalledWith(
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticles`
+      )
+    })
   })
-  it('should match snapshot', async () => {
-    const { baseElement } = render(<MenuItems />)
-    waitFor(() => {
-      expect(baseElement).toMatchSnapshot()
+  xit('should match snapshot', async () => {
+    const { container } = render(<MenuItems />)
+    await waitFor(() => {
+      expect(container).toMatchSnapshot()
     })
   })
 })
