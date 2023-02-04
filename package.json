@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines" : {
-    "pnpm" : ">=9",
-    "node" : ">=18"
+    "pnpm" : "9",
+    "node" : "18"
   },
   "scripts": {
     "nx": "nx",
