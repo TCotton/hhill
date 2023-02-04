@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines" : {
-    "npm" : "9",
-    "node" : "18"
+    "pnpm" : ">=7",
+    "node" : ">=18"
   },
   "scripts": {
     "nx": "nx",
-    "start": "node --trace-warnings node_modules/.bin/nx serve haroldhill --port 3000",
+    "start": "nx serve haroldhill --port 3000",
     "start:prod": "node --trace-warnings node_modules/.bin/nx serve haroldhill --port 3000 --verbose --prod",
     "build": "nx build",
     "build:prod": "nx build haroldhill",
