@@ -15,7 +15,7 @@ import styles from './article.module.css'
 import Previous from '../components/Previous'
 import Next from '../components/Next'
 import Caption from '../components/Caption'
-import mappedArticlesFn from '../helpers/mappedArticlesFn'
+import { getSingleArticle, getArticles } from '../helpers/fetch'
 const BackToTop = () => {
   return (
     <div className="app-back-to-top back-to-top" data-module="app-back-to-top">
@@ -65,18 +65,6 @@ function ArticleId(props) {
   )
 }
 
-const getArticles = async () => {
-  const content = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticles`
-  )
-  const articles = await content.json()
-  const mappedArticles = mappedArticlesFn(articles.result)
-  return {
-    articles: mappedArticles.flatMap((article) => article.pages),
-    mappedArticles
-  }
-}
-
 export const getStaticProps: ({
   params
 }: GetStaticPropsContext<{ articleId: string }>) => Promise<{
@@ -85,10 +73,7 @@ export const getStaticProps: ({
   // TODO: fix this
   // @ts-ignore
   const { articleId } = params
-  const content = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/article?id=${articleId}`
-  )
-  const article = await content.json()
+  const article = await getSingleArticle(articleId)
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkGfm)
