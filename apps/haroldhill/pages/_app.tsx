@@ -1,8 +1,8 @@
 import React from 'react'
 import type { NextPage } from 'next'
 import { AppProps } from 'next/app'
-import Head from 'next/head'
-import { NextSeo } from 'next-seo'
+
+import { NextSeo, DefaultSeoProps } from 'next-seo'
 import '../styles/reset.scss'
 import '../styles/gds.scss'
 import '../styles/radixui.scss'
@@ -15,17 +15,17 @@ export type NextPageWithLayout = NextPage & {
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <title>Harold Hill: A People's History</title>
-        <NextSeo
-          title="Harold Hill: A People's History"
-          description="A prototype for a new website for Harold Hill."
-          openGraph={{
-            title: `Harold Hill: A People's History`
-          }}
-        />
-      </Head>
+      <NextSeo
+        title="Harold Hill: A People's History"
+        description="A social history of the Harold Hill estate in east London"
+        openGraph={{
+          title: `Harold Hill: A People's History`,
+          type: 'website',
+          locale: 'en_GB',
+          url: process.env.NEXT_PUBLIC_BASE_URL
+        }}
+        noindex={true}
+      />
       <Component {...pageProps} />
     </>
   )
