@@ -2,7 +2,7 @@ import React from 'react'
 import type { NextPage } from 'next'
 import { AppProps } from 'next/app'
 
-import { NextSeo, DefaultSeoProps } from 'next-seo'
+import { NextSeo } from 'next-seo'
 import '../styles/reset.scss'
 import '../styles/gds.scss'
 import '../styles/radixui.scss'
