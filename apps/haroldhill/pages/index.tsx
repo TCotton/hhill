@@ -74,6 +74,7 @@ const ChildList = (props) => {
 
 const Index: NextPageWithLayout = () => {
   const articles = useResults()
+
   return (
     <>
       <Header />
