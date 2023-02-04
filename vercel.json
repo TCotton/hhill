@@ -1,0 +1,3 @@
+{
+  "buildCommand": "installCommand --legacy-peer-deps"
+}
