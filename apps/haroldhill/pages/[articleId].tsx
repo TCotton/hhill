@@ -15,6 +15,7 @@ import styles from './article.module.css'
 import Previous from '../components/Previous'
 import Next from '../components/Next'
 import Caption from '../components/Caption'
+import mappedArticlesFn from '../helpers/mappedArticlesFn'
 
 const BackToTop = () => {
   return (
@@ -68,21 +69,7 @@ function ArticleId(props) {
 const getArticles = async () => {
   const content = await fetch('http://localhost:3000/api/allArticles')
   const articles = await content.json()
-  const mappedArticles = articles.result.items.map((article) => {
-    return {
-      title: article.fields.title,
-      slug: article.fields.slug,
-      pages: article.fields.pages.map((page) => {
-        return {
-          title: page.fields.title,
-          contentRichText: page.fields.contentRichText,
-          slug: page.fields.slug,
-          fullSlug: `${article.fields.slug}/${page.fields.slug}`,
-          id: page.sys.id
-        }
-      })
-    }
-  })
+  const mappedArticles = mappedArticlesFn(articles.result)
   return {
     articles: mappedArticles.flatMap((article) => article.pages),
     mappedArticles

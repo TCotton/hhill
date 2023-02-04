@@ -87,15 +87,20 @@ const Index: NextPageWithLayout = () => {
                 Welcome to Harold Hill: A People's History
               </h1>
               <p className="govuk-body">
-                This is a prototype for a new website for Harold Hill.
+                This history project was written as the turn of the Millennium. Mostly constructed from interviews and the past editions of the Romford Recorder and Romford Times, it aims to tell a story of the Harold Hill housing estate in outer east London roughly from the 1940s to the 1980s. This covers the period from its construction as an LCC “out-county” housing development up until the Right to Buy.
               </p>
               <p className="govuk-body">
-                It is built using Next.js, TypeScript, React, and the GOV.UK
-                Design System.
+                The 20 years from the late 1990s onwards were not, for various reasons, a particularly good period in Harold Hill’s history. But the estate is changing. Harold Hill is now a mixed community with different languages and races. I welcome this change. The opening of Crossrail, which runs to nearby Harold Wood directly into central London, will bring further transformation.
               </p>
               <p className="govuk-body">
-                It is a work in progress, and is not yet ready for public
-                consumption.
+                Many of the people interviewed for this project have now passed away, and the historical characters mentioned are now two or three generations removed from the current residents. Some are still remembered, but others are mostly forgotten.
+              </p>
+              <p className="govuk-body">
+                Written 20 years ago, I enjoyed working on this project and I think that shows in the text. It’s a celebration of working class life and living.
+                At 50k words, it’s a large read, so I’ve broken it down into readable chunks.
+              </p>
+              <p className="govuk-body">
+                Andrew Walpole
               </p>
             </div>
           </div>
