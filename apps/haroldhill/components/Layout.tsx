@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import React from 'react'
 import styles from './layout.module.css'
 import { NextSeo } from 'next-seo'
