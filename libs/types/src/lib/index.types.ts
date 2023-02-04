@@ -39,6 +39,8 @@ export interface IPagesFields {
   contentRichText?: string
 
   newId?: number | undefined
+
+  pages: Entry<{ [fieldId: string]: unknown }>[]
 }
 
 /** All pages here */
@@ -70,24 +72,10 @@ export type CONTENTFUL_DEFAULT_LOCALE_CODE = 'en-US'
 
 export interface IArticle {
   includes?: {
-    Entry: {
-      fields: IPagesFields
-      metadata: {
-        tags: []
-      }
-      sys: IPages | IChapters
-    }
+    Entry: [IPages | IChapters]
   }
   limit: number
   skip: number
   sys?: { type: string }
-  items: [
-    {
-      fields: IChaptersFields
-      metadata: {
-        tags: []
-      }
-      sys: IPages | IChapters
-    }
-  ]
+  items: [IPages | IChapters]
 }
