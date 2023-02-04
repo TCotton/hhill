@@ -22,7 +22,15 @@ function CustomApp({ Component, pageProps }: AppProps) {
           title: `Harold Hill: A People's History`,
           type: 'website',
           locale: 'en_GB',
-          url: process.env.NEXT_PUBLIC_BASE_URL
+          url: process.env.NEXT_PUBLIC_BASE_URL,
+          images: [
+            {
+              url: `${process.env.NEXT_PUBLIC_BASE_URL}/haroldhill.png`,
+              width: 600,
+              height: 600,
+              alt: `Harold Hill: A People's History`
+            }
+          ]
         }}
         noindex={true}
       />

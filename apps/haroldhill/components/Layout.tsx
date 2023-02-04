@@ -21,19 +21,14 @@ export default function Layout({ children, title }: LayoutProps) {
           url: process.env.NEXT_PUBLIC_BASE_URL,
           images: [
             {
-              url: `${process.env.NEXT_PUBLIC_BASE_URL}/images/og-image.png`,
+              url: `${process.env.NEXT_PUBLIC_BASE_URL}/haroldhill.png`,
+              width: 600,
+              height: 600,
+              alt: `Harold Hill: A People's History`
             }
-          ],
-
-
-        }}
-        twitter={{
-
+          ]
         }}
         noindex={true}
-        robotsProps={{
-
-        }}
       />
       <div className={`govuk-width-container ${styles.container}`} id="content">
         {children}
