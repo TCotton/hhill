@@ -11,9 +11,6 @@ const nextConfig = {
     svgr: false
   },
   webpack5: true,
-  env: {
-    NX_NEXT_PUBLIC_ANALYTICS_ID: 'my-value'
-  },
   webpack: (config, { webpack }) => {
     if (config.name === 'client') {
       const envKeys = Object.keys(process.env).reduce((prev, key) => {

@@ -67,7 +67,9 @@ function ArticleId(props) {
 }
 
 const getArticles = async () => {
-  const content = await fetch('http://localhost:3000/api/allArticles')
+  const content = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticles`
+  )
   const articles = await content.json()
   const mappedArticles = mappedArticlesFn(articles.result)
   return {
@@ -85,7 +87,7 @@ export const getStaticProps: ({
   // @ts-ignore
   const { articleId } = params
   const content = await fetch(
-    `http://localhost:3000/api/article?id=${articleId}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/article?id=${articleId}`
   )
   const article = await content.json()
   const processedContent = await unified()
