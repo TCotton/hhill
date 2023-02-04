@@ -1,0 +1,13 @@
+{
+  "/[articleId]": "pages/[articleId].js",
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/api/allArticles": "pages/api/allArticles.js",
+  "/api/allArticlesFiltered": "pages/api/allArticlesFiltered.js",
+  "/api/article": "pages/api/article.js",
+  "/api/navigationArticles": "pages/api/navigationArticles.js",
+  "/": "pages/index.html",
+  "/testing": "pages/testing.html",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
+}
