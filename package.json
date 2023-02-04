@@ -2,6 +2,10 @@
   "name": "hhill",
   "version": "0.0.0",
   "license": "MIT",
+  "engines" : {
+    "npm" : "9.3.1",
+    "node" : "18.14.0"
+  },
   "scripts": {
     "nx": "nx",
     "start": "node --trace-warnings node_modules/.bin/nx serve haroldhill --port 3000",
