@@ -16,7 +16,6 @@ import Previous from '../components/Previous'
 import Next from '../components/Next'
 import Caption from '../components/Caption'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
-
 const BackToTop = () => {
   return (
     <div className="app-back-to-top back-to-top" data-module="app-back-to-top">

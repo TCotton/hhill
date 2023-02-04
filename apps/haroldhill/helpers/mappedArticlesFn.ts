@@ -1,5 +1,3 @@
-import {IChapters, IChaptersFields} from "@hhill/types";
-
 
 const mappedArticlesFn = (data) => {
   return data.items.map((article) => {
