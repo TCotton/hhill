@@ -7,6 +7,7 @@ const fetchData = async () => {
   )
   return await content.json()
 }
+
 function useResults(id: string) {
   const [results, setResults] = useState<null | string>(null)
   useEffect(() => {
