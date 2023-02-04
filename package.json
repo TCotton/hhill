@@ -38,6 +38,7 @@
   "devDependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@contentful/rich-text-types": "^15.12.1",
+    "@jest/globals": "^29.4.1",
     "@nrwl/cli": "13.8.8",
     "@nrwl/cypress": "13.8.8",
     "@nrwl/eslint-plugin-nx": "13.8.8",

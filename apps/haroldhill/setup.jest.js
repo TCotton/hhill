@@ -1,3 +1,5 @@
+import { jest } from '@jest/globals'
+global.jest = jest
 import('@testing-library/jest-dom')
 
 window.matchMedia = jest.fn().mockImplementation((query) => ({
