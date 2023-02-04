@@ -73,7 +73,10 @@ export const getStaticProps: ({
   // TODO: fix this
   // @ts-ignore
   const { articleId } = params
-  const article = await getSingleArticle(articleId)
+  const article = (await getSingleArticle(articleId)) as {
+    result: Record<string, unknown>
+    article: Record<string, unknown>[]
+  }
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkGfm)
@@ -91,19 +94,24 @@ export const getStaticProps: ({
     })
     .use(rehypeFormat)
     .use(rehypeStringify)
+    // @ts-ignore
     .process(article.result.fields.contentRichText)
   const contentHtml = processedContent.toString()
   return {
     props: {
+      // @ts-ignore
       title: article.result.fields.title || 'no title',
       contentRichText: contentHtml || 'no content',
+      // @ts-ignore
       id: article.result.sys.id || null
     }
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { articles } = await getArticles()
+  const { articles } = (await getArticles()) as {
+    articles: Record<string, unknown>[]
+  }
   return {
     paths: articles.map((article) => {
       return {
