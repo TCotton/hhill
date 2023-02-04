@@ -11,7 +11,6 @@ const nextConfig = {
     svgr: false
   },
   webpack5: true,
-  distDir: '../../build',
   webpack: (config, { webpack }) => {
     if (config.name === 'client') {
       const envKeys = Object.keys(process.env).reduce((prev, key) => {

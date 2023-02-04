@@ -42,3 +42,5 @@ env
 .next
 ./.next
 apps/haroldhill/build
+.vercel
+build/
