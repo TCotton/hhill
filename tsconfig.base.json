@@ -19,6 +19,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "strict": false,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": false,
     "types": ["node", "@testing-library/jest-dom", "jest"],
     "paths": {
       "@hhill/environment-variables": [
