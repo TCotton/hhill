@@ -19,6 +19,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-GLP5ES5C8N"
         strategy="afterInteractive"
+        id="google-analytics"
         dangerouslySetInnerHTML={{
           __html: `window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
