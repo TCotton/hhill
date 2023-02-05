@@ -1,6 +1,7 @@
 import React from 'react'
 import type { NextPage } from 'next'
 import { AppProps } from 'next/app'
+import Script from 'next/script'
 
 import { NextSeo } from 'next-seo'
 import '../styles/reset.scss'
@@ -15,6 +16,16 @@ export type NextPageWithLayout = NextPage & {
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-GLP5ES5C8N"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-GLP5ES5C8N');`
+        }}
+      />
       <NextSeo
         title="Harold Hill: A People's History"
         description="A social history of the Harold Hill estate in east London"
