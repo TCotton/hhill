@@ -1,5 +1,6 @@
 
 const mappedArticlesFn = (data) => {
+  if (Array.isArray(data.items) === false) return []
   return data.items.map((article) => {
     return {
       title: article.fields?.title,
@@ -14,7 +15,7 @@ const mappedArticlesFn = (data) => {
               id: page.sys?.id
             }
           })
-        : {}
+        : []
     }
   })
 }

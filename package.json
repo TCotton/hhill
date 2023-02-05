@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
-    "pnpm": "9",
+    "npm": "8",
     "node": "18"
   },
   "scripts": {
