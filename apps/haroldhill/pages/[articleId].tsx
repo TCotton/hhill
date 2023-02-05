@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticPropsContext } from 'next'
-import fetch from 'isomorphic-unfetch'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -49,8 +48,12 @@ function ArticleId(props) {
         <main className="govuk-main-wrapper">
           <div className="govuk-grid-row">
             <div className="govuk-grid-column-two-thirds">
-              <Previous articleId={id} />
-              <Caption id={id} />
+              <div className={styles.Previous}>
+                <Previous articleId={id} />
+              </div>
+              <div className="govuk-caption-xl-min-height">
+                <Caption id={id} />
+              </div>
               <h1 className="govuk-heading-l">{title}</h1>
               {<div dangerouslySetInnerHTML={{ __html: contentRichText }} />}
               <Next articleId={id} />

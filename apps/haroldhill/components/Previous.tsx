@@ -1,6 +1,7 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
+
 const fetchData = async (articleId) => {
   const content = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/navigationArticles?articleId=` +
@@ -38,7 +39,6 @@ const Previous = (props) => {
       return (
         <p>
           <a href={href} ref={ref} className={`govuk-back-link`}>
-            {/* eslint-disable-next-line react/no-unescaped-entities */}
             Previous
           </a>
         </p>
