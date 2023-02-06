@@ -1,11 +1,10 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
-const fetchData = async (articleId) => {
+import { getApiRoot } from 'nextjs-url'
+const fetchData = async (articleId, apiRoot) => {
   const content = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/navigationArticles?articleId=` +
-      articleId +
-      '&direction=next'
+    `${apiRoot}/navigationArticles?articleId=` + articleId + '&direction=next'
   )
   return await content.json()
 }
@@ -13,7 +12,8 @@ function useResults(articleId) {
   const [results, setResults] = useState(null)
   useEffect(() => {
     let ignore = false
-    fetchData(articleId).then((nextArticle) => {
+    const apiRoot = getApiRoot().href
+    fetchData(articleId, apiRoot).then((nextArticle) => {
       if (nextArticle.message === 'ok' && !ignore)
         setResults(nextArticle?.result?.fullSlug)
     })
