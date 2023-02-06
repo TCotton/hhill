@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import findParent from '../helpers/findParent'
-import { getBaseUrl, getApiRoot } from "nextjs-url";
+import { getApiRoot } from 'nextjs-url'
 const fetchData = async (apiRoot) => {
   const content = await fetch(`${apiRoot}/allArticlesFiltered`)
   return await content.json()

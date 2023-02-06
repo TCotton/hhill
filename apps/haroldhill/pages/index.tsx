@@ -5,11 +5,10 @@ import styles from '../components/layout.module.css'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
 import fetch from 'isomorphic-unfetch'
 import classNames from 'classnames'
+import { getApiRoot } from 'nextjs-url'
 
-const fetchData = async () => {
-  const content = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticles`
-  )
+const fetchData = async (apiRoot) => {
+  const content = await fetch(`${apiRoot}/allArticles`)
   return await content.json()
 }
 
@@ -17,7 +16,8 @@ function useResults() {
   const [results, setResults] = useState(null)
   useEffect(() => {
     let ignore = false
-    fetchData().then((articles) => {
+    const apiRoot = getApiRoot().href
+    fetchData(apiRoot).then((articles) => {
       if (articles.message === 'ok' && !ignore)
         setResults(mappedArticlesFn(articles.result))
     })
