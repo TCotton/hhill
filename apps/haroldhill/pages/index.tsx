@@ -98,6 +98,10 @@ const Index: NextPageWithLayout = () => {
                   Buy.
                 </p>
                 <p className="govuk-body">
+                  Other sources include the local history archive at Romford
+                  library and the Pelling Collection at the University of London
+                </p>
+                <p className="govuk-body">
                   Many of the people interviewed for this project have now
                   passed away, and the historical characters mentioned are now
                   two or three generations removed from the current residents.
