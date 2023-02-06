@@ -2,10 +2,9 @@ import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import Navigation from './Navigation'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
-const getArticles = async () => {
-  const content = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticles`
-  )
+import { getApiRoot } from 'nextjs-url'
+const getArticles = async (apiRoot) => {
+  const content = await fetch(`${apiRoot}/api/allArticles`)
   const articles = await content.json()
   return mappedArticlesFn(articles.result)
 }
@@ -14,7 +13,8 @@ const MenuItems = () => {
   const [articles, setArticles] = useState(null)
 
   useEffect(() => {
-    getArticles().then((articles) => {
+    const apiRoot = getApiRoot().href
+    getArticles(apiRoot).then((articles) => {
       setArticles(articles)
     })
     return () => {
