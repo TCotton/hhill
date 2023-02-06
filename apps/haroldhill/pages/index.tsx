@@ -7,8 +7,9 @@ import fetch from 'isomorphic-unfetch'
 import classNames from 'classnames'
 import { getApiRoot } from 'nextjs-url'
 import Icon from '../components/Icon'
+import { IPagesFields } from "@hhill/types";
 
-const fetchData = async (apiRoot) => {
+const fetchData = async (apiRoot: string) => {
   const content = await fetch(`${apiRoot}/allArticles`)
   return await content.json()
 }
@@ -53,7 +54,7 @@ const ListItem = React.forwardRef<Ref, IForwardRefProps>(
 
 ListItem.displayName = 'ListItem'
 
-const ChildList = (props) => {
+const ChildList = (props: { article: { pages: IPagesFields } }) => {
   const article = props.article
   return (
     <ul className={`govuk-list govuk-list--spaced ${styles.indexUl}`}>
@@ -134,7 +135,6 @@ const Index: NextPageWithLayout = () => {
               <h2 className="govuk-heading-m">Content</h2>
               <ul className="govuk-list govuk-list--spaced">
                 {Array.isArray(articles) &&
-                  // @ts-ignore
                   articles.map((articles) => (
                     <span key={articles.id + articles.title}>
                       <h3 className="govuk-heading-s">{articles.title}</h3>

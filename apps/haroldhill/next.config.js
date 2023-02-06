@@ -51,7 +51,7 @@ const nextConfig = {
         permanent: true
       }
     ]
-  },///section_two/never_again!.htm
+  },
   webpack: (config, { webpack }) => {
     if (config.name === 'client') {
       const envKeys = Object.keys(process.env).reduce((prev, key) => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import findParent from '../helpers/findParent'
 import { getApiRoot } from 'nextjs-url'
-const fetchData = async (apiRoot) => {
+const fetchData = async (apiRoot: string) => {
   const content = await fetch(`${apiRoot}/allArticlesFiltered`)
   return await content.json()
 }
@@ -24,7 +24,7 @@ function useResults(id: string) {
   }, [id])
   return results
 }
-const Caption = (props) => {
+const Caption = (props: { id: string }) => {
   const { id } = props
   const results = useResults(id)
   return results ? <span className="govuk-caption-xl">{results}</span> : null

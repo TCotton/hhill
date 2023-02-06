@@ -3,7 +3,8 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import classNames from 'classnames'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import styles from './MenuItems.module.css'
-const ChildList = (props) => {
+import { IPagesFields } from '@hhill/types'
+const ChildList = (props: { article: { pages: [IPagesFields] } }) => {
   const article = props.article
   return (
     <ul>
@@ -23,7 +24,7 @@ const ChildList = (props) => {
   )
 }
 
-const Navigation = (props) => {
+const Navigation = (props: { articles: [IPagesFields] }) => {
   const articles = props.articles
 
   return (
@@ -68,7 +69,7 @@ interface IForwardRefProps {
   className?: string
   title?: string
   href?: string
-  childList?: []
+  childList?: IPagesFields
 }
 
 type Ref = HTMLAnchorElement

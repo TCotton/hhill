@@ -1,14 +1,21 @@
 import React, { ReactElement } from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext
+} from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-
+// TODO: Fix this
+// @ts-ignore
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[]
 }> {
-  static getInitialProps({ renderPage }) {
+  static getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
 
-    const page = renderPage(
+    const page = ctx.renderPage(
       (App) => (props) => sheet.collectStyles(<App {...props} />)
     )
 
@@ -17,7 +24,7 @@ export default class CustomDocument extends Document<{
     return { ...page, styleTags }
   }
 
-  render() {
+  render(): ReactElement {
     return (
       <Html lang="en">
         <Head>

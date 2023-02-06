@@ -41,6 +41,8 @@ export interface IPagesFields {
   newId?: number | undefined
 
   pages: Entry<{ [fieldId: string]: unknown }>[]
+
+  id?: string
 }
 
 /** All pages here */

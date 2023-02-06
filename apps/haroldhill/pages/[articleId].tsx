@@ -73,8 +73,6 @@ export const getStaticProps: ({
 }: GetStaticPropsContext<{ articleId: string }>) => Promise<{
   props: { contentRichText: string; id: null; title: string }
 }> = async ({ params }: GetStaticPropsContext<{ articleId: string }>) => {
-  // TODO: fix this
-  // @ts-ignore
   const { articleId } = params
   const article = (await getSingleArticle(articleId)) as {
     result: Record<string, unknown>
@@ -97,15 +95,12 @@ export const getStaticProps: ({
     })
     .use(rehypeFormat)
     .use(rehypeStringify)
-    // @ts-ignore
     .process(article.result.fields.contentRichText)
   const contentHtml = processedContent.toString()
   return {
     props: {
-      // @ts-ignore
       title: article.result.fields.title || 'no title',
       contentRichText: contentHtml || 'no content',
-      // @ts-ignore
       id: article.result.sys.id || null
     }
   }

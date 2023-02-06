@@ -2,13 +2,13 @@ import React, { MouseEvent, useEffect, useState } from 'react'
 import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import { getApiRoot } from 'nextjs-url'
-const fetchData = async (articleId, apiRoot) => {
+const fetchData = async (articleId: string, apiRoot: string) => {
   const content = await fetch(
     `${apiRoot}/navigationArticles?articleId=` + articleId + '&direction=next'
   )
   return await content.json()
 }
-function useResults(articleId) {
+function useResults(articleId: string) {
   const [results, setResults] = useState(null)
   useEffect(() => {
     let ignore = false
@@ -24,7 +24,7 @@ function useResults(articleId) {
   return results
 }
 
-const Previous = (props) => {
+const Previous = (props: { articleId: string }) => {
   const { articleId } = props
   const next = useResults(articleId)
   interface IMyLinkRefProps {
