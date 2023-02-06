@@ -11,6 +11,47 @@ const nextConfig = {
     svgr: false
   },
   webpack5: true,
+  async redirects() {
+    return [
+      {
+        source:
+          '/chapter-four/page-five-hippies-freaks-and-the-summer-of-love.htm',
+        destination: '/hippies-freaks-summer-of-love-6HqgZqmFW9sj1D2gqyYYtY',
+        permanent: true
+      },
+      {
+        source: '/section_two/never_again!.htm',
+        destination:
+          '/never-again-aneurin-bevan-housing-harold-hill-1b21LOPo0KqHkyPSmSPY11',
+        permanent: true
+      },
+      {
+        source: '/section_two/now_we_must_rebuild.htm',
+        destination:
+          '/now-we-must-rebuild-greater-london-plan-1944-49DC9U0ISBznSXhKHkCrAC',
+        permanent: true
+      },
+      {
+        source: '/section_five/section_five_page_five.htm',
+        destination: '/hippies-freaks-summer-of-love-6HqgZqmFW9sj1D2gqyYYtY',
+        permanent: true
+      },
+      {
+        source:
+          '/chapter-one/never-again-aneurin-bevan-housing-and-harold-hill.htm',
+        destination:
+          '/never-again-aneurin-bevan-housing-harold-hill-1b21LOPo0KqHkyPSmSPY11',
+        permanent: true
+      },
+      {
+        source:
+          '/chapter-four/page-four-the-albemarle-report-leads-to-the-first-youth-club.htm',
+        destination:
+          '/1960s-albemarle-report-leads-to-first-youth-club-6g2RT84Nsgt2BQ5a0K48Kb',
+        permanent: true
+      }
+    ]
+  },///section_two/never_again!.htm
   webpack: (config, { webpack }) => {
     if (config.name === 'client') {
       const envKeys = Object.keys(process.env).reduce((prev, key) => {
