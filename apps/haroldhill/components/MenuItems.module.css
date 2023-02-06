@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   z-index: 10;
+  min-height: 50px;
 }
 
 @media (max-width: 48.0625em) {
