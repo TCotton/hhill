@@ -94,12 +94,13 @@ const Index: NextPageWithLayout = () => {
                   of the Romford Recorder and Romford Times, it aims to tell a
                   story of the Harold Hill housing estate in outer east London
                   from the 1940s to the 1980s. This covers the period from its
-                  an LCC “out-county” housing development up until the Right to
-                  Buy.
+                  construction as an LCC “out-county” housing development up
+                  until the Right to Buy.
                 </p>
                 <p className="govuk-body">
                   Other sources include the local history archive at Romford
-                  library and the Pelling Collection at the University of London.
+                  library and the Pelling Collection at the University of
+                  London.
                 </p>
                 <p className="govuk-body">
                   Many of the people interviewed for this project have now
@@ -117,8 +118,8 @@ const Index: NextPageWithLayout = () => {
                   transformation.
                 </p>
                 <p className="govuk-body">
-                  Written 20 years ago, I enjoyed working on this project and I
-                  think that shows in the text. It’s a celebration of working
+                  Written 20 years ago, I enjoyed working on this project and
+                  that shows in the text. It’s a celebration of working class
                   class life and living. At 50k words, it’s a large read, so
                   I’ve broken it down into readable chunks. The site is designed
                   to be read linear or non-linearly. You can read the whole
