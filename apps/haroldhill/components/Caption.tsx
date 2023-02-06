@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import findParent from '../helpers/findParent'
-const fetchData = async () => {
-  const content = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/allArticlesFiltered`
-  )
+import { getBaseUrl, getApiRoot } from "nextjs-url";
+const fetchData = async (apiRoot) => {
+  const content = await fetch(`${apiRoot}/allArticlesFiltered`)
   return await content.json()
 }
 
@@ -12,7 +11,8 @@ function useResults(id: string) {
   const [results, setResults] = useState<null | string>(null)
   useEffect(() => {
     let ignore = false
-    fetchData().then((json) => {
+    const apiRoot = getApiRoot().href
+    fetchData(apiRoot).then((json) => {
       if (!ignore) {
         const result = findParent(id, json)
         setResults(result)

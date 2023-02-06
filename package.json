@@ -111,6 +111,7 @@
     "marksy": "^8.0.0",
     "next": "12.1.0",
     "next-seo": "^5.15.0",
+    "nextjs-url": "^1.0.4",
     "react": "17.0.2",
     "react-contentful": "^2.0.31",
     "react-dom": "17.0.2",
