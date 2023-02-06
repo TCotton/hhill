@@ -89,11 +89,11 @@ const Index: NextPageWithLayout = () => {
               <div>
                 <Icon />
                 <p className="govuk-body">
-                  This history project was written at the turn of the Mostly
-                  constructed from interviews and the archive of the Romford
-                  Recorder and Romford Times, it aims to tell a story of the
-                  Harold Hill housing estate in outer east London from the 1940s
-                  to the 1980s. This covers the period from its construction as
+                  This history project was written at the turn of the
+                  millennium. Mostly constructed from interviews and the archive
+                  of the Romford Recorder and Romford Times, it aims to tell a
+                  story of the Harold Hill housing estate in outer east London
+                  from the 1940s to the 1980s. This covers the period from its
                   an LCC “out-county” housing development up until the Right to
                   Buy.
                 </p>
