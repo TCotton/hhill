@@ -99,13 +99,13 @@ const Index: NextPageWithLayout = () => {
                 </p>
                 <p className="govuk-body">
                   Other sources include the local history archive at Romford
-                  library and the Pelling Collection at the University of London
+                  library and the Pelling Collection at the University of London.
                 </p>
                 <p className="govuk-body">
                   Many of the people interviewed for this project have now
-                  passed away, and the historical characters mentioned are now
-                  two or three generations removed from the current residents.
-                  Some are still remembered, but others are mostly forgotten.
+                  passed away, and the historical characters mentioned are two
+                  or three generations removed from the current residents. Some
+                  are still remembered, but others are mostly forgotten.
                 </p>
                 <p className="govuk-body">
                   The 20 years from the late 1990s onwards were not, for various
