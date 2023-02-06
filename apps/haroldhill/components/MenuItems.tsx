@@ -4,7 +4,7 @@ import Navigation from './Navigation'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
 import { getApiRoot } from 'nextjs-url'
 const getArticles = async (apiRoot) => {
-  const content = await fetch(`${apiRoot}/api/allArticles`)
+  const content = await fetch(`${apiRoot}/allArticles`)
   const articles = await content.json()
   return mappedArticlesFn(articles.result)
 }
