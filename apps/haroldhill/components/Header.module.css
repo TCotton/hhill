@@ -9,3 +9,6 @@
 .center {
   background: transparent;
 }
+.maxHeight {
+  max-height: 50px;
+}
