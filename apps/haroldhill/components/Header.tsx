@@ -42,7 +42,7 @@ const Header = () => {
               </Link>
             </p>
           </div>
-          <div className={`govuk-grid-column-one-third-from-desktop ${styles.maxHeight}`}>
+          <div className={`govuk-grid-column-one-third-from-desktop ${styles.minHeight}`}>
             <nav aria-label="Menu" className="govuk-header__navigation">
               <MenuItems />
             </nav>

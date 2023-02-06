@@ -9,6 +9,6 @@
 .center {
   background: transparent;
 }
-.maxHeight {
-  max-height: 50px;
+.minHeight {
+  min-height: 50px;
 }
