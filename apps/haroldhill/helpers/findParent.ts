@@ -1,4 +1,9 @@
-const findParent = (id: string, result): string => {
+import {IChaptersFields, IPagesFields} from "@hhill/types";
+
+const findParent = (
+  id: string,
+  result: { result: { mappedArticles: [IPagesFields] } }
+): string => {
   const anArray = result?.result?.mappedArticles
   let title
   anArray.forEach((item) => {

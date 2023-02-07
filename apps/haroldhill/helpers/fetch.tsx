@@ -1,6 +1,7 @@
 import { Entry } from 'contentful'
 import client from './contentful'
 import mappedArticlesFn from './mappedArticlesFn'
+import {IPagesFields} from "@hhill/types";
 // TODO: come back and fix types
 export const getArticles = async () => {
   return client
@@ -18,7 +19,9 @@ export const getArticles = async () => {
         const mappedArticles = mappedArticlesFn(result)
         return {
           message: 'ok',
-          articles: mappedArticles.flatMap((article) => article.pages),
+          articles: mappedArticles.flatMap(
+            (article: IPagesFields) => article.pages
+          ),
           mappedArticles
         }
       }
@@ -30,7 +33,7 @@ export const getArticles = async () => {
     })
 }
 
-export const getSingleArticle = async (articleId) => {
+export const getSingleArticle = async (articleId: string) => {
   return client
     .getEntry(articleId.toString().split('-').pop() || '')
     .then((result): { message?: string; result?: Entry<unknown> } => {

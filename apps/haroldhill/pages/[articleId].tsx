@@ -39,7 +39,11 @@ const BackToTop = () => {
   )
 }
 
-function ArticleId(props) {
+function ArticleId(props: {
+  title: string
+  contentRichText: string
+  id: string
+}) {
   const { title, contentRichText, id } = props
   return (
     <>
@@ -71,11 +75,18 @@ function ArticleId(props) {
 export const getStaticProps: ({
   params
 }: GetStaticPropsContext<{ articleId: string }>) => Promise<{
-  props: { contentRichText: string; id: null; title: string }
+  props: { contentRichText: string; id: string | null; title: string }
 }> = async ({ params }: GetStaticPropsContext<{ articleId: string }>) => {
-  const { articleId } = params
+  const { articleId } = params as { articleId: string }
   const article = (await getSingleArticle(articleId)) as {
-    result: Record<string, unknown>
+    result: {
+      fields: {
+        title: string
+      }
+      sys: {
+        id: string
+      }
+    }
     article: Record<string, unknown>[]
   }
   const processedContent = await unified()
