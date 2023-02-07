@@ -44,3 +44,4 @@ env
 apps/haroldhill/build
 .vercel
 build/
+.vscode
