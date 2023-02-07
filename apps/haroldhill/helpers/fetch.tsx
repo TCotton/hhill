@@ -1,4 +1,4 @@
-import { Entry } from 'contentful'
+import {Entry, EntryCollection} from 'contentful'
 import client from './contentful'
 import mappedArticlesFn from './mappedArticlesFn'
 import {IPagesFields} from "@hhill/types";

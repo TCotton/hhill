@@ -1,5 +1,14 @@
+import { IArticle } from "@hhill/types";
 
-const mappedArticlesFn = (data) => {
+interface IMappedArticles {
+  title: string
+  slug: string
+  contentRichText: string
+  fullSlug: string
+  id: string
+}
+
+const mappedArticlesFn = (data): { items: [IArticle] } | [] => {
   if (Array.isArray(data.items) === false) return []
   return data.items.map((article) => {
     return {
