@@ -10,7 +10,6 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false
   },
-  webpack5: true,
   reactStrictMode: true,
   async redirects() {
     return [

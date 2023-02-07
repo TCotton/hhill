@@ -33,11 +33,7 @@ const Header = () => {
           <div
             className={`govuk-grid-column-two-thirds-from-desktop ${styles.center}`}>
             <p className={`govuk-heading-m ${styles.siteHeader}`}>
-              <Link
-                href="/"
-                passHref
-                // @ts-ignore
-                legacyBehavior>
+              <Link href="/" passHref legacyBehavior>
                 <MyLink />
               </Link>
             </p>

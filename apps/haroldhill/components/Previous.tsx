@@ -51,11 +51,7 @@ const Previous = (props) => {
   return (
     <>
       {previous && (
-        <Link
-          href={previous}
-          passHref
-          // @ts-ignore
-          legacyBehavior>
+        <Link href={previous} passHref legacyBehavior>
           <PreviousLink />
         </Link>
       )}
