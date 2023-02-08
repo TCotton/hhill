@@ -26,8 +26,8 @@ describe('Next', () => {
   }
 
   it('should render successfully', async () => {
-    const { baseElement } = render(<Next {...props} />)
-    await waitFor(() => {
+    const { baseElement } = await render(<Next {...props} />)
+    await waitFor(async () => {
       expect(baseElement).toBeTruthy()
     })
   })

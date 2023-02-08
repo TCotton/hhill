@@ -65,9 +65,7 @@ describe('MenuItems component', () => {
     expect(await findByText(/Menu/i)).toBeInTheDocument()
     await waitFor(() => {
       expect(fetch).toHaveBeenCalledTimes(1)
-      expect(fetch).toHaveBeenCalledWith(
-        `http://localhost/api/allArticles`
-      )
+      expect(fetch).toHaveBeenCalledWith(`http://localhost/api/allArticles`)
     })
   })
   xit('should match snapshot', async () => {

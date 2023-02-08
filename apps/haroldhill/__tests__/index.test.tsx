@@ -38,8 +38,8 @@ jest.mock('isomorphic-unfetch', () =>
 )
 describe('Index', () => {
   it('should not render undefined', async () => {
-    const { baseElement } = render(<Index />)
-    await waitFor(() => {
+    const { baseElement } = await render(<Index />)
+    await waitFor(async () => {
       expect(baseElement).toBeDefined()
     })
   })

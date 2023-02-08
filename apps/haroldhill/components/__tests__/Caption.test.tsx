@@ -39,8 +39,10 @@ jest.mock('isomorphic-unfetch', () =>
 )
 describe('Caption', () => {
   it('should render defined', async () => {
-    const { baseElement } = render(<Caption id="5iY9i7n6KvrbqvMQPhKE0t" />)
-    await waitFor(() => {
+    const { baseElement } = await render(
+      <Caption id="5iY9i7n6KvrbqvMQPhKE0t" />
+    )
+    await waitFor(async () => {
       expect(baseElement).toBeDefined()
     })
   })

@@ -54,7 +54,6 @@ const Previous = (props) => {
         <Link
           href={next}
           passHref
-          // @ts-ignore
           legacyBehavior>
           <NextLink />
         </Link>

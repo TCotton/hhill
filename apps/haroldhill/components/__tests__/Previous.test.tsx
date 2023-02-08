@@ -24,8 +24,8 @@ describe('Previous', () => {
     articleId: '12345'
   }
   it('should render successfully', async () => {
-    const { baseElement } = render(<Previous {...props} />)
-    await waitFor(() => {
+    const { baseElement } = await render(<Previous {...props} />)
+    await waitFor(async () => {
       expect(baseElement).toBeTruthy()
     })
   })

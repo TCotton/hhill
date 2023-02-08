@@ -35,7 +35,7 @@ describe('Navigation', () => {
     const { baseElement } = render(<Navigation {...props} />)
     expect(baseElement).toBeDefined()
   })
-  it('should create snapshot', () => {
+  it('should create snapshot',  () => {
     const props = {
       articles: articles
     }

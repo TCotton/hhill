@@ -56,8 +56,8 @@ describe('Header component', () => {
     expect(baseElement).toMatchSnapshot()
   })
   it('should render the correct text', async () => {
-    const { getByText, getByTestId } = render(<Header />)
-    await waitFor(() => {
+    const { getByText, getByTestId } = await render(<Header />)
+    await waitFor(async () => {
       expect(getByText(/HAROLD HILL/)).toBeInTheDocument()
       expect(getByText(/A People's History/)).toBeInTheDocument()
       expect(getByTestId('header-link')).toHaveAttribute('href', '/')
