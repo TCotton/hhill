@@ -37,7 +37,7 @@ describe('Next', () => {
   })
   it('should render with correct href', async () => {
     const { findByText } = render(<Next {...props} />)
-    expect(await findByText('Next')).toHaveAttribute('href', '/string')
+    expect(await findByText('Next')).toHaveAttribute('href', 'string')
   })
   xit('should match snapshot', async () => {
     const { baseElement } = render(<Next {...props} />)
