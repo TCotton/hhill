@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import client from '../../helpers/contentful'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { id } = req.query
+  const { id } = req.query as { id: string }
   return client
     .getEntry(id.toString().split('-').pop() || '')
     .then((result) => {
