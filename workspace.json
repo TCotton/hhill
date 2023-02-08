@@ -8,7 +8,7 @@
       "tags": [],
       "targets": {
         "build": {
-          "executor": "@nrwl/web:rollup",
+          "executor": "@nrwl/rollup:rollup",
           "outputs": [
             "{options.outputPath}"
           ],
@@ -45,7 +45,7 @@
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/contenful"
+            "{workspaceRoot}/coverage/libs/contenful"
           ],
           "options": {
             "jestConfig": "libs/contenful/jest.config.ts",
@@ -105,7 +105,7 @@
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/apps/haroldhill"
+            "{workspaceRoot}/coverage/apps/haroldhill"
           ],
           "options": {
             "jestConfig": "apps/haroldhill/jest.config.ts",
@@ -185,7 +185,7 @@
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/markdown"
+            "{workspaceRoot}/coverage/libs/markdown"
           ],
           "options": {
             "jestConfig": "libs/markdown/jest.config.ts",
@@ -202,7 +202,7 @@
       "tags": [],
       "targets": {
         "build": {
-          "executor": "@nrwl/web:rollup",
+          "executor": "@nrwl/rollup:rollup",
           "outputs": [
             "{options.outputPath}"
           ],
@@ -239,7 +239,7 @@
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/types"
+            "{workspaceRoot}/coverage/libs/types"
           ],
           "options": {
             "jestConfig": "libs/types/jest.config.ts",

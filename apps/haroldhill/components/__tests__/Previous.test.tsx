@@ -35,6 +35,6 @@ describe('Previous', () => {
   })
   it('should render with correct href', async () => {
     const { findByText } = render(<Previous {...props} />)
-    expect(await findByText('Previous')).toHaveAttribute('href', '/string')
+    expect(await findByText('Previous')).toHaveAttribute('href', 'string')
   })
 })
