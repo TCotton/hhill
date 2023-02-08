@@ -74,8 +74,7 @@ export const getStaticProps: ({
   props: { contentRichText: string; id: null; title: string }
 }> = async ({ params }: GetStaticPropsContext<{ articleId: string }>) => {
   // TODO: fix this
-  // @ts-ignore
-  const { articleId } = params
+  const { articleId } = params as { articleId: string }
   const article = (await getSingleArticle(articleId)) as {
     result: Record<string, unknown>
     article: Record<string, unknown>[]
