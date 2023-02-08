@@ -9,13 +9,17 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:rollup",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/contenful",
             "tsConfig": "libs/contenful/tsconfig.lib.json",
             "project": "libs/contenful/package.json",
             "entryFile": "libs/contenful/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": [
+              "react/jsx-runtime"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "compiler": "babel",
             "assets": [
@@ -29,16 +33,22 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/contenful/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/contenful/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/contenful"],
+          "outputs": [
+            "coverage/libs/contenful"
+          ],
           "options": {
-            "jestConfig": "libs/contenful/jest.config.js",
+            "jestConfig": "libs/contenful/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -46,20 +56,27 @@
     },
     "environment-variables": "libs/environment-variables",
     "haroldhill": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/haroldhill",
       "sourceRoot": "apps/haroldhill",
       "projectType": "application",
       "targets": {
         "build": {
           "executor": "@nrwl/next:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "root": "apps/haroldhill",
             "outputPath": "dist/apps/haroldhill"
           },
           "configurations": {
-            "production": {}
-          }
+            "production": {},
+            "development": {
+              "outputPath": "apps/haroldhill"
+            }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "executor": "@nrwl/next:server",
@@ -71,8 +88,13 @@
             "production": {
               "buildTarget": "haroldhill:build:production",
               "dev": false
+            },
+            "development": {
+              "buildTarget": "haroldhill:build:development",
+              "dev": true
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "export": {
           "executor": "@nrwl/next:export",
@@ -82,21 +104,26 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/haroldhill"],
+          "outputs": [
+            "coverage/apps/haroldhill"
+          ],
           "options": {
-            "jestConfig": "apps/haroldhill/jest.config.js",
+            "jestConfig": "apps/haroldhill/jest.config.ts",
             "passWithNoTests": true
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/haroldhill/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/haroldhill/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         }
       }
     },
     "haroldhill-e2e": {
+      "$schema": "../../node_modules/nx/schemas/project-schema.json",
       "root": "apps/haroldhill-e2e",
       "sourceRoot": "apps/haroldhill-e2e/src",
       "projectType": "application",
@@ -117,7 +144,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/haroldhill-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/haroldhill-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -130,26 +159,36 @@
       "targets": {
         "build": {
           "executor": "@nrwl/js:tsc",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/markdown",
             "main": "libs/markdown/src/index.ts",
             "tsConfig": "libs/markdown/tsconfig.lib.json",
-            "assets": ["libs/markdown/*.md"]
+            "assets": [
+              "libs/markdown/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/markdown/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/markdown/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/markdown"],
+          "outputs": [
+            "coverage/libs/markdown"
+          ],
           "options": {
-            "jestConfig": "libs/markdown/jest.config.js",
+            "jestConfig": "libs/markdown/jest.config.ts",
             "passWithNoTests": true
           }
         }
@@ -164,13 +203,17 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:rollup",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/types",
             "tsConfig": "libs/types/tsconfig.lib.json",
             "project": "libs/types/package.json",
             "entryFile": "libs/types/src/index.ts",
-            "external": ["react/jsx-runtime"],
+            "external": [
+              "react/jsx-runtime"
+            ],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "compiler": "babel",
             "assets": [
@@ -184,20 +227,27 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/types/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/types/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/types"],
+          "outputs": [
+            "coverage/libs/types"
+          ],
           "options": {
-            "jestConfig": "libs/types/jest.config.js",
+            "jestConfig": "libs/types/jest.config.ts",
             "passWithNoTests": true
           }
         }
       }
     }
-  }
+  },
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
 }

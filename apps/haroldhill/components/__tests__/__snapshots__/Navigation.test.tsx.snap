@@ -18,13 +18,13 @@ exports[`Navigation should create snapshot 1`] = `
       >
         <li>
           <button
-            aria-controls="radix-3-content-radix-2"
+            aria-controls="radix-:r2:-content-radix-:r3:"
             aria-expanded="false"
             class="NavigationMenuTrigger .gem-c-layout-super-navigation-header__navigation-top-toggle-button"
             data-radix-collection-item=""
             data-state="closed"
             data-testid="button"
-            id="radix-3-trigger-radix-2"
+            id="radix-:r2:-trigger-radix-:r3:"
           >
             Menu 
             <svg
@@ -72,13 +72,13 @@ exports[`Navigation should create snapshot when button clicked 1`] = `
       >
         <li>
           <button
-            aria-controls="radix-5-content-radix-4"
-            aria-expanded="true"
+            aria-controls="radix-:r4:-content-radix-:r5:"
+            aria-expanded="false"
             class="NavigationMenuTrigger .gem-c-layout-super-navigation-header__navigation-top-toggle-button"
             data-radix-collection-item=""
-            data-state="open"
+            data-state="closed"
             data-testid="button"
-            id="radix-5-trigger-radix-4"
+            id="radix-:r4:-trigger-radix-:r5:"
           >
             Menu 
             <svg
@@ -98,103 +98,12 @@ exports[`Navigation should create snapshot when button clicked 1`] = `
               />
             </svg>
           </button>
-          <span
-            aria-hidden="true"
-            style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; word-wrap: normal;"
-            tabindex="0"
-          />
-          <span
-            aria-owns="radix-5-content-radix-4"
-          />
         </li>
       </ul>
     </div>
     <div
       class="ViewportPosition"
-    >
-      <div
-        class="NavigationMenuViewport"
-        data-orientation="horizontal"
-        data-state="open"
-      >
-        <div
-          aria-labelledby="radix-5-trigger-radix-4"
-          data-orientation="horizontal"
-          dir="ltr"
-          id="radix-5-content-radix-4"
-        >
-          <ul
-            class="govuk-list govuk-list--spaced gem-c-layout-super-navigation-header__navigation-second-items"
-          >
-            <span>
-              <li
-                class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                data-testid="article"
-              >
-                <p
-                  class="govuk-heading-s"
-                >
-                  title
-                </p>
-                <ul>
-                  <li
-                    class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                    data-testid="ListItem"
-                  >
-                    <p
-                      class="govuk-link"
-                    >
-                      <a
-                        class="ListItemLink govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                        data-radix-collection-item=""
-                        data-testid="page"
-                        href="page-1-1"
-                      >
-                        page 1
-                      </a>
-                    </p>
-                  </li>
-                  <li
-                    class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                    data-testid="ListItem"
-                  >
-                    <p
-                      class="govuk-link"
-                    >
-                      <a
-                        class="ListItemLink govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                        data-radix-collection-item=""
-                        data-testid="page"
-                        href="page-2-H1Omej68TZxpk9JFIhmWQ"
-                      >
-                        page 2
-                      </a>
-                    </p>
-                  </li>
-                  <li
-                    class="gem-c-layout-super-navigation-header__dropdown-list-item"
-                    data-testid="ListItem"
-                  >
-                    <p
-                      class="govuk-link"
-                    >
-                      <a
-                        class="ListItemLink govuk-link gem-c-layout-super-navigation-header__navigation-second-item-link"
-                        data-radix-collection-item=""
-                        data-testid="page"
-                        href="page-3-3"
-                      >
-                        page 3
-                      </a>
-                    </p>
-                  </li>
-                </ul>
-              </li>
-            </span>
-          </ul>
-        </div>
-      </div>
-    </div>
+    />
   </nav>
 </DocumentFragment>
 `;
