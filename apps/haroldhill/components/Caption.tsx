@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import fetch from 'isomorphic-unfetch'
 import findParent from '../helpers/findParent'
 import { getApiRoot } from 'nextjs-url'
 import fetchWithErrorHandle from '../helpers/fetchWithErrorHandle'

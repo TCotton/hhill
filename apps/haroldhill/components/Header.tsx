@@ -33,15 +33,13 @@ const Header = () => {
           <div
             className={`govuk-grid-column-two-thirds-from-desktop ${styles.center}`}>
             <p className={`govuk-heading-m ${styles.siteHeader}`}>
-              <Link
-                href="/"
-                passHref
-                legacyBehavior>
+              <Link href="/" passHref legacyBehavior>
                 <MyLink />
               </Link>
             </p>
           </div>
-          <div className={`govuk-grid-column-one-third-from-desktop ${styles.minHeight}`}>
+          <div
+            className={`govuk-grid-column-one-third-from-desktop ${styles.minHeight}`}>
             <nav aria-label="Menu" className="govuk-header__navigation">
               <MenuItems />
             </nav>

@@ -7,7 +7,7 @@
     "prettier-standard"
   ],
   "plugins": ["testing-library"],
-  "ignorePatterns": ["!**/*"],
+  "ignorePatterns": ["!**/*", "/.next"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],

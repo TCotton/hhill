@@ -1,4 +1,3 @@
-
 const mappedArticlesFn = (data) => {
   if (Array.isArray(data.items) === false) return []
   return data.items.map((article) => {

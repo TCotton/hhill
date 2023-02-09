@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import fetch from 'isomorphic-unfetch'
 import Navigation from './Navigation'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
 import { getApiRoot } from 'nextjs-url'

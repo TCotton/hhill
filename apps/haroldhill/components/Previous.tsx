@@ -7,7 +7,8 @@ function useResults(articleId) {
   useEffect(() => {
     let ignore = false
     const apiRoot = getApiRoot().href
-    fetchWithErrorHandle(`${apiRoot}/navigationArticles?articleId=` +
+    fetchWithErrorHandle(
+      `${apiRoot}/navigationArticles?articleId=` +
         articleId +
         '&direction=previous'
     ).then((prevArticle) => {
@@ -46,10 +47,7 @@ const Previous = (props) => {
   return (
     <>
       {previous && (
-        <Link
-          href={previous}
-          passHref
-          legacyBehavior>
+        <Link href={previous} passHref legacyBehavior>
           <PreviousLink />
         </Link>
       )}
