@@ -36,7 +36,6 @@ const Header = () => {
               <Link
                 href="/"
                 passHref
-                // @ts-ignore
                 legacyBehavior>
                 <MyLink />
               </Link>

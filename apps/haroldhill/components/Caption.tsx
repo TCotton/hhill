@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import findParent from '../helpers/findParent'
 import { getApiRoot } from 'nextjs-url'
-import fetchWithErrorHandle from "../helpers/fetchWithErrorHandle";
-const fetchData = async (apiRoot) => {
-  const content = await fetch(`${apiRoot}/allArticlesFiltered`)
-  return await content.json()
-}
+import fetchWithErrorHandle from '../helpers/fetchWithErrorHandle'
 
 function useResults(id: string) {
   const [results, setResults] = useState<null | string>(null)

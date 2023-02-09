@@ -3,9 +3,9 @@ import fetch from 'isomorphic-unfetch'
 import Navigation from './Navigation'
 import mappedArticlesFn from '../helpers/mappedArticlesFn'
 import { getApiRoot } from 'nextjs-url'
+import fetchWithErrorHandle from '../helpers/fetchWithErrorHandle'
 const getArticles = async (apiRoot) => {
-  const content = await fetch(`${apiRoot}/allArticles`)
-  const articles = await content.json()
+  const articles = await fetchWithErrorHandle(`${apiRoot}/allArticles`)
   return mappedArticlesFn(articles.result)
 }
 
