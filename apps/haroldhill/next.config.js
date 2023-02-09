@@ -10,7 +10,6 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false
   },
-  webpack5: true,
   reactStrictMode: true,
   async redirects() {
     return [
@@ -52,7 +51,7 @@ const nextConfig = {
         permanent: true
       }
     ]
-  },///section_two/never_again!.htm
+  }, /// section_two/never_again!.htm
   webpack: (config, { webpack }) => {
     if (config.name === 'client') {
       const envKeys = Object.keys(process.env).reduce((prev, key) => {
