@@ -91,7 +91,8 @@
             },
             "development": {
               "buildTarget": "haroldhill:build:development",
-              "dev": true
+              "dev": true,
+              "port": 0
             }
           },
           "defaultConfiguration": "development"

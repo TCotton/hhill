@@ -111,6 +111,7 @@ export const getStaticProps: ({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  debugger
   const { articles } = (await getArticles()) as {
     articles: Record<string, unknown>[]
   }
