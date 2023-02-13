@@ -24,7 +24,6 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
     nonInteraction: true // avoids affecting bounce rate.
   })
 }
-
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
