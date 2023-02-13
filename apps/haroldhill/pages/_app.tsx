@@ -35,7 +35,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
           title: `Harold Hill: A People's History`,
           type: 'website',
           locale: 'en_GB',
-          url: 'https://www.haroldhill.org',
           images: [
             {
               url: `https://www.haroldhill.org/haroldhill.png`,
