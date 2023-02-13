@@ -9,7 +9,7 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve haroldhill --port 3000",
-    "start:debug": "nx serve haroldhill --port 3000 --verbose",
+    "start:debug": "nx serve haroldhill:build:development --port 3000 --verbose",
     "start:prod": "node --trace-warnings node_modules/.bin/nx serve haroldhill --port 3000 --verbose --prod",
     "build": "nx build haroldhill --prod",
     "build:dev": "nx build haroldhill",
