@@ -7,7 +7,6 @@ import Document, {
   DocumentContext
 } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-
 export async function getInitialProps(ctx: DocumentContext) {
   const sheet = new ServerStyleSheet()
   const originalRenderPage = ctx.renderPage
