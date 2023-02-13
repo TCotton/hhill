@@ -2,7 +2,7 @@
 const withNx = require('@nrwl/next/plugins/with-nx')
 require('dotenv').config()
 /**
- * @type {{webpack: (function(*): any), nx: {svgr: boolean}, webpack5: boolean}}
+ * @type {{redirects(): Promise<*>, webpack: (function(*, {webpack: *}): *), reactStrictMode: boolean, nx: {svgr: boolean}}}
  **/
 const nextConfig = {
   nx: {
@@ -48,6 +48,18 @@ const nextConfig = {
           '/chapter-four/page-four-the-albemarle-report-leads-to-the-first-youth-club.htm',
         destination:
           '/1960s-albemarle-report-leads-to-first-youth-club-6g2RT84Nsgt2BQ5a0K48Kb',
+        permanent: true
+      },
+      {
+        source: '/section_four/section_four_page_five.htm',
+        destination:
+          '/margaret-thatcher-reggae-royalty-riots-ppMJYR1Z4I02E8A5tYy0O',
+        permanent: true
+      },
+      {
+        source: '/chapter-three/margaret-thatcher-reggae-royalty-riots.htm',
+        destination:
+          '/margaret-thatcher-reggae-royalty-riots-ppMJYR1Z4I02E8A5tYy0O',
         permanent: true
       }
     ]

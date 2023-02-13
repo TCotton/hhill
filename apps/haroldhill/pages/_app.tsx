@@ -1,13 +1,12 @@
 import React from 'react'
 import type { NextPage } from 'next'
 import { AppProps } from 'next/app'
-import Script from 'next/script'
-
 import { NextSeo } from 'next-seo'
 import '../styles/reset.scss'
 import '../styles/gds.scss'
 import '../styles/radixui.scss'
 import '../styles/gemc_navigation.scss'
+import { GoogleAnalytics } from 'nextjs-google-analytics'
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode
@@ -16,17 +15,7 @@ export type NextPageWithLayout = NextPage & {
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-GLP5ES5C8N"
-        strategy="afterInteractive"
-        id="google-analytics"
-        dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'G-GLP5ES5C8N');`
-        }}
-      />
+      <GoogleAnalytics trackPageViews />
       <NextSeo
         title="Harold Hill: A People's History"
         description="A social history of the Harold Hill estate in east London"
@@ -34,10 +23,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
           title: `Harold Hill: A People's History`,
           type: 'website',
           locale: 'en_GB',
-          url: process.env.NEXT_PUBLIC_BASE_URL,
+          url: 'https://www.haroldhill.org',
           images: [
             {
-              url: `${process.env.NEXT_PUBLIC_BASE_URL}/haroldhill.png`,
+              url: `https://www.haroldhill.org/haroldhill.png`,
               width: 600,
               height: 600,
               alt: `Harold Hill: A People's History`
