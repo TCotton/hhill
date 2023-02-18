@@ -11,8 +11,8 @@ module.exports = {
       }
     ],
 
-    additionalPaths: async (config) => [
+/*    additionalPaths: async (config) => [
       await config.transform(config, '/comments')
-    ]
+    ]*/
   }
 }

@@ -124,6 +124,7 @@
     "marksy": "^8.0.0",
     "next": "13.1.1",
     "next-seo": "^5.15.0",
+    "next-sitemap": "^3.1.52",
     "nextjs-google-analytics": "^2.3.0",
     "nextjs-url": "^1.0.4",
     "react": "18.2.0",
