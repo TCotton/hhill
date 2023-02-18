@@ -1,4 +1,4 @@
-const siteUrl = 'https://jsonplaceholder.typicode.com/'
+const siteUrl = 'https://www.haroldhill.org/'
 // https://articles.wesionary.team/how-to-implement-sitemap-in-next-js-using-next-sitemap-77ca7bb56544
 module.exports = {
   siteUrl,
@@ -10,9 +10,7 @@ module.exports = {
         allow: '/'
       }
     ],
-
-/*    additionalPaths: async (config) => [
-      await config.transform(config, '/comments')
-    ]*/
-  }
+  },
+  sourceDir: 'dist/apps/haroldhill/.next',
+  outDir: 'dist/apps/haroldhill/public',
 }
