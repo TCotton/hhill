@@ -11,6 +11,8 @@ const nextConfig = {
     svgr: false
   },
   reactStrictMode: true,
+  siteUrl: 'https://www.haroldhill.org',
+  generateRobotsTxt: true, // (optional)
   async redirects() {
     return [
       {
