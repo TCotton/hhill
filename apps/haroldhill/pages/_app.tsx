@@ -8,6 +8,7 @@ import '../styles/gds.scss'
 import '../styles/radixui.scss'
 import '../styles/gemc_navigation.scss'
 import { GoogleAnalytics, event } from 'nextjs-google-analytics'
+import { GlobalContextProvider } from '../context/GlobalContext'
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: React.ReactElement) => React.ReactNode
@@ -46,7 +47,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
         }}
         noindex={true}
       />
-      <Component {...pageProps} />
+      <GlobalContextProvider>
+        <Component {...pageProps} />
+      </GlobalContextProvider>
     </>
   )
 }
