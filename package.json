@@ -14,7 +14,6 @@
     "build": "nx build haroldhill --prod",
     "build:dev": "nx build haroldhill",
     "build:debug": "nx build haroldhill --with-deps --verbose",
-    "postbuild": "next-sitemap",
     "test": "nx test --coverage",
     "test:file": "nx test --testFile",
     "dev": "next dev",
