@@ -20,6 +20,7 @@ function useResults(id: string) {
   }, [id])
   return results
 }
+
 const Caption = (props) => {
   const { id } = props
   const results = useResults(id)

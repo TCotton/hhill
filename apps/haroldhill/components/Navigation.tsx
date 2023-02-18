@@ -22,7 +22,6 @@ const ChildList = (props) => {
     </ul>
   )
 }
-
 const Navigation = (props) => {
   const articles = props.articles
 

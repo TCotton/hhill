@@ -32,6 +32,7 @@ export async function getInitialProps(ctx: DocumentContext) {
     sheet.seal()
   }
 }
+
 export default function MyDocument(props): ReactElement {
   const { styleTags } = props
   return (

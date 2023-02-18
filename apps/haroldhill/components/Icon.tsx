@@ -1,5 +1,4 @@
 import styles from './Icon.module.css'
-
 const Icon = () => {
   return (
     <div className={styles.Icon}>

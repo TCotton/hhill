@@ -21,6 +21,7 @@ function useResults(articleId) {
   }, [articleId])
   return results
 }
+
 const Previous = (props) => {
   const { articleId } = props
   const previous = useResults(articleId)

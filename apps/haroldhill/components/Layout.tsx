@@ -7,6 +7,7 @@ type LayoutProps = {
   title?: string
 }
 const mainTitle = `Harold Hill: A People's History`
+
 export default function Layout({ children, title }: LayoutProps) {
   return (
     <>
