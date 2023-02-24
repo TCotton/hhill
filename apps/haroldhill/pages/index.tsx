@@ -29,6 +29,23 @@ function useResults() {
   return results
 }
 
+function useNewsAPI() {
+  const [news, setNews] = useState(null)
+  useEffect(() => {
+    let ignore = false
+    const apiRoot = getApiRoot().href
+    fetch(`${apiRoot}/news`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (!ignore) setNews(data)
+      })
+    return () => {
+      ignore = true
+    }
+  }, [])
+  return news
+}
+
 interface IForwardRefProps {
   children?: ReactNode
   className?: string
@@ -75,6 +92,8 @@ const ChildList = (props) => {
 
 const Index: NextPageWithLayout = () => {
   const articles = useResults()
+  const news = useNewsAPI()
+  console.dir(news)
   return (
     <>
       <Header />
