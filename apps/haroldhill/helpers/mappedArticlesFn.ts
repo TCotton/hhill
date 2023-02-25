@@ -1,4 +1,22 @@
-const mappedArticlesFn = (data) => {
+interface IMappedArticles {
+  items: Array<{
+    fields: {
+      title: string
+      slug: string
+      pages: Array<{
+        fields: {
+          title: string
+          contentRichText: string
+          slug: string
+        }
+        sys: {
+          id: string
+        }
+      }>
+    }
+  }>
+}
+const mappedArticlesFn = <T extends IMappedArticles>(data: T) => {
   if (Array.isArray(data.items) === false) return []
   return data.items.map((article) => {
     return {
@@ -17,5 +35,11 @@ const mappedArticlesFn = (data) => {
         : []
     }
   })
+}
+
+const newFunction = <T>(data: T): T => {
+  return {
+    data
+  }
 }
 export default mappedArticlesFn
