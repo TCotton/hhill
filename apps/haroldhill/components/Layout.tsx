@@ -27,7 +27,6 @@ export default function Layout({ children, title }: LayoutProps) {
             }
           ]
         }}
-        noindex={true}
       />
       <div className={`govuk-width-container ${styles.container}`} id="content">
         {children}

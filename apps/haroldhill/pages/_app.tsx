@@ -44,7 +44,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
             }
           ]
         }}
-        noindex={true}
       />
       <Component {...pageProps} />
     </>
