@@ -25,14 +25,20 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
   })
 }
 function CustomApp({ Component, pageProps }: AppProps) {
+  const title = pageProps.title
+    ? `${pageProps.title} - Harold Hill: A People's History`
+    : `Harold Hill: A People's History`
+  const description = pageProps.text
+    ? pageProps.text.slice(0, 297) + '...'
+    : `A social history of the Harold Hill estate in east London`
   return (
     <>
       <GoogleAnalytics trackPageViews />
       <NextSeo
-        title="Harold Hill: A People's History"
-        description="A social history of the Harold Hill estate in east London"
+        title={`${title}`}
+        description={`${description}`}
         openGraph={{
-          title: `Harold Hill: A People's History`,
+          title: `${title}`,
           type: 'website',
           locale: 'en_GB',
           images: [

@@ -1,33 +1,14 @@
 import React from 'react'
 import styles from './layout.module.css'
-import { NextSeo } from 'next-seo'
 
 type LayoutProps = {
   children: React.ReactNode
   title?: string
 }
-const mainTitle = `Harold Hill: A People's History`
 
-export default function Layout({ children, title }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <NextSeo
-        title={`${title} - ${mainTitle}`}
-        openGraph={{
-          title: `Harold Hill: A People's History`,
-          siteName: `Harold Hill: A People's History`,
-          type: 'website',
-          locale: 'en_GB',
-          images: [
-            {
-              url: `https://www.haroldhill.org/haroldhill.png`,
-              width: 600,
-              height: 600,
-              alt: `Harold Hill: A People's History`
-            }
-          ]
-        }}
-      />
       <div className={`govuk-width-container ${styles.container}`} id="content">
         {children}
       </div>

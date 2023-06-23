@@ -79,6 +79,9 @@ export const getStaticProps: ({
     result: Record<string, unknown>
     article: Record<string, unknown>[]
   }
+  console.dir(article.result.fields)
+  // @ts-ignore
+  const text = article.result.fields.contentRichText;
   const processedContent = await unified()
     .use(remarkParse)
     .use(remarkGfm)
@@ -105,7 +108,9 @@ export const getStaticProps: ({
       title: article.result.fields.title || 'no title',
       contentRichText: contentHtml || 'no content',
       // @ts-ignore
-      id: article.result.sys.id || null
+      id: article.result.sys.id || null,
+      // @ts-ignore
+      text: text || 'no content'
     }
   }
 }
