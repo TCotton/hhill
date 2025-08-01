@@ -22,7 +22,7 @@ jobs:
           node-version: '18.x'
 
       - name: Upgrade packages 🔀
-        run: npm update --legacy-peer-deps
+        run: npm update --save
 
       - name: Commit and create PR 🔀
         uses: peter-evans/create-pull-request@v3
