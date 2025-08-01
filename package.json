@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
-    "npm": "9",
-    "node": "18"
+    "npm": "10.x",
+    "node": "22.x"
   },
   "scripts": {
     "nx": "nx",
