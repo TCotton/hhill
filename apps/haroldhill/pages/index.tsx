@@ -126,7 +126,7 @@ const Index: NextPageWithLayout = () => {
                   thing from start to finish, or you can dip in and out of the
                   various sections.
                 </p>
-                <p className="govuk-body">Andrew Walpole, March 2023</p>
+                <p className="govuk-body">Andrew Walpole</p>
               </div>
             </div>
           </div>
