@@ -113,9 +113,9 @@ const Index: NextPageWithLayout = () => {
                   reasons, a challenging period in Harold Hill’s history. But
                   the estate is evolving. Today, Harold Hill is a diverse and
                   mixed community, home to people of different backgrounds,
-                  languages, and cultures - a change I welcome. The nearby
-                  Harold Wood into Wood into Wood into central London, is
-                  London, is set to bring even more transformation to the area.
+                  languages, and cultures - a change I welcome. The opening of
+                  Crossrail, which runs to nearby Harold Wood directly into
+                  central London, will bring further transformation.
                 </p>
                 <p className="govuk-body">
                   Written 20 years ago, this project was a joy to create - and I
