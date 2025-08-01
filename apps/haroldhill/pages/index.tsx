@@ -108,13 +108,13 @@ const Index: NextPageWithLayout = () => {
               <div>
                 <Icon />
                 <p className="govuk-body">
-                  This history project was written at the turn of the
-                  millennium. Mostly constructed from interviews and the archive
-                  of the Romford Recorder and Romford Times, it aims to tell a
-                  story of the Harold Hill housing estate in outer east London
-                  from the 1940s to the 1980s. This covers the period from its
-                  construction as an LCC “out-county” housing development up
-                  until the Right to Buy.
+                  This history project was written around the turn of the
+                  millennium. Based largely on interviews and material from the
+                  archives of the Romford Recorder and Romford Times, it aims to
+                  tell the story of the Harold Hill housing estate in outer east
+                  London from the 1940s through to the 1980s. It covers the
+                  estate’s beginnings as a London County Council “out-county”
+                  housing development, through to the era of Right to Buy.
                 </p>
                 <p className="govuk-body">
                   Other sources include the local history archive at Romford
@@ -128,22 +128,23 @@ const Index: NextPageWithLayout = () => {
                   are still remembered, but others are mostly forgotten.
                 </p>
                 <p className="govuk-body">
-                  The 20 years from the late 1990s onwards were not, for various
-                  reasons, a particularly good period in Harold Hill’s history.
-                  But the estate is changing. Harold Hill is now a mixed
-                  community with different languages and races. I welcome this
-                  change. The opening of Crossrail, which runs to nearby Harold
-                  Wood directly into central London, will bring further
-                  transformation.
+                  The two decades following the late 1990s were, for various
+                  reasons, a challenging period in Harold Hill’s history. But
+                  the estate is evolving. Today, Harold Hill is a diverse and
+                  mixed community, home to people of different backgrounds,
+                  languages, and cultures — a change I warmly welcome. The
+                  arrival of Crossrail, with direct links from nearby Harold
+                  Wood into central London, is set to bring even more
+                  transformation to the area.
                 </p>
                 <p className="govuk-body">
-                  Written 20 years ago, I enjoyed working on this project and
-                  that shows in the text. It’s a celebration of working class
-                  class life and living. At 50k words, it’s a large read, so
-                  I’ve broken it down into readable chunks. The site is designed
-                  to be read linear or non-linearly. You can read the whole
-                  thing from start to finish, or you can dip in and out of the
-                  various sections.
+                  Written 20 years ago, this project was a joy to create - and I
+                  believe that passion comes through in the writing. It's a
+                  celebration of working-class life and culture. At around
+                  50,000 words, it’s a substantial read, so I’ve broken it down
+                  into manageable sections. The site is designed to be explored
+                  either linearly or non-linearly: you can read it from start to
+                  finish, or dip in and out of different sections as you like.
                 </p>
                 <p className="govuk-body">Andrew Walpole</p>
               </div>
