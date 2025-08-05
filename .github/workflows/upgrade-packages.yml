@@ -19,10 +19,10 @@ jobs:
       - name: Set up Node.js ⚙️
         uses: actions/setup-node@v2
         with:
-          node-version: '18.x'
+          node-version: '20.x'
 
       - name: Upgrade packages 🔀
-        run: npm update --save
+        run: npm update --save --legacy-peer-deps
 
       - name: Commit and create PR 🔀
         uses: peter-evans/create-pull-request@v3
