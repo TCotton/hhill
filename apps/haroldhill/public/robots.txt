@@ -83,6 +83,7 @@ User-agent: YaK
 User-agent: YandexAdditional
 User-agent: YandexAdditionalBot
 User-agent: YouBot
+User-agent: Baiduspider
 Disallow: /
 
 User-Agent: *
