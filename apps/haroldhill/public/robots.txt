@@ -84,6 +84,7 @@ User-agent: YandexAdditional
 User-agent: YandexAdditionalBot
 User-agent: YouBot
 User-agent: Baiduspider
+User-agent: dotbot
 Disallow: /
 
 User-Agent: *
