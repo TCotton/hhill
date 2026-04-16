@@ -4,9 +4,9 @@ export default function FourOhFour() {
   return (
     <>
       <h1>404 - Page Not Found</h1>
-      <Link href="/">
+      <Link href="/" prefetch={false}>
         <a>Go back home</a>
       </Link>
     </>
-  )
+  );
 }
