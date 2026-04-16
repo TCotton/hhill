@@ -92,4 +92,4 @@ Disallow: /
 
 User-Agent: *
 Allow: /
-Sitemap: https://www.haroldhill.org/sitemap
+Sitemap: https://www.haroldhill.org/sitemap.xml

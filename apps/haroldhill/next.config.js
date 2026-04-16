@@ -17,6 +17,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/sitemap',
+        destination: '/sitemap.xml',
+        permanent: true
+      },
+      {
         source:
           '/chapter-four/page-five-hippies-freaks-and-the-summer-of-love.htm',
         destination: '/hippies-freaks-summer-of-love-6HqgZqmFW9sj1D2gqyYYtY',

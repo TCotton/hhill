@@ -48,12 +48,12 @@ const Previous = (props) => {
   return (
     <>
       {previous && (
-        <Link href={previous} passHref legacyBehavior>
+        <Link href={previous} passHref legacyBehavior prefetch={false}>
           <PreviousLink />
         </Link>
       )}
     </>
-  )
+  );
 }
 
 export default React.memo(Previous)
