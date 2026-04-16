@@ -20,7 +20,7 @@ function useResults(articleId) {
   }, [articleId])
   return results
 }
-const Previous = (props) => {
+const Next = (props) => {
   const { articleId } = props
   const next = useResults(articleId)
   interface IMyLinkRefProps {
@@ -55,4 +55,4 @@ const Previous = (props) => {
   );
 }
 
-export default React.memo(Previous)
+export default React.memo(Next)

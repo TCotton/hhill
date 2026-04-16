@@ -30,8 +30,13 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const xml = generateSitemapXml(articles, origin)
 
-  // Write sitemap.xml to /public at build time so it is served as a static file
-  const outputPath = path.join(process.cwd(), 'public', 'sitemap.xml')
+  // Write sitemap.xml to the app's /public at build time so it is served as a static file
+  // In an Nx monorepo the build runs from the workspace root, so resolve the app's public folder explicitly
+  const publicDir = path.join(process.cwd(), 'apps', 'haroldhill', 'public')
+  if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true })
+  }
+  const outputPath = path.join(publicDir, 'sitemap.xml')
   fs.writeFileSync(outputPath, xml, 'utf8')
 
   return {
